@@ -9,24 +9,26 @@ namespace StudioEA.Entidades
     {
         [Key]
         public int ComprasDetalleId { get; set; }
+        public int ComprasId { get; set; }
         public int ArticulosId { get; set; }
         public int CantidadArticulos { get; set; }
-        public DateTime Fecha { get; set; }
+     
 
         public ComprasDetalle()
         {
             ComprasDetalleId = 0;
             ArticulosId = 0;
             CantidadArticulos = 0;
-            Fecha = DateTime.Now;
+        
         }
 
-        public ComprasDetalle(int articulosId, int cantidadArticulos, DateTime fecha)
+        public ComprasDetalle(int comprasId,int articulosId, int cantidadArticulos)
         {
             ComprasDetalleId = 0;
+            ComprasId = comprasId;
             ArticulosId = articulosId;
             CantidadArticulos = cantidadArticulos;
-            Fecha = fecha;
+            
         }
     }
 }
