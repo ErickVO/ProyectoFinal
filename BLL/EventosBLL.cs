@@ -4,9 +4,7 @@ using System.Text;
 
 namespace StudioEA.BLL
 {
-   public class ArticulosBLL
+    public class EventosBLL
     {
-
-
     }
 }
