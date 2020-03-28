@@ -21,7 +21,7 @@ namespace StudioEA.Entidades
         public DateTime FechaNacimiento { get; set; }
 
         [ForeignKey("ClienteId")]
-        public List<VentasDetalle> VentasDetalles { get; set; }
+        public List<Ventas> Ventas { get; set; }
 
         public Clientes()
         {
@@ -35,7 +35,7 @@ namespace StudioEA.Entidades
             Celular = string.Empty;
             Sexo = string.Empty;
             FechaNacimiento = DateTime.Now;
-            VentasDetalles = new List<VentasDetalle>();
+            Ventas = new List<Ventas>();
         }
     }
 }
