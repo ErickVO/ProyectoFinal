@@ -21,6 +21,8 @@ namespace StudioEA.Entidades
             ComprasId = 0;
             UsuarioId = 0;
             Fecha = DateTime.Now;
+
+            ComprasDetalle = new List<ComprasDetalle>();
         }
     }
 }

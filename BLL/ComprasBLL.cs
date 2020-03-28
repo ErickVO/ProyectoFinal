@@ -9,16 +9,16 @@ using System.Text;
 
 namespace StudioEA.BLL
 {
-   public class ArticulosBLL
+    public class ComprasBLL
     {
-        public static bool Guardar(Articulos articulos)
+        public static bool Guardar(Compras compras)
         {
             Contexto db = new Contexto();
             bool paso = false;
 
             try
             {
-                if (db.Articulos.Add(articulos) != null)
+                if (db.Compras.Add(compras) != null)
                 {
                     paso = (db.SaveChanges() > 0);
                 }
@@ -34,14 +34,14 @@ namespace StudioEA.BLL
             return paso;
         }
 
-        public static bool Modificar(Articulos articulos)
+        public static bool Modificar(Compras compras)
         {
             Contexto db = new Contexto();
             bool paso = false;
 
             try
             {
-                db.Entry(articulos).State = EntityState.Modified;
+                db.Entry(compras).State = EntityState.Modified;
                 paso = (db.SaveChanges() > 0);
             }
             catch
@@ -62,7 +62,7 @@ namespace StudioEA.BLL
 
             try
             {
-                var eliminar = db.Articulos.Find(id);
+                var eliminar = db.Compras.Find(id);
                 db.Entry(eliminar).State = EntityState.Deleted;
                 paso = (db.SaveChanges() > 0);
             }
@@ -77,15 +77,15 @@ namespace StudioEA.BLL
             return paso;
         }
 
-        public static Articulos Buscar(int id)
+        public static Compras Buscar(int id)
         {
             Contexto db = new Contexto();
-            Articulos articulos = new Articulos();
+            Compras compras = new Compras();
 
             try
             {
-                articulos = db.Articulos.Include(x => x.ComprasDetalle).
-                    Where(x => x.ArticulosId == id).
+                compras = db.Compras.Include(x=> x.ComprasDetalle).
+                    Where(x => x.ComprasId == id).
                     SingleOrDefault();
             }
             catch
@@ -96,17 +96,17 @@ namespace StudioEA.BLL
             {
                 db.Dispose();
             }
-            return articulos;
+            return compras;
         }
 
-        public static List<Articulos> GetList(Expression<Func<Articulos, bool>> articulos)
+        public static List<Compras> GetList(Expression<Func<Compras, bool>> compras)
         {
             Contexto db = new Contexto();
-            List<Articulos> listado = new List<Articulos>();
+            List<Compras> listado = new List<Compras>();
 
             try
             {
-                listado = db.Articulos.Where(articulos).ToList();
+                listado = db.Compras.Where(compras).ToList();
             }
             catch
             {
@@ -118,6 +118,5 @@ namespace StudioEA.BLL
             }
             return listado;
         }
-
     }
 }
