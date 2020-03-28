@@ -12,7 +12,6 @@ namespace StudioEA.Entidades
         public int FotografoId { get; set; }
         public int UsuarioId { get; set; }
         public String Nombre { get; set; }
-        public String Apellido { get; set; }
         public String Cedula { get; set; }
         public String Direccion { get; set; }
         public String Telefono { get; set; }
@@ -29,7 +28,6 @@ namespace StudioEA.Entidades
             FotografoId = 0;
             UsuarioId = 0;
             Nombre = string.Empty;
-            Apellido = string.Empty;
             Cedula = string.Empty;
             Direccion = string.Empty;
             Telefono = string.Empty;
