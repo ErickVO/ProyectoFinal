@@ -44,7 +44,7 @@ namespace StudioEA.UI.Registros
             StockTextBox.Text = string.Empty;
             PrecioTextBox.Text = string.Empty;
             CostoTextBox.Text = string.Empty;
-            articulos.ComprasDetalle = new List<ComprasDetalle>();
+           
             articulos = new Articulos();
             Cargar();
         }
