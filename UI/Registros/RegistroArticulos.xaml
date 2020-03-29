@@ -120,5 +120,22 @@
             </TextBox>
         </StackPanel>
 
+        <StackPanel Orientation="Horizontal" Grid.Row="8" Grid.Column="1">
+            <Button x:Name="NuevoButton" Content="Nuevo" Click="NuevoButton_Click"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="8" Grid.Column="2">
+            <Button x:Name="GuardarButton" Content="Guardar" Click="GuardarButton_Click"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="8" Grid.Column="3">
+            <Button x:Name="EliminarButton" Content="Eliminar" Click="EliminarButton_Click"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2">
+            <Button x:Name="BuscarButton" Content="Buscar" Click="BuscarButton_Click"/>
+        </StackPanel>
+
+
     </Grid>
 </Window>
