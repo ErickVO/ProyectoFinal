@@ -9,7 +9,7 @@ using StudioEA.DAL;
 namespace StudioEA.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20200328204600_Inicial")]
+    [Migration("20200329215014_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,14 +20,14 @@ namespace StudioEA.Migrations
 
             modelBuilder.Entity("StudioEA.Entidades.Articulos", b =>
                 {
-                    b.Property<int>("ArticulosId")
+                    b.Property<int>("ArticuloId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Categorias")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("NombreArticulos")
+                    b.Property<string>("Descripcion")
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("Precio")
@@ -39,24 +39,24 @@ namespace StudioEA.Migrations
                     b.Property<int>("UsuariosId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("ArticulosId");
+                    b.HasKey("ArticuloId");
 
                     b.ToTable("Articulos");
                 });
 
             modelBuilder.Entity("StudioEA.Entidades.Categorias", b =>
                 {
-                    b.Property<int>("CategoriasId")
+                    b.Property<int>("CategoriaId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("NombreCategorias")
+                    b.Property<string>("Nombre")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("UsuarioId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("CategoriasId");
+                    b.HasKey("CategoriaId");
 
                     b.ToTable("Categorias");
                 });
@@ -67,7 +67,7 @@ namespace StudioEA.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Apellido")
+                    b.Property<string>("Apellidos")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Cedula")
@@ -82,7 +82,7 @@ namespace StudioEA.Migrations
                     b.Property<DateTime>("FechaNacimiento")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Nombre")
+                    b.Property<string>("Nombres")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Sexo")
@@ -101,17 +101,20 @@ namespace StudioEA.Migrations
 
             modelBuilder.Entity("StudioEA.Entidades.Compras", b =>
                 {
-                    b.Property<int>("ComprasId")
+                    b.Property<int>("CompraId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("TEXT");
 
+                    b.Property<decimal>("Monto")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("UsuarioId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("ComprasId");
+                    b.HasKey("CompraId");
 
                     b.ToTable("Compras");
                 });
@@ -131,6 +134,9 @@ namespace StudioEA.Migrations
                     b.Property<int>("ComprasId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<decimal>("Costo")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("ComprasDetalleId");
 
                     b.HasIndex("ArticulosId");
@@ -142,9 +148,12 @@ namespace StudioEA.Migrations
 
             modelBuilder.Entity("StudioEA.Entidades.Eventos", b =>
                 {
-                    b.Property<int>("EventosId")
+                    b.Property<int>("EventoId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Descripcion")
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("FechaFin")
                         .HasColumnType("TEXT");
@@ -155,16 +164,13 @@ namespace StudioEA.Migrations
                     b.Property<string>("Lugar")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Nombre")
-                        .HasColumnType("TEXT");
-
                     b.Property<decimal>("Precio")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("UsuarioId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("EventosId");
+                    b.HasKey("EventoId");
 
                     b.ToTable("Eventos");
                 });
@@ -174,9 +180,6 @@ namespace StudioEA.Migrations
                     b.Property<int>("FotografoId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
-
-                    b.Property<string>("Apellido")
-                        .HasColumnType("TEXT");
 
                     b.Property<string>("Cedula")
                         .HasColumnType("TEXT");
@@ -219,7 +222,13 @@ namespace StudioEA.Migrations
                     b.Property<string>("Contrasena")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Email")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("NombreUsuario")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Nombres")
                         .HasColumnType("TEXT");
 
                     b.HasKey("UsuarioId");

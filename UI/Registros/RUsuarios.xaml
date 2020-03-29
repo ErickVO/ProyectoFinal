@@ -1,0 +1,106 @@
+﻿<Window x:Class="StudioEA.UI.Registros.RUsuarios"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudioEA.UI.Registros"
+        mc:Ignorable="d"
+        Title="Registro usuarios" Height="280" Width="500" Background="AliceBlue">
+    <Grid>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+            <TextBlock Text="Usuario Id" Margin="10"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <TextBox x:Name="UsuarioIdTextBox" Margin="10" Width="80" HorizontalAlignment="Left">
+                <TextBox.Text>
+                    <Binding Path="UsuarioId" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <ExceptionValidationRule/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="Nombres" Margin="10"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <TextBox x:Name="NombresTextBox" Margin="10" Width="180" HorizontalAlignment="Left">
+                <TextBox.Text>
+                    <Binding Path="Nombres" Mode="TwoWay"/>
+                </TextBox.Text>
+            </TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2">
+            <TextBlock Text="Nombre Usuario" Margin="10"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <TextBox x:Name="NombreUsuarioTextBox" Margin="10" Width="150" HorizontalAlignment="Left">
+                <TextBox.Text>
+                    <Binding Path="NombreUsuario" Mode="TwoWay"/>
+                </TextBox.Text>
+            </TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3">
+            <TextBlock Text="Contraseña" Margin="10"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="1">
+            <TextBox x:Name="ContrasenaTextBox" Margin="10" Width="150" HorizontalAlignment="Left">
+                <TextBox.Text>
+                    <Binding Path="Contrasena" Mode="TwoWay"/>
+                </TextBox.Text>
+            </TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4">
+            <TextBlock Text="Email" Margin="10"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Grid.Column="1">
+            <TextBox x:Name="EmailTextBox" Margin="10" Width="200" HorizontalAlignment="Left">
+                <TextBox.Text>
+                    <Binding Path="Email" Mode="TwoWay"/>
+                </TextBox.Text>
+            </TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2">
+            <Button x:Name="BuscarButton" Content="Buscar" Margin="5" Width="70" Height="24" HorizontalAlignment="Center" Click="BuscarButton_Click"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="5">
+            <Button x:Name="NuevoButton" Content="Nuevo" Margin="15" Width="70" Height="24" HorizontalAlignment="Center" Click="NuevoButton_Click"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="5" Grid.Column="1">
+            <Button x:Name="GuardarButton" Content="Guardar" Margin="15" Width="70" Height="24" HorizontalAlignment="Center" Click="GuardarButton_Click"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="5" Grid.Column="2">
+            <Button x:Name="EliminarButton" Content="Eliminar" Margin="15" Width="70" Height="24" HorizontalAlignment="Center" Click="EliminarButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
