@@ -118,5 +118,22 @@
                 </TextBox.Text>
             </TextBox>
         </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="8" Grid.Column="1">
+            <Button x:Name="NuevoButton" Content="Nuevo"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="8" Grid.Column="2">
+            <Button x:Name="GuardarButton" Content="Guardar"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="8" Grid.Column="3">
+            <Button x:Name="EliminarButton" Content="Eliminar"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2">
+            <Button x:Name="BuscarButton" Content="Buscar"/>
+        </StackPanel>
+
     </Grid>
 </Window>

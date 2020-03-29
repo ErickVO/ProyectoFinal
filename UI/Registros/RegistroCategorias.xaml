@@ -29,8 +29,8 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
-            <Label Content="Evento Id:"/>
-            <TextBox x:Name="ArticuloIdTextBox" Width="93" Margin="15,0">
+            <Label Content="Categoria Id:"/>
+            <TextBox x:Name="CategoriaIdTextBox" Width="93" Margin="15,0">
                 <TextBox.Text>
                     <Binding Path="ArticuloId" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -56,7 +56,7 @@
 
         <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
             <Label Content="Nombre: "/>
-            <TextBox x:Name="NombreTextBox" Width="150" Margin="19,0">
+            <TextBox x:Name="NombreTextBox" Width="150" Margin="19,0" TextChanged="NombreTextBox_TextChanged">
                 <TextBox.Text>
                     <Binding Path="Nombre" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -66,6 +66,21 @@
                 </TextBox.Text>
             </TextBox>
         </StackPanel>
+      
+        <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="1">
+            <Button x:Name="NuevoButton" Content="Nuevo" Click="NuevoButton_Click"/>
+        </StackPanel>
 
+        <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="2">
+            <Button x:Name="GuardarButton" Content="Guardar" Click="GuardarButton_Click"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="3">
+            <Button x:Name="EliminarButton" Content="Eliminar" Click="EliminarButton_Click"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2">
+            <Button x:Name="BuscarButton" Content="Buscar" Click="BuscarButton_Click"/>
+        </StackPanel>
     </Grid>
 </Window>
