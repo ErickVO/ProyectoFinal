@@ -85,7 +85,7 @@ namespace StudioEA.BLL
             try
             {
                 articulos = db.Articulos.Include(x => x.ComprasDetalle).
-                    Where(x => x.ArticulosId == id).
+                    Where(x => x.ArticuloId == id).
                     SingleOrDefault();
             }
             catch

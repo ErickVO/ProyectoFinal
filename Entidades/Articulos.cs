@@ -9,9 +9,9 @@ namespace StudioEA.Entidades
     public class Articulos
     {
         [Key]
-        public int ArticulosId { get; set; }
+        public int ArticuloId { get; set; }
         public int UsuariosId { get; set; }
-        public string NombreArticulos { get; set; }
+        public string Descripcion { get; set; }
         public string Categorias { get; set; }
         public int Stock { get; set; }
         public decimal Precio { get; set; }
@@ -24,9 +24,9 @@ namespace StudioEA.Entidades
 
         public Articulos()
         {
-            ArticulosId = 0;
+            ArticuloId = 0;
             UsuariosId = 0;
-            NombreArticulos = string.Empty;
+            Descripcion = string.Empty;
             Categorias = string.Empty;
             Stock = 0;
             Precio = 0;

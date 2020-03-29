@@ -85,7 +85,7 @@ namespace StudioEA.BLL
             try
             {
                 compras = db.Compras.Include(x=> x.ComprasDetalle).
-                    Where(x => x.ComprasId == id).
+                    Where(x => x.CompraId == id).
                     SingleOrDefault();
             }
             catch

@@ -9,9 +9,9 @@ namespace StudioEA.Entidades
    public class Eventos
     {
         [Key]
-        public int EventosId { get; set; }
+        public int EventoId { get; set; }
         public int UsuarioId { get; set; }
-        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
         public string Lugar { get; set; }
         public DateTime FechaInicio { get; set; }
         public DateTime FechaFin { get; set; }
@@ -22,9 +22,9 @@ namespace StudioEA.Entidades
 
         public Eventos()
         {
-            EventosId = 0;
+            EventoId = 0;
             UsuarioId = 0;
-            Nombre = string.Empty;
+            Descripcion = string.Empty;
             Lugar = string.Empty;
             FechaInicio = DateTime.Now;
             FechaFin = DateTime.Now;

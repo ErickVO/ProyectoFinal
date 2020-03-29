@@ -8,15 +8,15 @@ namespace StudioEA.Entidades
    public class Categorias
     {
         [Key]
-        public int CategoriasId { get; set; }
+        public int CategoriaId { get; set; }
         public int UsuarioId { get; set; }
-        public string NombreCategorias { get; set; }
+        public string Nombre { get; set; }
 
         public Categorias()
         {
-            CategoriasId = 0;
+            CategoriaId = 0;
             UsuarioId = 0;
-            NombreCategorias = string.Empty;
+            Nombre = string.Empty;
         }
     }
 }

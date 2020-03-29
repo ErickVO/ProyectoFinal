@@ -9,8 +9,9 @@ namespace StudioEA.Entidades
     public class Compras
     {
         [Key]
-        public int ComprasId { get; set; }
+        public int CompraId { get; set; }
         public int UsuarioId { get; set; }
+        public decimal Monto { get; set; }
         public DateTime Fecha { get; set; }
 
         [ForeignKey("ComprasId")]
@@ -18,8 +19,9 @@ namespace StudioEA.Entidades
 
         public Compras()
         {
-            ComprasId = 0;
+            CompraId = 0;
             UsuarioId = 0;
+            Monto = 0;
             Fecha = DateTime.Now;
 
             ComprasDetalle = new List<ComprasDetalle>();
