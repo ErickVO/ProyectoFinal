@@ -5,9 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudioEA"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Login" Height="400" Width="550" Background="Black" Icon="Resources/add.png" WindowStartupLocation="CenterScreen" >
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Center" Margin="0,152,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/Fondo3.jpg"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="80*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="40*"/>
+        </Grid.ColumnDefinitions>
 
+        <StackPanel Grid.Column="1" Grid.Row="1" >
+            <Label Content="Usuario" HorizontalAlignment="Left" Margin="0,16" FontSize="15"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="2">
+            <TextBox x:Name="UsuarioTextBox" Margin="0,22" Width="200" Height="20" HorizontalAlignment="Left"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <Label Content="Contraseña" HorizontalAlignment="Left" Margin="0,16" FontSize="15"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="2">
+            <PasswordBox x:Name="ContrasenaBox" Margin="0,22" Width="200" Height="20" HorizontalAlignment="Left"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="2" >
+            <Button x:Name="IngresarButton" Content="Ingresar" Width="70" Height="24" Margin="52,25" HorizontalAlignment="Left" Click="IngresarButton_Click_1"/>
+        </StackPanel>
     </Grid>
 </Window>

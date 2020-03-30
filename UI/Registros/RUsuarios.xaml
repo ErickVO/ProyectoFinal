@@ -5,9 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudioEA.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro usuarios" Height="280" Width="500" Background="AliceBlue">
+        Title="Registro usuarios" Height="280" Width="500" WindowStartupLocation="CenterScreen" Icon="/Resources/Remover.png">
     <Grid>
-        
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/Fondo2.jpg"/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
@@ -24,7 +26,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel>
-            <TextBlock Text="Usuario Id" Margin="10"/>
+            <TextBlock Text="Usuario Id" Margin="10" Foreground="White" FontWeight="Bold"/>
         </StackPanel>
 
         <StackPanel Grid.Column="1">
@@ -40,7 +42,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1">
-            <TextBlock Text="Nombres" Margin="10"/>
+            <TextBlock Text="Nombres" Margin="10" Foreground="White" FontWeight="Bold"/>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1">
@@ -52,7 +54,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="2">
-            <TextBlock Text="Nombre Usuario" Margin="10"/>
+            <TextBlock Text="Nombre Usuario" Margin="10" Foreground="White" FontWeight="Bold"/>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="1">
@@ -64,7 +66,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="3">
-            <TextBlock Text="Contraseña" Margin="10"/>
+            <TextBlock Text="Contraseña" Margin="10" Foreground="White" FontWeight="Bold"/>
         </StackPanel>
 
         <StackPanel Grid.Row="3" Grid.Column="1">
@@ -76,7 +78,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="4">
-            <TextBlock Text="Email" Margin="10"/>
+            <TextBlock Text="Email" Margin="10" Foreground="White" FontWeight="Bold"/>
         </StackPanel>
 
         <StackPanel Grid.Row="4" Grid.Column="1">
