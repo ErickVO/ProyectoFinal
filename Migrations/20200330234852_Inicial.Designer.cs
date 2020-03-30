@@ -9,7 +9,7 @@ using StudioEA.DAL;
 namespace StudioEA.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20200330230303_Inicial")]
+    [Migration("20200330234852_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -53,6 +53,9 @@ namespace StudioEA.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("Categorias")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Nombre")
                         .HasColumnType("TEXT");
 
@@ -60,6 +63,8 @@ namespace StudioEA.Migrations
                         .HasColumnType("INTEGER");
 
                     b.HasKey("CategoriaId");
+
+                    b.HasIndex("Categorias");
 
                     b.ToTable("Categorias");
                 });
@@ -296,16 +301,10 @@ namespace StudioEA.Migrations
                     b.Property<int>("ArticuloId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("ArticulosId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("CantidadArticulo")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("EventoId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("EventosId")
                         .HasColumnType("INTEGER");
 
                     b.Property<decimal>("Monto")
@@ -322,13 +321,16 @@ namespace StudioEA.Migrations
 
                     b.HasKey("VentasDetalleId");
 
-                    b.HasIndex("ArticulosId");
-
-                    b.HasIndex("EventosId");
-
                     b.HasIndex("VentaId");
 
                     b.ToTable("VentasDetalle");
+                });
+
+            modelBuilder.Entity("StudioEA.Entidades.Categorias", b =>
+                {
+                    b.HasOne("StudioEA.Entidades.Articulos", null)
+                        .WithMany("CategoriasD")
+                        .HasForeignKey("Categorias");
                 });
 
             modelBuilder.Entity("StudioEA.Entidades.ComprasDetalle", b =>
@@ -365,14 +367,6 @@ namespace StudioEA.Migrations
 
             modelBuilder.Entity("StudioEA.Entidades.VentasDetalle", b =>
                 {
-                    b.HasOne("StudioEA.Entidades.Articulos", null)
-                        .WithMany("VentasDetalle")
-                        .HasForeignKey("ArticulosId");
-
-                    b.HasOne("StudioEA.Entidades.Eventos", null)
-                        .WithMany("VentasDetalle")
-                        .HasForeignKey("EventosId");
-
                     b.HasOne("StudioEA.Entidades.Ventas", null)
                         .WithMany("VentasDetalle")
                         .HasForeignKey("VentaId")
