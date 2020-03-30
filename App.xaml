@@ -12,7 +12,7 @@
 
             <Style TargetType="Button">
                 <Setter Property="Foreground" Value="Beige"/>
-                <Setter Property="FontWeight" Value="Bold"
+                <Setter Property="FontWeight" Value="Bold"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>
