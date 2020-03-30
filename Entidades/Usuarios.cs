@@ -18,12 +18,6 @@ namespace StudioEA.Entidades
         [ForeignKey("UsuarioId")]
         public List<Ventas> Ventas { get; set; }
 
-        [ForeignKey("UsuarioId")]
-        public List<Clientes> Clientes { get; set; }
-
-        [ForeignKey("UsuarioId")]
-        public List<Fotografos> Fotografos { get; set; }
-
         public Usuarios()
         {
             UsuarioId = 0;
@@ -32,8 +26,6 @@ namespace StudioEA.Entidades
             Contrasena = string.Empty;
             Email = string.Empty;
             Ventas = new List<Ventas>();
-            Clientes = new List<Clientes>();
-            Fotografos = new List<Fotografos>();
         }
 
     }

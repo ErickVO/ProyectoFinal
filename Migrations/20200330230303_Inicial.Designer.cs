@@ -9,7 +9,7 @@ using StudioEA.DAL;
 namespace StudioEA.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20200330224251_Inicial")]
+    [Migration("20200330230303_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -98,8 +98,6 @@ namespace StudioEA.Migrations
                         .HasColumnType("INTEGER");
 
                     b.HasKey("ClienteId");
-
-                    b.HasIndex("UsuarioId");
 
                     b.ToTable("Clientes");
                 });
@@ -221,8 +219,6 @@ namespace StudioEA.Migrations
 
                     b.HasKey("FotografoId");
 
-                    b.HasIndex("UsuarioId");
-
                     b.ToTable("Fotografos");
                 });
 
@@ -335,15 +331,6 @@ namespace StudioEA.Migrations
                     b.ToTable("VentasDetalle");
                 });
 
-            modelBuilder.Entity("StudioEA.Entidades.Clientes", b =>
-                {
-                    b.HasOne("StudioEA.Entidades.Usuarios", null)
-                        .WithMany("Clientes")
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("StudioEA.Entidades.ComprasDetalle", b =>
                 {
                     b.HasOne("StudioEA.Entidades.Articulos", null)
@@ -353,15 +340,6 @@ namespace StudioEA.Migrations
                     b.HasOne("StudioEA.Entidades.Compras", null)
                         .WithMany("ComprasDetalle")
                         .HasForeignKey("ComprasId");
-                });
-
-            modelBuilder.Entity("StudioEA.Entidades.Fotografos", b =>
-                {
-                    b.HasOne("StudioEA.Entidades.Usuarios", null)
-                        .WithMany("Fotografos")
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("StudioEA.Entidades.Ventas", b =>

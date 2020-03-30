@@ -40,6 +40,27 @@ namespace StudioEA.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Clientes",
+                columns: table => new
+                {
+                    ClienteId = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    UsuarioId = table.Column<int>(nullable: false),
+                    Nombres = table.Column<string>(nullable: true),
+                    Apellidos = table.Column<string>(nullable: true),
+                    Cedula = table.Column<string>(nullable: true),
+                    Direccion = table.Column<string>(nullable: true),
+                    Telefono = table.Column<string>(nullable: true),
+                    Celular = table.Column<string>(nullable: true),
+                    Sexo = table.Column<string>(nullable: true),
+                    FechaNacimiento = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Clientes", x => x.ClienteId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Compras",
                 columns: table => new
                 {
@@ -70,6 +91,27 @@ namespace StudioEA.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Eventos", x => x.EventoId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Fotografos",
+                columns: table => new
+                {
+                    FotografoId = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    UsuarioId = table.Column<int>(nullable: false),
+                    Nombre = table.Column<string>(nullable: true),
+                    Cedula = table.Column<string>(nullable: true),
+                    Direccion = table.Column<string>(nullable: true),
+                    Telefono = table.Column<string>(nullable: true),
+                    Celular = table.Column<string>(nullable: true),
+                    Sexo = table.Column<string>(nullable: true),
+                    FechaNacimiento = table.Column<DateTime>(nullable: false),
+                    Sueldo = table.Column<decimal>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Fotografos", x => x.FotografoId);
                 });
 
             migrationBuilder.CreateTable(
@@ -116,60 +158,6 @@ namespace StudioEA.Migrations
                         principalTable: "Compras",
                         principalColumn: "CompraId",
                         onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Clientes",
-                columns: table => new
-                {
-                    ClienteId = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    UsuarioId = table.Column<int>(nullable: false),
-                    Nombres = table.Column<string>(nullable: true),
-                    Apellidos = table.Column<string>(nullable: true),
-                    Cedula = table.Column<string>(nullable: true),
-                    Direccion = table.Column<string>(nullable: true),
-                    Telefono = table.Column<string>(nullable: true),
-                    Celular = table.Column<string>(nullable: true),
-                    Sexo = table.Column<string>(nullable: true),
-                    FechaNacimiento = table.Column<DateTime>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Clientes", x => x.ClienteId);
-                    table.ForeignKey(
-                        name: "FK_Clientes_Usuarios_UsuarioId",
-                        column: x => x.UsuarioId,
-                        principalTable: "Usuarios",
-                        principalColumn: "UsuarioId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Fotografos",
-                columns: table => new
-                {
-                    FotografoId = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    UsuarioId = table.Column<int>(nullable: false),
-                    Nombre = table.Column<string>(nullable: true),
-                    Cedula = table.Column<string>(nullable: true),
-                    Direccion = table.Column<string>(nullable: true),
-                    Telefono = table.Column<string>(nullable: true),
-                    Celular = table.Column<string>(nullable: true),
-                    Sexo = table.Column<string>(nullable: true),
-                    FechaNacimiento = table.Column<DateTime>(nullable: false),
-                    Sueldo = table.Column<decimal>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Fotografos", x => x.FotografoId);
-                    table.ForeignKey(
-                        name: "FK_Fotografos_Usuarios_UsuarioId",
-                        column: x => x.UsuarioId,
-                        principalTable: "Usuarios",
-                        principalColumn: "UsuarioId",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -252,11 +240,6 @@ namespace StudioEA.Migrations
                 values: new object[] { 1, "Admin", "anthony-bryant2010@hotmail.com", "Admin", "Anthony Brian" });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Clientes_UsuarioId",
-                table: "Clientes",
-                column: "UsuarioId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_ComprasDetalle_ArticulosId",
                 table: "ComprasDetalle",
                 column: "ArticulosId");
@@ -265,11 +248,6 @@ namespace StudioEA.Migrations
                 name: "IX_ComprasDetalle_ComprasId",
                 table: "ComprasDetalle",
                 column: "ComprasId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Fotografos_UsuarioId",
-                table: "Fotografos",
-                column: "UsuarioId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Ventas_ClienteId",
