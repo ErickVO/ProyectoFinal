@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using StudioEA.UI.Registros;
 using StudioEA.Entidades;
 using StudioEA.BLL;
+using StudioEA.UI.Menu;
 
 namespace StudioEA
 {
@@ -29,12 +30,17 @@ namespace StudioEA
         public MainWindow()
         {
             InitializeComponent();
+            RUsuarios ru = new RUsuarios();
+            RClientes rc = new RClientes();
+
+            rc.Show();
+            ru.Show();
         }
 
 
         private void IngresarButton_Click_1(object sender, RoutedEventArgs e)
         {
-            RUsuarios ru = new RUsuarios();
+            VentanaPrincipal VentanaP = new VentanaPrincipal();
 
             Lista = UsuariosBLL.GetList(p => true);
             bool paso = false;
@@ -43,7 +49,7 @@ namespace StudioEA
                 if ((item.NombreUsuario == UsuarioTextBox.Text) && (item.Contrasena == ContrasenaBox.Password))
                 {
                     UsuarioId = item.UsuarioId;
-                    ru.Show();
+                    VentanaP.Show();
                     paso = true;
                     this.Close();
                     break;
