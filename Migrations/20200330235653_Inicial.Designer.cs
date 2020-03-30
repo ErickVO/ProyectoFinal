@@ -9,7 +9,7 @@ using StudioEA.DAL;
 namespace StudioEA.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20200330234852_Inicial")]
+    [Migration("20200330235653_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
