@@ -24,6 +24,7 @@ namespace StudioEA.UI.Registros
         public RFotografos()
         {
             InitializeComponent();
+            this.DataContext = fotografo;
             FotografoIdTextBox.Text = "0";
             UsuarioIdTextBox.Text = "0";
             SueldoTextBox.Text = "0";
