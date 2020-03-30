@@ -8,8 +8,7 @@
             <Style TargetType="Label">
                 <Setter Property="Foreground" Value="White"/>
                 <Setter Property="FontWeight" Value="Bold"/>
-            </Style>
-
+            </Style> 
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -59,5 +59,15 @@ namespace StudioEA.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _62846_camera_icon {
+            get {
+                object obj = ResourceManager.GetObject("_62846_camera_icon", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

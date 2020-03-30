@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="RegistroEventos" Height="450" Width="800">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/Fondo2.jpg"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -21,16 +24,18 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3"/>
+            <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
-            <Label Content="Evento Id:"/>
-            <TextBox x:Name="EventoIdTextBox" Width="93" Margin="15,0">
+        <StackPanel>
+            <Label Content="Evento Id:" Margin="10,10"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <TextBox x:Name="EventoIdTextBox" Width="93" Margin="15,13" HorizontalAlignment="Left">
                 <TextBox.Text>
                     <Binding Path="ArticuloId" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -41,9 +46,11 @@
             </TextBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
-            <Label Content="Usuario Id:"/>
-            <TextBox x:Name="UsuarioIdTextBox" Width="93" Margin="11,0">
+        <StackPanel Grid.Row="1">
+            <Label Content="Usuario Id:" Margin="10,10"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <TextBox x:Name="UsuarioIdTextBox" Width="93" Margin="15,13" HorizontalAlignment="Left">
                 <TextBox.Text>
                     <Binding Path="UsuarioId" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -54,9 +61,11 @@
             </TextBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
-            <Label Content="Descripcion: "/>
-            <TextBox x:Name="DescripcionTextBox" Width="150">
+        <StackPanel Grid.Row="2">
+            <Label Content="Descripcion: " Margin="10,10"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <TextBox x:Name="DescripcionTextBox" Width="150" Margin="15,13" HorizontalAlignment="Left">
                 <TextBox.Text>
                     <Binding Path="Descripcion" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -67,8 +76,10 @@
             </TextBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal">
-            <Label Content="Lugar: "/>
+        <StackPanel Grid.Row="3">
+            <Label Content="Lugar:" Margin="10,10"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="1">
             <TextBox x:Name="LugarTextBox" Width="150" Margin="32,0">
                 <TextBox.Text>
                     <Binding Path="Lugar" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
