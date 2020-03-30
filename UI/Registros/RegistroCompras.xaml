@@ -67,7 +67,7 @@
             <Label Content="Monto: " Margin="10,10"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1">
-            <TextBox x:Name="MontoTextBox" Width="150" Margin="15,13" HorizontalAlignment="Left">
+            <TextBox x:Name="MontoTextBox" Width="150" Margin="15,13" HorizontalAlignment="Left" IsReadOnly="True">
                 <TextBox.Text>
                     <Binding Path="Monto" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -83,9 +83,9 @@
             <Label Content="Fecha:" Margin="10,10"/>
         </StackPanel>
         <StackPanel Grid.Row="3" Grid.Column="1">
-            <DatePicker Name="FechaInicioDatePicker" Width="150" HorizontalAlignment="Left" Margin="15,10">
+            <DatePicker Name="FechaDatePicker" Width="150" HorizontalAlignment="Left" Margin="15,10">
                 <DatePicker.SelectedDate>
-                    <Binding Path="FechaInicio" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                    <Binding Path="Fecha" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
                             <ExceptionValidationRule></ExceptionValidationRule>
                         </Binding.ValidationRules>
@@ -98,7 +98,7 @@
             <Label Content="Articulo Id: " Margin="10,10"/>
         </StackPanel>
         <StackPanel Grid.Row="4" Grid.Column="1">
-            <TextBox x:Name="ArticuloIdTextBox" Margin="15,13" Width="150" HorizontalAlignment="Left">
+            <TextBox x:Name="ArticuloIdTextBox" Margin="15,13" Width="150" HorizontalAlignment="Left" TextChanged="ArticuloIdTextBox_TextChanged">
                 <TextBox.Text>
                     <Binding Path="ComprasDetalle.ArticuloId" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -114,7 +114,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="4" Grid.Column="3">
-            <TextBox x:Name="PrecioTextBox" Width="150" Margin="15,13">
+            <TextBox x:Name="CantidadTextBox" Width="150" Margin="15,13">
                 <TextBox.Text>
                     <Binding Path="RegistroCompras.CantidadArticulos" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -130,7 +130,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="4" Grid.Column="5">
-            <TextBox x:Name="CostoTextBox" Width="150" Margin="10,12">
+            <TextBox x:Name="CostoTextBox" Width="150" Margin="10,12" TextChanged="CostoTextBox_TextChanged" IsReadOnly="True">
                 <TextBox.Text>
                     <Binding Path="ComprasDetalle.Costo" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -142,7 +142,11 @@
         </StackPanel>
 
         <StackPanel Grid.Row="5" Grid.Column="5">
-            <Button Content="Agregar Fila" Margin="10,2"/>
+            <Button x:Name="AddButton" Content="Agregar Fila" Margin="10,2" Click="AddButton_Click">
+                <Button.Background>
+                    <ImageBrush Stretch="Uniform" ImageSource="/Resources/add.png" AlignmentX="Left"/>
+                </Button.Background>
+            </Button>
         </StackPanel>
 
 
@@ -155,24 +159,44 @@
         </StackPanel>
 
         <StackPanel Grid.Row="7">
-            <Button x:Name="RemoverButton" Content="Remover Fila" Width="90" Margin="10,2"/>
+            <Button x:Name="RemoverButton" Content="Remover Fila" Width="100" Margin="10,2" HorizontalContentAlignment="Right" Click="RemoverButton_Click">
+                <Button.Background>
+                    <ImageBrush Stretch="Uniform" ImageSource="/Resources/Remover.png" AlignmentX="Left"/>
+                </Button.Background>
+            </Button>
         </StackPanel>
 
 
         <StackPanel  Grid.Row="8"  Grid.Column="1">
-            <Button x:Name="NuevoButton" Margin="15" Width="85" Height="40" Content="Nuevo" Click="NuevoButton_Click"/>
+            <Button x:Name="NuevoButton" Margin="15" Width="85" Height="40" Content="Nuevo" Click="NuevoButton_Click" HorizontalContentAlignment="Right">
+                <Button.Background>
+                    <ImageBrush Stretch="Uniform" ImageSource="/Resources/Nuevo.png" AlignmentX="Left"/>
+                </Button.Background>
+            </Button>
         </StackPanel>
 
         <StackPanel  Grid.Row="8" Grid.Column="2">
-            <Button x:Name="GuardarButton" Content="Guardar" Margin="15" Width="85" Height="40" Click="GuardarButton_Click"/>
+            <Button x:Name="GuardarButton" Content="Guardar" Margin="15" Width="85" Height="40" Click="GuardarButton_Click" HorizontalContentAlignment="Right">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Resources/Guardar.png" Stretch="Uniform" AlignmentX="Left"/>
+                </Button.Background>
+            </Button>
         </StackPanel>
 
         <StackPanel  Grid.Row="8" Grid.Column="3">
-            <Button x:Name="EliminarButton" Margin="15" Width="85" Height="40" Content="Eliminar" Click="EliminarButton_Click"/>
+            <Button x:Name="EliminarButton" Margin="15" Width="85" Height="40" Content="Eliminar" Click="EliminarButton_Click" HorizontalContentAlignment="Right">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Resources/Eliminar.png" Stretch="Uniform" AlignmentX="Left"/>
+                </Button.Background>
+            </Button>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal"  Grid.Column="2">
-            <Button x:Name="BuscarButton" Content="Buscar" Margin="15,5" Width="85" Height="40" Click="BuscarButton_Click" />
+            <Button x:Name="BuscarButton" Content="Buscar" Margin="15,5" Width="85" Height="40" Click="BuscarButton_Click" HorizontalContentAlignment="Right" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/Resources/Buscar.png" AlignmentX="Left" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
         </StackPanel>
     </Grid>
 </Window>

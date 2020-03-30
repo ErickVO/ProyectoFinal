@@ -138,19 +138,35 @@
         </StackPanel>
 
         <StackPanel  Grid.Row="8" >
-            <Button x:Name="NuevoButton" Margin="15" Width="70" Height="24" Content="Nuevo" Click="NuevoButton_Click"/>
+            <Button x:Name="NuevoButton" Margin="15" Width="85" Height="40" Content="Nuevo" Click="NuevoButton_Click" HorizontalContentAlignment="Right">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Resources/Nuevo.png" Stretch="Uniform" AlignmentX="Left"/>
+                </Button.Background>
+            </Button>
         </StackPanel>
 
         <StackPanel  Grid.Row="8" Grid.Column="1">
-            <Button x:Name="GuardarButton" Content="Guardar" Margin="15" Width="70" Height="24" Click="GuardarButton_Click"/>
+            <Button x:Name="GuardarButton" Content="Guardar" Margin="15" Width="85" Height="40" Click="GuardarButton_Click" HorizontalContentAlignment="Right">
+                <Button.Background>
+                    <ImageBrush Stretch="Uniform" ImageSource="/Resources/Guardar.png" AlignmentX="Left"/>
+                </Button.Background>
+            </Button>
         </StackPanel>
 
-        <StackPanel  Grid.Row="8" Grid.Column="3">
-            <Button x:Name="EliminarButton" Margin="15" Width="70" Height="24" Content="Eliminar" Click="EliminarButton_Click"/>
+        <StackPanel  Grid.Row="8" Grid.Column="2">
+            <Button x:Name="EliminarButton" Margin="15" Width="85" Height="40" Content="Eliminar" Click="EliminarButton_Click" HorizontalContentAlignment="Right">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Resources/Eliminar.png" Stretch="Uniform" AlignmentX="Left"/>
+                </Button.Background>
+            </Button>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal"  Grid.Column="2">
-            <Button x:Name="BuscarButton" Content="Buscar" Margin="15" Width="70" Height="24" Click="BuscarButton_Click"/>
+            <Button x:Name="BuscarButton" Content="Buscar" Margin="15,5" Width="80" Height="40" Click="BuscarButton_Click" HorizontalContentAlignment="Right">
+                <Button.Background>
+                    <ImageBrush Stretch="Uniform" ImageSource="/Resources/Buscar.png" AlignmentX="Left"/>
+                </Button.Background>
+            </Button>
         </StackPanel>
 
     </Grid>
