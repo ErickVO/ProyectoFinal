@@ -9,7 +9,7 @@ using StudioEA.DAL;
 namespace StudioEA.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20200330092059_Inicial")]
+    [Migration("20200330160342_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -240,6 +240,16 @@ namespace StudioEA.Migrations
                     b.HasKey("UsuarioId");
 
                     b.ToTable("Usuarios");
+
+                    b.HasData(
+                        new
+                        {
+                            UsuarioId = 1,
+                            Contrasena = "Admin",
+                            Email = "anthony-bryant2010@hotmail.com",
+                            NombreUsuario = "Admin",
+                            Nombres = "Anthony Brian"
+                        });
                 });
 
             modelBuilder.Entity("StudioEA.Entidades.Ventas", b =>

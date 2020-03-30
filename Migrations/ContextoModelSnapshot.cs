@@ -238,6 +238,16 @@ namespace StudioEA.Migrations
                     b.HasKey("UsuarioId");
 
                     b.ToTable("Usuarios");
+
+                    b.HasData(
+                        new
+                        {
+                            UsuarioId = 1,
+                            Contrasena = "Admin",
+                            Email = "anthony-bryant2010@hotmail.com",
+                            NombreUsuario = "Admin",
+                            Nombres = "Anthony Brian"
+                        });
                 });
 
             modelBuilder.Entity("StudioEA.Entidades.Ventas", b =>

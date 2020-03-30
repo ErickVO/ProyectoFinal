@@ -225,6 +225,11 @@ namespace StudioEA.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "Usuarios",
+                columns: new[] { "UsuarioId", "Contrasena", "Email", "NombreUsuario", "Nombres" },
+                values: new object[] { 1, "Admin", "anthony-bryant2010@hotmail.com", "Admin", "Anthony Brian" });
+
             migrationBuilder.CreateIndex(
                 name: "IX_ComprasDetalle_ArticulosId",
                 table: "ComprasDetalle",
