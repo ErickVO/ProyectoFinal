@@ -31,7 +31,7 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel >
-            <Label Content="Articulo Id:" Margin="10"/>
+            <Label Content="Articulo Id:" Margin="10,10"/>
         </StackPanel>
 
         <StackPanel  Grid.Column="1">
@@ -92,7 +92,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="5">
-            <Label Content="Stock: " Margin="0,5"/>
+            <Label Content="Stock: " Margin="10,5"/>
         </StackPanel>
         <StackPanel Grid.Row="5" Grid.Column="1">
             <TextBox x:Name="StockTextBox" Width="150" Margin="10" HorizontalAlignment="Left">
@@ -107,7 +107,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="6">
-            <Label Content="Precio: " Margin="0,5"/>
+            <Label Content="Precio: " Margin="10,5"/>
         </StackPanel>
         <StackPanel Grid.Row="6" Grid.Column="1">
             <TextBox x:Name="PrecioTextBox" Width="150"  Margin="10" HorizontalAlignment="Left">
@@ -122,7 +122,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="7" >
-            <Label Content="Costo: " Margin="0,5"/>
+            <Label Content="Costo: " Margin="10,5"/>
         </StackPanel>
         <StackPanel Grid.Row="7" Grid.Column="1">
             <TextBox x:Name="CostoTextBox" Width="150" Margin="10" HorizontalAlignment="Left">
