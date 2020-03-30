@@ -24,8 +24,8 @@ namespace StudioEA.UI.Registros
         public RegistroCategorias()
         {
             InitializeComponent();
-            this.DataContext = categorias;
             CategoriaIdTextBox.Text = "0";
+            this.DataContext = categorias;
         }
 
         private void Cargar()

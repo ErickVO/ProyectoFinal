@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
+using System.Windows;
 
 namespace StudioEA.Entidades
 {
@@ -15,6 +16,7 @@ namespace StudioEA.Entidades
         public string Categorias { get; set; }
         public int Stock { get; set; }
         public decimal Precio { get; set; }
+        public decimal Costo { get; set; }
 
         [ForeignKey("ArticulosId")]
         public List<ComprasDetalle> ComprasDetalle { get; set; }
@@ -30,6 +32,7 @@ namespace StudioEA.Entidades
             Categorias = string.Empty;
             Stock = 0;
             Precio = 0;
+            Costo = 0;
 
             ComprasDetalle = new List<ComprasDetalle>();
             VentasDetalle = new List<VentasDetalle>();

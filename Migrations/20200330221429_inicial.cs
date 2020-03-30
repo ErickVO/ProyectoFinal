@@ -17,7 +17,8 @@ namespace StudioEA.Migrations
                     Descripcion = table.Column<string>(nullable: true),
                     Categorias = table.Column<string>(nullable: true),
                     Stock = table.Column<int>(nullable: false),
-                    Precio = table.Column<decimal>(nullable: false)
+                    Precio = table.Column<decimal>(nullable: false),
+                    Costo = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {

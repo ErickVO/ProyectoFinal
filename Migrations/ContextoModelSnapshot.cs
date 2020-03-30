@@ -25,6 +25,9 @@ namespace StudioEA.Migrations
                     b.Property<string>("Categorias")
                         .HasColumnType("TEXT");
 
+                    b.Property<decimal>("Costo")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Descripcion")
                         .HasColumnType("TEXT");
 

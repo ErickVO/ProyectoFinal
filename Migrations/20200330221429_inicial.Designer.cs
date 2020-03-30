@@ -9,7 +9,7 @@ using StudioEA.DAL;
 namespace StudioEA.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20200330213005_inicial")]
+    [Migration("20200330221429_inicial")]
     partial class inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,6 +25,9 @@ namespace StudioEA.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Categorias")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Costo")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Descripcion")

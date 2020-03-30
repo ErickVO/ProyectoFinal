@@ -98,7 +98,7 @@
             <Label Content="Articulo Id: " Margin="10,10"/>
         </StackPanel>
         <StackPanel Grid.Row="4" Grid.Column="1">
-            <TextBox x:Name="ArticuloIdTextBox" Margin="15,13" Width="150" HorizontalAlignment="Left">
+            <TextBox x:Name="ArticuloIdTextBox" Margin="15,13" Width="150" HorizontalAlignment="Left" TextChanged="ArticuloIdTextBox_TextChanged">
                 <TextBox.Text>
                     <Binding Path="ComprasDetalle.ArticuloId" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -114,7 +114,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="4" Grid.Column="3">
-            <TextBox x:Name="CantidadTextBox" Width="150" Margin="15,13" TextChanged="CantidadTextBox_TextChanged">
+            <TextBox x:Name="CantidadTextBox" Width="150" Margin="15,13">
                 <TextBox.Text>
                     <Binding Path="RegistroCompras.CantidadArticulos" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -130,7 +130,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="4" Grid.Column="5">
-            <TextBox x:Name="CostoTextBox" Width="150" Margin="10,12" TextChanged="CostoTextBox_TextChanged">
+            <TextBox x:Name="CostoTextBox" Width="150" Margin="10,12" TextChanged="CostoTextBox_TextChanged" IsReadOnly="True">
                 <TextBox.Text>
                     <Binding Path="ComprasDetalle.Costo" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>

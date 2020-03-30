@@ -185,6 +185,18 @@ namespace StudioEA.UI.Registros
                 
             }
         }
+
+
+        private void LlenaNCliente(Articulos articulos)
+        {
+            CostoTextBox.Text = Convert.ToString(articulos.Costo);
+
+        }
+
+        private void ArticuloIdTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 
 
