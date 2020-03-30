@@ -118,12 +118,6 @@ namespace StudioEA.UI.Registros
             }
         }
 
-        private void NombreTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            RegistroArticulos a = new RegistroArticulos();
-            string n = NombreTextBox.Text;
-
-            a.CategoriasTextBox.SelectedItem = n;
-        }
+        
     }
 }

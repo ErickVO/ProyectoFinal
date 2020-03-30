@@ -82,7 +82,7 @@
         <StackPanel Grid.Row="3" Grid.Column="1" Grid.RowSpan="2">
             <ComboBox x:Name="CategoriasTextBox" Width="150" Margin="10,8" HorizontalAlignment="Left">
                 <ComboBoxItem>
-                    <Binding Path="Categorias" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                    <Binding Path="CategoriasD.Nombre" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
                             <ExceptionValidationRule></ExceptionValidationRule>
                         </Binding.ValidationRules>
@@ -97,7 +97,7 @@
         <StackPanel Grid.Row="5" Grid.Column="1">
             <TextBox x:Name="StockTextBox" Width="150" Margin="10" HorizontalAlignment="Left">
                 <TextBox.Text>
-                    <Binding Path="Stock" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                    <Binding Path="ComprasDetalle.Cantidad" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
                             <ExceptionValidationRule></ExceptionValidationRule>
                         </Binding.ValidationRules>

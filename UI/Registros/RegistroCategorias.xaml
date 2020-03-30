@@ -61,7 +61,7 @@
             <Label Content="Nombre: " Margin="10,10"/>
         </StackPanel>
         <StackPanel Grid.Row="3" Grid.Column="1">
-            <TextBox x:Name="NombreTextBox" Width="150" Margin="10,15"  HorizontalAlignment="Left" TextChanged="NombreTextBox_TextChanged">
+            <TextBox x:Name="NombreTextBox" Width="150" Margin="10,15"  HorizontalAlignment="Left">
                 <TextBox.Text>
                     <Binding Path="Nombre" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>

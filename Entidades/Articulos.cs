@@ -24,12 +24,15 @@ namespace StudioEA.Entidades
         [ForeignKey("ArticulosId")]
         public List<VentasDetalle> VentasDetalle { get; set; }
 
+        [ForeignKey("Categorias")]
+        public List<Categorias> CategoriasD { get; set; }
+
         public Articulos()
         {
             ArticuloId = 0;
             UsuarioId = 0;
             Descripcion = string.Empty;
-            Categorias = string.Empty;
+            CategoriasD = new List<Categorias>();
             Stock = 0;
             Precio = 0;
             Costo = 0;

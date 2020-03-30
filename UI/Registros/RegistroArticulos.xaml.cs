@@ -40,12 +40,13 @@ namespace StudioEA.UI.Registros
             ArticuloIdTextBox.Text = "0";
             UsuarioIdTextBox.Text = string.Empty;
             DescripcionTextBox.Text = string.Empty;
-            CategoriasTextBox.Text = string.Empty;
+            CategoriasTextBox.SelectedItem = null;
             StockTextBox.Text = string.Empty;
             PrecioTextBox.Text = string.Empty;
             CostoTextBox.Text = string.Empty;
            
             articulos = new Articulos();
+
             Cargar();
         }
 
