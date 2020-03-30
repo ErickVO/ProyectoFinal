@@ -123,13 +123,19 @@ namespace StudioEA.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("ArticulosId")
+                    b.Property<int>("ArticuloId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("ArticulosId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("CantidadArticulos")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("ComprasId")
+                    b.Property<int>("CompraId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("ComprasId")
                         .HasColumnType("INTEGER");
 
                     b.Property<decimal>("Costo")
@@ -232,6 +238,16 @@ namespace StudioEA.Migrations
                     b.HasKey("UsuarioId");
 
                     b.ToTable("Usuarios");
+
+                    b.HasData(
+                        new
+                        {
+                            UsuarioId = 1,
+                            Contrasena = "Admin",
+                            Email = "anthony-bryant2010@hotmail.com",
+                            NombreUsuario = "Admin",
+                            Nombres = "Anthony Brian"
+                        });
                 });
 
             modelBuilder.Entity("StudioEA.Entidades.Ventas", b =>
@@ -306,15 +322,11 @@ namespace StudioEA.Migrations
                 {
                     b.HasOne("StudioEA.Entidades.Articulos", null)
                         .WithMany("ComprasDetalle")
-                        .HasForeignKey("ArticulosId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ArticulosId");
 
                     b.HasOne("StudioEA.Entidades.Compras", null)
                         .WithMany("ComprasDetalle")
-                        .HasForeignKey("ComprasId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ComprasId");
                 });
 
             modelBuilder.Entity("StudioEA.Entidades.Ventas", b =>

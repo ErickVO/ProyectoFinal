@@ -20,7 +20,12 @@ namespace StudioEA.DAL
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(@"Data source= StudioEA.db");
+            optionsBuilder.UseSqlite(@"Data source= DAL/Database/StudioEA.db");
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Usuarios>().HasData(new Usuarios { UsuarioId = 1, Nombres = "Anthony Brian", NombreUsuario = "Admin", Contrasena = "Admin", Email = "anthony-bryant2010@hotmail.com" });
         }
     }
 }

@@ -172,7 +172,7 @@
         </StackPanel>
 
         <StackPanel Orientation="Horizontal"  Grid.Column="2">
-            <Button x:Name="BuscarButton" Content="Buscar" Margin="15,5" Width="85" Height="40" Click="BuscarButton_Click"/>
+            <Button x:Name="BuscarButton" Content="Buscar" Margin="15,5" Width="85" Height="40" Click="BuscarButton_Click" />
         </StackPanel>
     </Grid>
 </Window>

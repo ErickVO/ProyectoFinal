@@ -135,10 +135,12 @@ namespace StudioEA.Migrations
                 {
                     ComprasDetalleId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    ComprasId = table.Column<int>(nullable: false),
-                    ArticulosId = table.Column<int>(nullable: false),
+                    CompraId = table.Column<int>(nullable: false),
+                    ArticuloId = table.Column<int>(nullable: false),
                     CantidadArticulos = table.Column<int>(nullable: false),
-                    Costo = table.Column<decimal>(nullable: false)
+                    Costo = table.Column<decimal>(nullable: false),
+                    ArticulosId = table.Column<int>(nullable: true),
+                    ComprasId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -148,13 +150,13 @@ namespace StudioEA.Migrations
                         column: x => x.ArticulosId,
                         principalTable: "Articulos",
                         principalColumn: "ArticuloId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_ComprasDetalle_Compras_ComprasId",
                         column: x => x.ComprasId,
                         principalTable: "Compras",
                         principalColumn: "CompraId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -222,6 +224,11 @@ namespace StudioEA.Migrations
                         principalColumn: "VentaId",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Usuarios",
+                columns: new[] { "UsuarioId", "Contrasena", "Email", "NombreUsuario", "Nombres" },
+                values: new object[] { 1, "Admin", "anthony-bryant2010@hotmail.com", "Admin", "Anthony Brian" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_ComprasDetalle_ArticulosId",
