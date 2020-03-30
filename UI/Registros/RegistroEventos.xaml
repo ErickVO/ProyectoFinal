@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudioEA.UI.Registros"
         mc:Ignorable="d"
-        Title="RegistroEventos" Height="450" Width="800">
+        Title="RegistroEventos" Height="450" Width="500" Icon="/Resources/CameraIcon.png" >
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/Resources/Fondo2.jpg"/>
@@ -80,7 +80,7 @@
             <Label Content="Lugar:" Margin="10,10"/>
         </StackPanel>
         <StackPanel Grid.Row="3" Grid.Column="1">
-            <TextBox x:Name="LugarTextBox" Width="150" Margin="32,0">
+            <TextBox x:Name="LugarTextBox" Width="150" Margin="15,13" HorizontalAlignment="Left">
                 <TextBox.Text>
                     <Binding Path="Lugar" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -91,9 +91,11 @@
             </TextBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal">
-            <Label Content="Fecha Inicio: "/>
-            <DatePicker Name="FechaInicioDatePicker" Width="150">
+        <StackPanel Grid.Row="4">
+            <Label Content="Fecha Inicio: " Margin="10,10"/>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="1">
+            <DatePicker Name="FechaInicioDatePicker" Width="150" HorizontalAlignment="Left" Margin="15,13">
                 <DatePicker.SelectedDate>
                     <Binding Path="FechaInicio" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -104,9 +106,11 @@
             </DatePicker>
         </StackPanel>
 
-        <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal">
-            <Label Content="Fecha Fin: "/>
-            <DatePicker Name="FechaFinDatePicker" Width="150" Margin="12,0">
+        <StackPanel Grid.Row="5">
+            <Label Content="Fecha Fin: " Margin="10,10"/>
+        </StackPanel>
+        <StackPanel Grid.Row="5" Grid.Column="1">
+            <DatePicker Name="FechaFinDatePicker" Width="150" Margin="15,10" HorizontalAlignment="Left">
                 <DatePicker.SelectedDate>
                     <Binding Path="FechaFin" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -117,9 +121,12 @@
             </DatePicker>
         </StackPanel>
 
-        <StackPanel Grid.Row="7" Grid.Column="1" Orientation="Horizontal">
-            <Label Content="Precio: "/>
-            <TextBox x:Name="PrecioTextBox" Width="150" Margin="30,0">
+        <StackPanel Grid.Row="6">
+            <Label Content="Precio: " Margin="10,10"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="6" Grid.Column="1">
+                <TextBox x:Name="PrecioTextBox" Width="150" Margin="15,13">
                 <TextBox.Text>
                     <Binding Path="Precio" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -130,20 +137,20 @@
             </TextBox>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="8" Grid.Column="1">
-            <Button x:Name="NuevoButton" Content="Nuevo" Click="NuevoButton_Click"/>
+        <StackPanel  Grid.Row="8" >
+            <Button x:Name="NuevoButton" Margin="15" Width="70" Height="24" Content="Nuevo" Click="NuevoButton_Click"/>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="8" Grid.Column="2">
-            <Button x:Name="GuardarButton" Content="Guardar" Click="GuardarButton_Click"/>
+        <StackPanel  Grid.Row="8" Grid.Column="1">
+            <Button x:Name="GuardarButton" Content="Guardar" Margin="15" Width="70" Height="24" Click="GuardarButton_Click"/>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="8" Grid.Column="3">
-            <Button x:Name="EliminarButton" Content="Eliminar" Click="EliminarButton_Click"/>
+        <StackPanel  Grid.Row="8" Grid.Column="3">
+            <Button x:Name="EliminarButton" Margin="15" Width="70" Height="24" Content="Eliminar" Click="EliminarButton_Click"/>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2">
-            <Button x:Name="BuscarButton" Content="Buscar" Click="BuscarButton_Click"/>
+        <StackPanel Orientation="Horizontal"  Grid.Column="2">
+            <Button x:Name="BuscarButton" Content="Buscar" Margin="15" Width="70" Height="24" Click="BuscarButton_Click"/>
         </StackPanel>
 
     </Grid>

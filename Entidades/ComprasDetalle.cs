@@ -9,8 +9,8 @@ namespace StudioEA.Entidades
     {
         [Key]
         public int ComprasDetalleId { get; set; }
-        public int ComprasId { get; set; }
-        public int ArticulosId { get; set; }
+        public int CompraId { get; set; }
+        public int ArticuloId { get; set; }
         public int CantidadArticulos { get; set; }
         public decimal Costo { get; set; }
 
@@ -18,8 +18,8 @@ namespace StudioEA.Entidades
         public ComprasDetalle()
         {
             ComprasDetalleId = 0;
-            ComprasId = 0;
-            ArticulosId = 0;
+            CompraId = 0;
+            ArticuloId = 0;
             CantidadArticulos = 0;
             Costo = 0;
         }
@@ -27,8 +27,8 @@ namespace StudioEA.Entidades
         public ComprasDetalle(int comprasId,int articulosId, int cantidadArticulos, int costo)
         {
             ComprasDetalleId = 0;
-            ComprasId = comprasId;
-            ArticulosId = articulosId;
+            CompraId = comprasId;
+            ArticuloId = articulosId;
             CantidadArticulos = cantidadArticulos;
             Costo = costo;
         }
