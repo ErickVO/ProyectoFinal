@@ -30,11 +30,6 @@ namespace StudioEA
         public MainWindow()
         {
             InitializeComponent();
-            RUsuarios ru = new RUsuarios();
-            RClientes rc = new RClientes();
-
-            rc.Show();
-            ru.Show();
         }
 
 

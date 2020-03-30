@@ -25,17 +25,20 @@ namespace StudioEA.UI.Menu
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            RUsuarios ru = new RUsuarios();
+            ru.Show();
         }
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
-
+            RClientes rc = new RClientes();
+            rc.Show();
         }
 
         private void MenuItem_Click_2(object sender, RoutedEventArgs e)
         {
-
+            RFotografos rf = new RFotografos();
+            rf.Show();
         }
 
         private void MenuItem_Click_3(object sender, RoutedEventArgs e)
@@ -64,7 +67,8 @@ namespace StudioEA.UI.Menu
 
         private void MenuItem_Click_7(object sender, RoutedEventArgs e)
         {
-
+            RVentas rv = new RVentas();
+            rv.Show();
         }
 
         private void MenuItem_Click_8(object sender, RoutedEventArgs e)
