@@ -41,6 +41,13 @@ namespace StudioEA.BLL
 
             try
             {
+                db.Database.ExecuteSqlRaw($"DELETE FROM ComprasDetalle Where CompraId={compras.CompraId}");
+
+                foreach (var item in compras.ComprasDetalle)
+                {
+                    db.Entry(item).State = EntityState.Added;
+                }
+
                 db.Entry(compras).State = EntityState.Modified;
                 paso = (db.SaveChanges() > 0);
             }

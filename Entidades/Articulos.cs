@@ -10,7 +10,7 @@ namespace StudioEA.Entidades
     {
         [Key]
         public int ArticuloId { get; set; }
-        public int UsuariosId { get; set; }
+        public int UsuarioId { get; set; }
         public string Descripcion { get; set; }
         public string Categorias { get; set; }
         public int Stock { get; set; }
@@ -25,7 +25,7 @@ namespace StudioEA.Entidades
         public Articulos()
         {
             ArticuloId = 0;
-            UsuariosId = 0;
+            UsuarioId = 0;
             Descripcion = string.Empty;
             Categorias = string.Empty;
             Stock = 0;

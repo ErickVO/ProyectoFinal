@@ -24,7 +24,7 @@ namespace StudioEA.Entidades
             Costo = 0;
         }
 
-        public ComprasDetalle(int comprasId,int articulosId, int cantidadArticulos, int costo)
+        public ComprasDetalle(int comprasId,int articulosId, int cantidadArticulos, decimal costo)
         {
             ComprasDetalleId = 0;
             CompraId = comprasId;

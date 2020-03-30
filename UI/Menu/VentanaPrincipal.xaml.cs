@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudioEA.UI.Registros;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -39,22 +40,26 @@ namespace StudioEA.UI.Menu
 
         private void MenuItem_Click_3(object sender, RoutedEventArgs e)
         {
-
+            RegistroCategorias rc = new RegistroCategorias();
+            rc.Show();
         }
 
         private void MenuItem_Click_4(object sender, RoutedEventArgs e)
         {
-
+            RegistroArticulos ra = new RegistroArticulos();
+            ra.Show();
         }
 
         private void MenuItem_Click_5(object sender, RoutedEventArgs e)
         {
-
+            RegistroEventos re = new RegistroEventos();
+            re.Show();
         }
 
         private void MenuItem_Click_6(object sender, RoutedEventArgs e)
         {
-
+            RegistroCompras rc = new RegistroCompras();
+            rc.Show();
         }
 
         private void MenuItem_Click_7(object sender, RoutedEventArgs e)
