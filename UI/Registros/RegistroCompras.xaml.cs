@@ -187,7 +187,7 @@ namespace StudioEA.UI.Registros
         }
 
 
-        private void LlenaNCliente(Articulos articulos)
+        private void LlenaCosto(Articulos articulos)
         {
             CostoTextBox.Text = Convert.ToString(articulos.Costo);
 
@@ -195,7 +195,19 @@ namespace StudioEA.UI.Registros
 
         private void ArticuloIdTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            if (!string.IsNullOrWhiteSpace(ArticuloIdTextBox.Text))
+            {
+                int id;
+                Articulos articulos = new Articulos();
+                int.TryParse(ArticuloIdTextBox.Text, out id);
 
+                articulos = ArticulosBLL.Buscar(id);
+                if (articulos != null)
+                {
+                    LlenaCosto(articulos);
+                }
+
+            }
         }
     }
 
