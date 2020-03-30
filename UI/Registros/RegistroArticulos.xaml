@@ -5,11 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudioEA.UI.Registros"
         mc:Ignorable="d"
-        Title="RegistroArticulos" Height="450" Width="800">
+        Title="RegistroArticulos" Height="400" Width="500">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/Fondo2.jpg"/>
+        </Grid.Background>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -22,16 +24,18 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
-            <Label Content="Articulo Id:"/>
-            <TextBox x:Name="ArticuloIdTextBox" Width="93" Margin="10,0">
+        <StackPanel >
+            <Label Content="Articulo Id:" Margin="10"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Column="1">
+            <TextBox x:Name="ArticuloIdTextBox" Height="20" Width="100" Margin="10,13" HorizontalAlignment="Left">
                 <TextBox.Text>
                     <Binding Path="ArticuloId" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -42,9 +46,11 @@
             </TextBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
-            <Label Content="Usuario Id:"/>
-            <TextBox x:Name="UsuarioIdTextBox" Width="93" Margin="11,0">
+        <StackPanel Grid.Row="1">
+            <Label Content="Usuario Id:" Margin="5" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <TextBox x:Name="UsuarioIdTextBox" Width="100" Height="20" Margin="11,8" HorizontalAlignment="Left">
                 <TextBox.Text>
                     <Binding Path="UsuarioId" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -55,9 +61,11 @@
             </TextBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
-            <Label Content="Descripcion: "/>
-            <TextBox x:Name="DescripcionTextBox" Width="150">
+        <StackPanel Grid.Row="2">
+            <Label Content="Descripcion: " Margin="5"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <TextBox x:Name="DescripcionTextBox" Width="150" Margin="10,8" Height="20" HorizontalAlignment="Left">
                 <TextBox.Text>
                     <Binding Path="Descripcion" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -68,9 +76,11 @@
             </TextBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal">
-            <Label Content="Categorias: "/>
-            <ComboBox x:Name="CategoriasTextBox" Width="150" Margin="6,0">
+        <StackPanel Grid.Row="3" Grid.RowSpan="2">
+            <Label Content="Categorias: " Margin="5"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="1" Grid.RowSpan="2">
+            <ComboBox x:Name="CategoriasTextBox" Width="150" Margin="10,8" HorizontalAlignment="Left">
                 <ComboBoxItem>
                     <Binding Path="Categorias" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -81,9 +91,11 @@
             </ComboBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal">
-            <Label Content="Stock: "/>
-            <TextBox x:Name="StockTextBox" Width="150" Margin="34,0">
+        <StackPanel Grid.Row="5">
+            <Label Content="Stock: " Margin="0,5"/>
+        </StackPanel>
+        <StackPanel Grid.Row="5" Grid.Column="1">
+            <TextBox x:Name="StockTextBox" Width="150" Margin="10" HorizontalAlignment="Left">
                 <TextBox.Text>
                     <Binding Path="Stock" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -94,9 +106,11 @@
             </TextBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal">
-            <Label Content="Precio: "/>
-            <TextBox x:Name="PrecioTextBox" Width="150" Margin="29,0">
+        <StackPanel Grid.Row="6">
+            <Label Content="Precio: " Margin="0,5"/>
+        </StackPanel>
+        <StackPanel Grid.Row="6" Grid.Column="1">
+            <TextBox x:Name="PrecioTextBox" Width="150"  Margin="10" HorizontalAlignment="Left">
                 <TextBox.Text>
                     <Binding Path="Precio" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -107,9 +121,11 @@
             </TextBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="7" Grid.Column="1" Orientation="Horizontal">
-            <Label Content="Costo: "/>
-            <TextBox x:Name="CostoTextBox" Width="150" Margin="30,0">
+        <StackPanel Grid.Row="7" >
+            <Label Content="Costo: " Margin="0,5"/>
+        </StackPanel>
+        <StackPanel Grid.Row="7" Grid.Column="1">
+            <TextBox x:Name="CostoTextBox" Width="150" Margin="10" HorizontalAlignment="Left">
                 <TextBox.Text>
                     <Binding Path="Costo" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -120,22 +136,34 @@
             </TextBox>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="8" Grid.Column="1">
-            <Button x:Name="NuevoButton" Content="Nuevo" Click="NuevoButton_Click"/>
+        <StackPanel Grid.Row="8">
+            <Button x:Name="NuevoButton" Margin="15" Width="70" Height="24" Content="Nuevo" Click="NuevoButton_Click"/>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="8" Grid.Column="2">
-            <Button x:Name="GuardarButton" Content="Guardar" Click="GuardarButton_Click"/>
+        <StackPanel Grid.Row="8" Grid.Column="1">
+            <Button x:Name="GuardarButton" Margin="15" Width="70" Height="24" Content="Guardar" Click="GuardarButton_Click"/>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="8" Grid.Column="3">
-            <Button x:Name="EliminarButton" Content="Eliminar" Click="EliminarButton_Click"/>
+        <StackPanel Grid.Row="8" Grid.Column="2">
+            <Button x:Name="EliminarButton" Margin="15" Width="70" Height="24" Content="Eliminar" Click="EliminarButton_Click"/>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2">
-            <Button x:Name="BuscarButton" Content="Buscar" Click="BuscarButton_Click"/>
+        <StackPanel  Grid.Column="2">
+            <Button x:Name="BuscarButton" Margin="15" Width="70" Height="24" Content="Buscar" Click="BuscarButton_Click"/>
         </StackPanel>
 
 
     </Grid>
 </Window>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    

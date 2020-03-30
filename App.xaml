@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:StudioEA"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+            </Style> 
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
