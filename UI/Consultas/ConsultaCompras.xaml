@@ -40,7 +40,6 @@
                 <ComboBoxItem Content="Todo"/>
                 <ComboBoxItem Content="CompraId"/>
                 <ComboBoxItem Content="UsuarioId"/>
-                <ComboBoxItem Content="ArticuloId"/>
                 <ComboBoxItem Content="Monto"/>
             </ComboBox>
         </StackPanel>

@@ -32,9 +32,13 @@
             <Label Content="Filtro"/>
             <ComboBox x:Name="FiltroComboBox" SelectedIndex="0" Width="200">
                 <ComboBoxItem Content="Todo"/>
-                <ComboBoxItem Content="PagoId"/>
+                <ComboBoxItem Content="ArticuloId"/>
                 <ComboBoxItem Content="UsuarioId"/>
-                <ComboBoxItem Content="Monto"/>
+                <ComboBoxItem Content="Descripcion"/>
+                <ComboBoxItem Content="CategoriaId"/>
+                <ComboBoxItem Content="Stock"/>
+                <ComboBoxItem Content="Precio"/>
+                <ComboBoxItem Content="Costo"/>
             </ComboBox>
         </StackPanel>
 

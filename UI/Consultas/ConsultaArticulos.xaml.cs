@@ -1,4 +1,6 @@
-﻿using System;
+﻿using StudioEA.BLL;
+using StudioEA.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -24,7 +26,96 @@ namespace StudioEA.UI.Consultas
 
         private void ConsultarButton_Click(object sender, RoutedEventArgs e)
         {
+            var Listado = new List<Articulos>();
 
+            if (CriterioTextBox.Text.Trim().Length > 0)
+            {
+                switch (FiltroComboBox.SelectedIndex)
+                {
+                    case 0://Todo
+                        Listado = ArticulosBLL.GetList(s => true);
+                        break;
+                    case 1:
+                        try
+                        {
+                            int id = Convert.ToInt32(CriterioTextBox.Text);
+                            Listado = ArticulosBLL.GetList(c => c.ArticuloId == id);
+                        }
+                        catch (FormatException)
+                        {
+                            MessageBox.Show("Por favor, ingrese un ID valido");
+                        }
+                        break;
+                    case 2:
+                        try
+                        {
+                            int id = Convert.ToInt32(CriterioTextBox.Text);
+                            Listado = ArticulosBLL.GetList(c => c.UsuarioId == id);
+                        }
+                        catch (FormatException)
+                        {
+                            MessageBox.Show("Por favor, ingrese un ID valido");
+                        }
+                        break;
+                    case 3:                        
+                        try
+                        {
+                            int id = Convert.ToInt32(CriterioTextBox.Text);
+                            Listado = ArticulosBLL.GetList(c => c.Descripcion.Contains(CriterioTextBox.Text));
+                        }
+                        catch (FormatException)
+                        {
+                            MessageBox.Show("Por favor, ingrese un Critero valido");
+                        }
+                        break;
+                    case 4:
+                        Listado = ArticulosBLL.GetList(s => s.Categorias.Contains(CriterioTextBox.Text));
+                        break;
+                    case 5:
+                        try
+                        {
+                            int stock = Convert.ToInt32(CriterioTextBox.Text);
+                            Listado = ArticulosBLL.GetList(c => c.Stock == stock );
+                        }
+                        catch (FormatException)
+                        {
+                            MessageBox.Show("Por favor, ingrese una cantidad valida");
+                        }
+                        break;
+
+                    case 6:
+                        try
+                        {
+                            int precio = Convert.ToInt32(CriterioTextBox.Text);
+                            Listado = ArticulosBLL.GetList(c => c.Precio == precio);
+                        }
+                        catch (FormatException)
+                        {
+                            MessageBox.Show("Por favor, ingrese una cantidad valida");
+                        }
+                        break;
+
+                    case 7:
+                        try
+                        {
+                            decimal costo = Convert.ToInt32(CriterioTextBox.Text);
+                            Listado = ArticulosBLL.GetList(c => c.Costo == costo);
+                        }
+                        catch (FormatException)
+                        {
+                            MessageBox.Show("Por favor, ingrese una cantidad valida");
+                        }
+                        break;
+                }
+                
+            }
+            else
+            {
+                Listado = ArticulosBLL.GetList(c => true);
+            }
+
+            ConsultaDataGrid.ItemsSource = null;
+            ConsultaDataGrid.ItemsSource = Listado;
         }
     }
-}
+ }
