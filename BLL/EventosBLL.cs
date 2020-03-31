@@ -84,9 +84,7 @@ namespace StudioEA.BLL
 
             try
             {
-                eventos = db.Eventos.Include(x => x.VentasDetalle).
-                    Where(x => x.EventoId == id)
-                    .SingleOrDefault();
+                eventos = db.Eventos.Find(id);
             }
             catch
             {

@@ -114,7 +114,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="5" Grid.Column="1">
-            <TextBox x:Name="CantidadTextBox" Margin="10" Width="100" HorizontalAlignment="Left">
+            <TextBox x:Name="CantidadTextBox" Margin="10" Width="100" HorizontalAlignment="Left" TextChanged="CantidadTextBox_TextChanged">
                 <TextBox.Text>
                     <Binding Path="VentasDetalle.CantidadArticulo" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -130,7 +130,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="5" Grid.Column="3">
-            <TextBox x:Name="PrecioArticuloTextBox" Margin="10" Width="120" HorizontalAlignment="Left" TextChanged="PrecioArticuloTextBox_TextChanged">
+            <TextBox x:Name="PrecioArticuloTextBox" Margin="10" Width="120" HorizontalAlignment="Left">
                 <TextBox.Text>
                     <Binding Path="VentasDetalle.PrecioArticulo" Mode="TwoWay"/>
                 </TextBox.Text>
@@ -158,7 +158,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="6" Grid.Column="3">
-            <TextBox x:Name="PrecioEventoTextBox" Margin="10" Width="120" HorizontalAlignment="Left" TextChanged="PrecioEventoTextBox_TextChanged">
+            <TextBox x:Name="PrecioEventoTextBox" Margin="10" Width="120" HorizontalAlignment="Left" >
                 <TextBox.Text>
                     <Binding Path="VentasDetalle.PrecioEvento" Mode="TwoWay"/>
                 </TextBox.Text>

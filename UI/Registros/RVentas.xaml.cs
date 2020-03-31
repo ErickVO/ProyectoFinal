@@ -59,6 +59,10 @@ namespace StudioEA.UI.Registros
         }
         private void AgregarButton_Click(object sender, RoutedEventArgs e)
         {
+            if (EventoIdTextBox.Text == null || EventoIdTextBox.Text == "0")
+            {
+                EventoIdTextBox.Text = "0";
+            }
             venta.VentasDetalle.Add(new VentasDetalle(venta.VentaId,Convert.ToInt32(ArticuloIdTextBox.Text), 
                     Convert.ToInt32(CantidadTextBox.Text),
                     Convert.ToDecimal(PrecioArticuloTextBox.Text),
@@ -193,6 +197,10 @@ namespace StudioEA.UI.Registros
                 if (evento != null)
                 {
                     LlenaCampoEventos(evento);
+                    decimal Monto, Precio = Convert.ToDecimal(PrecioEventoTextBox.Text);
+
+                    Monto = Precio;
+                    MontoTextBox.Text = Convert.ToString(Monto);
                 }
                 else
                 {
@@ -201,26 +209,15 @@ namespace StudioEA.UI.Registros
             }
         }
 
-        private void PrecioArticuloTextBox_TextChanged(object sender, TextChangedEventArgs e)
+       
+        private void CantidadTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(PrecioArticuloTextBox.Text))
+            if (!string.IsNullOrWhiteSpace(PrecioArticuloTextBox.Text) && !string.IsNullOrWhiteSpace(CantidadTextBox.Text))
             {
                 decimal Monto, Precio = Convert.ToDecimal(PrecioArticuloTextBox.Text);
                 decimal Cantidad = Convert.ToDecimal(CantidadTextBox.Text);
 
                 Monto = Precio * Cantidad;
-                MontoTextBox.Text = Convert.ToString(Monto);
-
-            }
-        }
-
-        private void PrecioEventoTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(PrecioEventoTextBox.Text))
-            {
-                decimal Monto, Precio = Convert.ToDecimal(PrecioEventoTextBox.Text);
-
-                Monto = Precio;
                 MontoTextBox.Text = Convert.ToString(Monto);
 
             }
