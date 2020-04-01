@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudioEA.UI.Registros"
         mc:Ignorable="d"
-        Title="RegistroCategorias" Height="450" Width="500">
+        Title="RegistroCategorias" Height="450" Width="500" Icon="/Resources/CameraIcon.png">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/Resources/Fondo2.jpg"/>
