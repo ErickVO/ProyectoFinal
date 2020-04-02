@@ -21,6 +21,9 @@ namespace StudioEA.Entidades
         [ForeignKey("ArticulosId")]
         public List<ComprasDetalle> ComprasDetalle { get; set; }
 
+        [ForeignKey("ArticulosId")]
+        public List<VentasDetalle> VentasDetalle { get; set; }
+
 
         public Articulos()
         {
@@ -32,6 +35,7 @@ namespace StudioEA.Entidades
             Costo = 0;
 
             ComprasDetalle = new List<ComprasDetalle>();
+            VentasDetalle = new List<VentasDetalle>();
         }
     }
 }
