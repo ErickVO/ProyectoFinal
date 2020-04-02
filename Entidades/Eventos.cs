@@ -11,12 +11,15 @@ namespace StudioEA.Entidades
         [Key]
         public int EventoId { get; set; }
         public int UsuarioId { get; set; }
+        public int FotografoId { get; set; }
         public string Descripcion { get; set; }
         public string Lugar { get; set; }
         public DateTime FechaInicio { get; set; }
         public DateTime FechaFin { get; set; }
         public decimal Precio { get; set; }
 
+        [ForeignKey("EventoId")]
+        public List<VentasDetalle> VentasDetalle { get; set; }
 
         public Eventos()
         {
@@ -28,6 +31,7 @@ namespace StudioEA.Entidades
             FechaFin = DateTime.Now;
             Precio = 0;
 
+            VentasDetalle = new List<VentasDetalle>();
         }
     }
 }

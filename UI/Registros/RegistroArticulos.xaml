@@ -91,7 +91,7 @@
         <StackPanel Grid.Row="5" Grid.Column="1">
             <TextBox x:Name="StockTextBox" Width="150" Margin="10,13" HorizontalAlignment="Left" IsReadOnly="True">
                 <TextBox.Text>
-                    <Binding Path="ComprasDetalle.Cantidad" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                    <Binding Path="Stock" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
                             <ExceptionValidationRule></ExceptionValidationRule>
                         </Binding.ValidationRules>

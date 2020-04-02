@@ -1,4 +1,5 @@
-﻿using StudioEA.UI.Registros;
+﻿using StudioEA.UI.Consultas;
+using StudioEA.UI.Registros;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -88,22 +89,26 @@ namespace StudioEA.UI.Menu
 
         private void MenuItem_Click_11(object sender, RoutedEventArgs e)
         {
-
+            ConsultaCategorias cc = new ConsultaCategorias();
+            cc.Show();
         }
 
         private void MenuItem_Click_12(object sender, RoutedEventArgs e)
         {
-
+            ConsultaArticulos ca = new ConsultaArticulos();
+            ca.Show();
         }
 
         private void MenuItem_Click_13(object sender, RoutedEventArgs e)
         {
-
+            ConsultaEventos ce = new ConsultaEventos();
+            ce.Show();
         }
 
         private void MenuItem_Click_14(object sender, RoutedEventArgs e)
         {
-
+            ConsultaCompras cco = new ConsultaCompras();
+            cco.Show();
         }
 
         private void MenuItem_Click_15(object sender, RoutedEventArgs e)

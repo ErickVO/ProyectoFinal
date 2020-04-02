@@ -130,10 +130,10 @@ namespace StudioEA.UI.Registros
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             compras.ComprasDetalle.Add(new ComprasDetalle(compras.CompraId, Convert.ToInt32(ArticuloIdTextBox.Text),
-               Convert.ToInt32(CantidadTextBox.Text), Convert.ToDecimal(MontoTextBox.Text)));
+               Convert.ToInt32(CantidadTextBox.Text), Convert.ToDecimal(CostoTextBox.Text)));
 
-            ArticulosBLL.StockSuma(Convert.ToInt32(ArticuloIdTextBox.Text), Convert.ToDecimal(CantidadTextBox.Text), Convert.ToDecimal(CostoTextBox.Text));
-
+              ArticulosBLL.StockSuma(Convert.ToInt32(ArticuloIdTextBox.Text), Convert.ToDecimal(CantidadTextBox.Text), Convert.ToDecimal(CostoTextBox.Text));
+            
 
 
             Cargar();
@@ -141,7 +141,7 @@ namespace StudioEA.UI.Registros
           
             ArticuloIdTextBox.Clear();
             CantidadTextBox.Clear();
-            MontoTextBox.Clear();
+            CostoTextBox.Clear();
             
         }
 
@@ -154,23 +154,16 @@ namespace StudioEA.UI.Registros
             }
         }
 
-        
-
-        private void LlenaStock(Articulos articulo)
-        {
-            articulo.Stock = Convert.ToInt32(CantidadTextBox.Text); 
-        }
+       
 
         private void CantidadTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            decimal Monto, Costo;
-            int c;
+            decimal Monto, Costo, Cantidad;
+            
 
             decimal.TryParse(CostoTextBox.Text, out Costo);
-            int.TryParse(CantidadTextBox.Text, out c);
-
-            decimal Cantidad = Convert.ToDecimal(c);
-
+            decimal.TryParse(CantidadTextBox.Text, out Cantidad);
+          
             Monto = Costo * Cantidad;
 
             MontoTextBox.Text = Convert.ToString(Monto);

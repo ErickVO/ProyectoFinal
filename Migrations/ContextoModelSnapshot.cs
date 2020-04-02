@@ -168,6 +168,9 @@ namespace StudioEA.Migrations
                     b.Property<DateTime>("FechaInicio")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("FotografoId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Lugar")
                         .HasColumnType("TEXT");
 
@@ -314,6 +317,8 @@ namespace StudioEA.Migrations
 
                     b.HasKey("VentasDetalleId");
 
+                    b.HasIndex("EventoId");
+
                     b.HasIndex("VentaId");
 
                     b.ToTable("VentasDetalle");
@@ -353,6 +358,12 @@ namespace StudioEA.Migrations
 
             modelBuilder.Entity("StudioEA.Entidades.VentasDetalle", b =>
                 {
+                    b.HasOne("StudioEA.Entidades.Eventos", null)
+                        .WithMany("VentasDetalle")
+                        .HasForeignKey("EventoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("StudioEA.Entidades.Ventas", null)
                         .WithMany("VentasDetalle")
                         .HasForeignKey("VentaId")
