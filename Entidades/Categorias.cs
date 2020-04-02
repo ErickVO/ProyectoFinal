@@ -13,13 +13,13 @@ namespace StudioEA.Entidades
         public int UsuarioId { get; set; }
         public string Nombre { get; set; }
 
-
-
+       
         public Categorias()
         {
             CategoriaId = 0;
             UsuarioId = 0;
             Nombre = string.Empty;
+           
         }
     }
 }

@@ -47,10 +47,10 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1">
-            <Label Content="Usuario Id:" Margin="5" />
+            <Label Content="Usuario Id:" Margin="10,10" />
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1">
-            <TextBox x:Name="UsuarioIdTextBox" Width="100" Height="20" Margin="11,8" HorizontalAlignment="Left">
+            <TextBox x:Name="UsuarioIdTextBox" Width="100" Height="20" Margin="10,13" HorizontalAlignment="Left">
                 <TextBox.Text>
                     <Binding Path="UsuarioId" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -62,10 +62,10 @@
         </StackPanel>
 
         <StackPanel Grid.Row="2">
-            <Label Content="Descripcion: " Margin="5"/>
+            <Label Content="Descripcion: " Margin="10,10"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1">
-            <TextBox x:Name="DescripcionTextBox" Width="150" Margin="10,8" Height="20" HorizontalAlignment="Left">
+            <TextBox x:Name="DescripcionTextBox" Width="150" Margin="10,13" Height="20" HorizontalAlignment="Left">
                 <TextBox.Text>
                     <Binding Path="Descripcion" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -77,25 +77,19 @@
         </StackPanel>
 
         <StackPanel Grid.Row="3" Grid.RowSpan="2">
-            <Label Content="Categorias: " Margin="5"/>
+            <Label Content="Categorias: " Margin="10,10"/>
         </StackPanel>
         <StackPanel Grid.Row="3" Grid.Column="1" Grid.RowSpan="2">
-            <ComboBox x:Name="CategoriasTextBox" Width="150" Margin="10,8" HorizontalAlignment="Left">
-                <ComboBoxItem>
-                    <Binding Path="CategoriasD.Nombre" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
-                        <Binding.ValidationRules>
-                            <ExceptionValidationRule></ExceptionValidationRule>
-                        </Binding.ValidationRules>
-                    </Binding>
-                </ComboBoxItem>
-            </ComboBox>
+            <ComboBox x:Name="CategoriasTextBox" Width="150" Margin="10,13" HorizontalAlignment="Left"/>
+
+
         </StackPanel>
 
         <StackPanel Grid.Row="5">
-            <Label Content="Stock: " Margin="10,5"/>
+            <Label Content="Stock: " Margin="10,10"/>
         </StackPanel>
         <StackPanel Grid.Row="5" Grid.Column="1">
-            <TextBox x:Name="StockTextBox" Width="150" Margin="10" HorizontalAlignment="Left">
+            <TextBox x:Name="StockTextBox" Width="150" Margin="10,13" HorizontalAlignment="Left" IsReadOnly="True">
                 <TextBox.Text>
                     <Binding Path="ComprasDetalle.Cantidad" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -107,10 +101,10 @@
         </StackPanel>
 
         <StackPanel Grid.Row="6">
-            <Label Content="Precio: " Margin="10,5"/>
+            <Label Content="Precio: " Margin="10,10"/>
         </StackPanel>
         <StackPanel Grid.Row="6" Grid.Column="1">
-            <TextBox x:Name="PrecioTextBox" Width="150"  Margin="10" HorizontalAlignment="Left">
+            <TextBox x:Name="PrecioTextBox" Width="150"  Margin="10,13" HorizontalAlignment="Left">
                 <TextBox.Text>
                     <Binding Path="Precio" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -122,10 +116,10 @@
         </StackPanel>
 
         <StackPanel Grid.Row="7" >
-            <Label Content="Costo: " Margin="10,5"/>
+            <Label Content="Costo: " Margin="10,10"/>
         </StackPanel>
         <StackPanel Grid.Row="7" Grid.Column="1">
-            <TextBox x:Name="CostoTextBox" Width="150" Margin="10" HorizontalAlignment="Left">
+            <TextBox x:Name="CostoTextBox" Width="150" Margin="10,13" HorizontalAlignment="Left" IsReadOnly="True">
                 <TextBox.Text>
                     <Binding Path="Costo" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>

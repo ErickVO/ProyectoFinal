@@ -22,8 +22,8 @@ namespace StudioEA.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Categorias")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("CategoriaId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<decimal>("Costo")
                         .HasColumnType("TEXT");
@@ -34,8 +34,8 @@ namespace StudioEA.Migrations
                     b.Property<decimal>("Precio")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Stock")
-                        .HasColumnType("INTEGER");
+                    b.Property<decimal>("Stock")
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("UsuarioId")
                         .HasColumnType("INTEGER");
@@ -51,9 +51,6 @@ namespace StudioEA.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("Categorias")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("Nombre")
                         .HasColumnType("TEXT");
 
@@ -61,8 +58,6 @@ namespace StudioEA.Migrations
                         .HasColumnType("INTEGER");
 
                     b.HasKey("CategoriaId");
-
-                    b.HasIndex("Categorias");
 
                     b.ToTable("Categorias");
                 });
@@ -137,8 +132,8 @@ namespace StudioEA.Migrations
                     b.Property<int?>("ArticulosId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("CantidadArticulos")
-                        .HasColumnType("INTEGER");
+                    b.Property<decimal>("CantidadArticulos")
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("CompraId")
                         .HasColumnType("INTEGER");
@@ -322,13 +317,6 @@ namespace StudioEA.Migrations
                     b.HasIndex("VentaId");
 
                     b.ToTable("VentasDetalle");
-                });
-
-            modelBuilder.Entity("StudioEA.Entidades.Categorias", b =>
-                {
-                    b.HasOne("StudioEA.Entidades.Articulos", null)
-                        .WithMany("CategoriasD")
-                        .HasForeignKey("Categorias");
                 });
 
             modelBuilder.Entity("StudioEA.Entidades.ComprasDetalle", b =>

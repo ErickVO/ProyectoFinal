@@ -15,14 +15,28 @@ namespace StudioEA.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     UsuarioId = table.Column<int>(nullable: false),
                     Descripcion = table.Column<string>(nullable: true),
-                    Categorias = table.Column<string>(nullable: true),
-                    Stock = table.Column<int>(nullable: false),
+                    CategoriaId = table.Column<int>(nullable: false),
+                    Stock = table.Column<decimal>(nullable: false),
                     Precio = table.Column<decimal>(nullable: false),
                     Costo = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Articulos", x => x.ArticuloId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Categorias",
+                columns: table => new
+                {
+                    CategoriaId = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    UsuarioId = table.Column<int>(nullable: false),
+                    Nombre = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Categorias", x => x.CategoriaId);
                 });
 
             migrationBuilder.CreateTable(
@@ -117,27 +131,6 @@ namespace StudioEA.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Categorias",
-                columns: table => new
-                {
-                    CategoriaId = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    UsuarioId = table.Column<int>(nullable: false),
-                    Nombre = table.Column<string>(nullable: true),
-                    Categorias = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Categorias", x => x.CategoriaId);
-                    table.ForeignKey(
-                        name: "FK_Categorias_Articulos_Categorias",
-                        column: x => x.Categorias,
-                        principalTable: "Articulos",
-                        principalColumn: "ArticuloId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "ComprasDetalle",
                 columns: table => new
                 {
@@ -145,7 +138,7 @@ namespace StudioEA.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     CompraId = table.Column<int>(nullable: false),
                     ArticuloId = table.Column<int>(nullable: false),
-                    CantidadArticulos = table.Column<int>(nullable: false),
+                    CantidadArticulos = table.Column<decimal>(nullable: false),
                     Costo = table.Column<decimal>(nullable: false),
                     ArticulosId = table.Column<int>(nullable: true),
                     ComprasId = table.Column<int>(nullable: true)
@@ -164,7 +157,7 @@ namespace StudioEA.Migrations
                         column: x => x.ComprasId,
                         principalTable: "Compras",
                         principalColumn: "CompraId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -231,11 +224,6 @@ namespace StudioEA.Migrations
                 table: "Usuarios",
                 columns: new[] { "UsuarioId", "Contrasena", "Email", "NombreUsuario", "Nombres" },
                 values: new object[] { 1, "Admin", "anthony-bryant2010@hotmail.com", "Admin", "Anthony Brian" });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Categorias_Categorias",
-                table: "Categorias",
-                column: "Categorias");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ComprasDetalle_ArticulosId",

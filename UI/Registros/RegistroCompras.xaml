@@ -37,7 +37,7 @@
             <Label Content="Compra Id:" Margin="10,10"/>
         </StackPanel>
         <StackPanel Grid.Column="1">
-            <TextBox x:Name="CompraIdTextBox" Width="93" Margin="15,13" HorizontalAlignment="Left">
+            <TextBox x:Name="CompraIdTextBox" Width="93" Margin="0,13" HorizontalAlignment="Left">
                 <TextBox.Text>
                     <Binding Path="CompraId" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -52,7 +52,7 @@
             <Label Content="Usuario Id:" Margin="10,10"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1">
-            <TextBox x:Name="UsuarioIdTextBox" Width="93" Margin="15,13" HorizontalAlignment="Left">
+            <TextBox x:Name="UsuarioIdTextBox" Width="93" Margin="0,13" HorizontalAlignment="Left">
                 <TextBox.Text>
                     <Binding Path="UsuarioId" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -67,7 +67,7 @@
             <Label Content="Monto: " Margin="10,10"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1">
-            <TextBox x:Name="MontoTextBox" Width="150" Margin="15,13" HorizontalAlignment="Left" IsReadOnly="True">
+            <TextBox x:Name="MontoTextBox" Width="150" Margin="0,13" HorizontalAlignment="Left" IsReadOnly="True">
                 <TextBox.Text>
                     <Binding Path="Monto" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -83,7 +83,7 @@
             <Label Content="Fecha:" Margin="10,10"/>
         </StackPanel>
         <StackPanel Grid.Row="3" Grid.Column="1">
-            <DatePicker Name="FechaDatePicker" Width="150" HorizontalAlignment="Left" Margin="15,10">
+            <DatePicker Name="FechaDatePicker" Width="150" HorizontalAlignment="Left" Margin="0,10">
                 <DatePicker.SelectedDate>
                     <Binding Path="Fecha" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -98,7 +98,7 @@
             <Label Content="Articulo Id: " Margin="10,10"/>
         </StackPanel>
         <StackPanel Grid.Row="4" Grid.Column="1">
-            <TextBox x:Name="ArticuloIdTextBox" Margin="15,13" Width="150" HorizontalAlignment="Left" TextChanged="ArticuloIdTextBox_TextChanged">
+            <TextBox x:Name="ArticuloIdTextBox" Margin="0,13" Width="150" HorizontalAlignment="Left" >
                 <TextBox.Text>
                     <Binding Path="ComprasDetalle.ArticuloId" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -109,12 +109,12 @@
             </TextBox>           
         </StackPanel>
 
-        <StackPanel Grid.Row="4" Grid.Column="2">
+        <StackPanel Grid.Row="4" Grid.Column="3">
             <Label Content="Cantidad:" Margin="10,10"/>
         </StackPanel>
 
         <StackPanel Grid.Row="4" Grid.Column="3">
-            <TextBox x:Name="CantidadTextBox" Width="150" Margin="15,13">
+            <TextBox x:Name="CantidadTextBox" Width="80" Margin="80,15" TextChanged="CantidadTextBox_TextChanged">
                 <TextBox.Text>
                     <Binding Path="RegistroCompras.CantidadArticulos" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -125,12 +125,12 @@
             </TextBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="4" Grid.Column="4">
-            <Label Content="Costo" Margin="10,10"/>
+        <StackPanel Grid.Row="4" Grid.Column="2">
+            <Label Content="Costo:" Margin="10,10"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="4" Grid.Column="5">
-            <TextBox x:Name="CostoTextBox" Width="150" Margin="10,12" TextChanged="CostoTextBox_TextChanged" IsReadOnly="True">
+        <StackPanel Grid.Row="4" Grid.Column="2">
+            <TextBox x:Name="CostoTextBox" Width="150" Margin="60,14" >
                 <TextBox.Text>
                     <Binding Path="ComprasDetalle.Costo" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -141,8 +141,8 @@
             </TextBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="5" Grid.Column="5">
-            <Button x:Name="AddButton" Content="Agregar Fila" Margin="10,2" Click="AddButton_Click">
+        <StackPanel Grid.Row="5" Grid.Column="3">
+            <Button x:Name="AddButton" Content="Agregar Fila" Margin="10,2"  Width="110" Click="AddButton_Click">
                 <Button.Background>
                     <ImageBrush Stretch="Uniform" ImageSource="/Resources/add.png" AlignmentX="Left"/>
                 </Button.Background>
@@ -150,7 +150,7 @@
         </StackPanel>
 
 
-        <StackPanel Grid.Row="6"  Grid.ColumnSpan="7">
+        <StackPanel Grid.Row="6"  Grid.ColumnSpan="5">
             <DataGrid x:Name="DetalleDataGrid" Height="180" Margin="10,5">
                 <DataGrid.ItemsSource>
                     <Binding Path="ComprasDetalle" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"></Binding>
@@ -168,7 +168,7 @@
 
 
         <StackPanel  Grid.Row="8"  Grid.Column="1">
-            <Button x:Name="NuevoButton" Margin="15" Width="85" Height="40" Content="Nuevo" Click="NuevoButton_Click" HorizontalContentAlignment="Right">
+            <Button x:Name="NuevoButton" Margin="15,0" Width="85" Height="40" Content="Nuevo" Click="NuevoButton_Click" HorizontalContentAlignment="Right">
                 <Button.Background>
                     <ImageBrush Stretch="Uniform" ImageSource="/Resources/Nuevo.png" AlignmentX="Left"/>
                 </Button.Background>
@@ -176,7 +176,7 @@
         </StackPanel>
 
         <StackPanel  Grid.Row="8" Grid.Column="2">
-            <Button x:Name="GuardarButton" Content="Guardar" Margin="15" Width="85" Height="40" Click="GuardarButton_Click" HorizontalContentAlignment="Right">
+            <Button x:Name="GuardarButton" Content="Guardar" Margin="15,0" Width="85" Height="40" Click="GuardarButton_Click" HorizontalContentAlignment="Right">
                 <Button.Background>
                     <ImageBrush ImageSource="/Resources/Guardar.png" Stretch="Uniform" AlignmentX="Left"/>
                 </Button.Background>
@@ -184,7 +184,7 @@
         </StackPanel>
 
         <StackPanel  Grid.Row="8" Grid.Column="3">
-            <Button x:Name="EliminarButton" Margin="15" Width="85" Height="40" Content="Eliminar" Click="EliminarButton_Click" HorizontalContentAlignment="Right">
+            <Button x:Name="EliminarButton" Margin="15,0" Width="85" Height="40" Content="Eliminar" Click="EliminarButton_Click" HorizontalContentAlignment="Right">
                 <Button.Background>
                     <ImageBrush ImageSource="/Resources/Eliminar.png" Stretch="Uniform" AlignmentX="Left"/>
                 </Button.Background>

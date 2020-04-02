@@ -149,10 +149,17 @@ namespace StudioEA.UI.Registros
             }
         }
 
-        private void CostoTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        
+
+        private void LlenaStock(Articulos articulo)
+        {
+            articulo.Stock = Convert.ToInt32(CantidadTextBox.Text); 
+        }
+
+        private void CantidadTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             decimal Monto, Costo;
-                int c;
+            int c;
 
             decimal.TryParse(CostoTextBox.Text, out Costo);
             int.TryParse(CantidadTextBox.Text, out c);
@@ -164,51 +171,9 @@ namespace StudioEA.UI.Registros
             MontoTextBox.Text = Convert.ToString(Monto);
         }
 
-        private void LlenaStock(Articulos articulo)
-        {
-            articulo.Stock = Convert.ToInt32(CantidadTextBox.Text); 
-        }
-
-        private void CantidadTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(ArticuloIdTextBox.Text))
-            {
-                int id;
-                Articulos articulos = new Articulos();
-                int.TryParse(ArticuloIdTextBox.Text, out id);
-
-                articulos = ArticulosBLL.Buscar(id);
-                if (articulos != null)
-                {
-                    LlenaStock(articulos);
-                }
-                
-            }
-        }
 
 
-        private void LlenaCosto(Articulos articulos)
-        {
-            CostoTextBox.Text = Convert.ToString(articulos.Costo);
-
-        }
-
-        private void ArticuloIdTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(ArticuloIdTextBox.Text))
-            {
-                int id;
-                Articulos articulos = new Articulos();
-                int.TryParse(ArticuloIdTextBox.Text, out id);
-
-                articulos = ArticulosBLL.Buscar(id);
-                if (articulos != null)
-                {
-                    LlenaCosto(articulos);
-                }
-
-            }
-        }
+        
     }
 
 
