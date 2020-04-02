@@ -39,7 +39,7 @@ namespace StudioEA.BLL
 
             try
             {
-                db.Database.ExecuteSqlRaw($"Delete FROM ventasDetalle Where VentasId={venta.VentaId}");
+                db.Database.ExecuteSqlRaw($"Delete FROM VentasDetalle Where VentasId={venta.VentaId}");
                 foreach(var item in venta.VentasDetalle)
                 {
                     db.Entry(item).State = EntityState.Added;

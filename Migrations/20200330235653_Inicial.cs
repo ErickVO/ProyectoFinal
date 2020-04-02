@@ -134,7 +134,7 @@ namespace StudioEA.Migrations
                         column: x => x.Categorias,
                         principalTable: "Articulos",
                         principalColumn: "ArticuloId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -164,7 +164,7 @@ namespace StudioEA.Migrations
                         column: x => x.ComprasId,
                         principalTable: "Compras",
                         principalColumn: "CompraId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
