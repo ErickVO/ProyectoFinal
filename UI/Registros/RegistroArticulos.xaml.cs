@@ -1,5 +1,4 @@
 ﻿using StudioEA.BLL;
-using StudioEA.Contenedores;
 using StudioEA.Entidades;
 using System;
 using System.Collections.Generic;
@@ -23,7 +22,7 @@ namespace StudioEA.UI.Registros
 
         Articulos articulos = new Articulos();
         List<int> CategoriaId = new List<int>();
-        ContenedorCompra contenedor = new ContenedorCompra();
+       
 
         public RegistroArticulos()
         {
@@ -95,7 +94,6 @@ namespace StudioEA.UI.Registros
 
                 if (paso)
                 {
-                    ArticulosBLL.StockSuma()
                     Limpiar();
                     MessageBox.Show("Guardado!!", "Exito");
                 }
