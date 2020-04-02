@@ -20,9 +20,6 @@ namespace StudioEA.Entidades
         public DateTime FechaNacimiento { get; set; }
         public decimal Sueldo { get; set; }
 
-        [ForeignKey("FotografoId")]
-        public List<Ventas> Ventas { get; set; }
-
         public Fotografos()
         {
             FotografoId = 0;
@@ -35,7 +32,6 @@ namespace StudioEA.Entidades
             Sexo = string.Empty;
             FechaNacimiento = DateTime.Now;
             Sueldo = 0;
-            Ventas = new List<Ventas>();
         }
     }
 }

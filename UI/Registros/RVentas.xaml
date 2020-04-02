@@ -66,10 +66,26 @@
         </StackPanel>
 
         <StackPanel Grid.Row="2">
+            <TextBlock Text="Cliente ID" Margin="10" Foreground="White" FontWeight="Bold"></TextBlock>
+         </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <TextBox x:Name="ClienteIdTextBox" Margin="10" Width="100" HorizontalAlignment="Left">
+                <TextBox.Text>
+                    <Binding Path="ClienteId" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <ExceptionValidationRule/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="2">
             <TextBlock Text="Fotografo ID" Margin="10" Foreground="White" FontWeight="Bold"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="2" Grid.Column="1">
+        <StackPanel Grid.Row="2" Grid.Column="4">
             <TextBox x:Name="FotografoIdTextBox" Margin="10" Width="100" HorizontalAlignment="Left">
                 <TextBox.Text>
                     <Binding Path="FotografoId" Mode="TwoWay">
@@ -189,7 +205,7 @@
             </TextBox>
         </StackPanel>
 
-        <DataGrid x:Name="DetalleDataGrid" Grid.Row="9" Grid.ColumnSpan="4" Margin="3,6,-137,4">
+        <DataGrid x:Name="DetalleDataGrid" Grid.Row="9" Grid.ColumnSpan="4" Margin="3,6,-116,4">
             <DataGrid.ItemsSource>
                 <Binding Path="VentasDetalle" Mode="TwoWay"/>
             </DataGrid.ItemsSource>
