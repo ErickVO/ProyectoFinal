@@ -11,7 +11,7 @@ namespace StudioEA.Entidades
         public int ComprasDetalleId { get; set; }
         public int CompraId { get; set; }
         public int ArticuloId { get; set; }
-        public int CantidadArticulos { get; set; }
+        public decimal CantidadArticulos { get; set; }
         public decimal Costo { get; set; }
 
 
@@ -24,7 +24,7 @@ namespace StudioEA.Entidades
             Costo = 0;
         }
 
-        public ComprasDetalle(int comprasId,int articulosId, int cantidadArticulos, decimal costo)
+        public ComprasDetalle(int comprasId,int articulosId, decimal cantidadArticulos, decimal costo)
         {
             ComprasDetalleId = 0;
             CompraId = comprasId;

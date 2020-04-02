@@ -60,7 +60,7 @@ namespace StudioEA.UI.Consultas
                     case 3:                        
                         try
                         {
-                            int id = Convert.ToInt32(CriterioTextBox.Text);
+                            
                             Listado = ArticulosBLL.GetList(c => c.Descripcion.Contains(CriterioTextBox.Text));
                         }
                         catch (FormatException)
@@ -69,7 +69,8 @@ namespace StudioEA.UI.Consultas
                         }
                         break;
                     case 4:
-                        Listado = ArticulosBLL.GetList(s => s.Categorias.Contains(CriterioTextBox.Text));
+                             int a = Convert.ToInt32(CriterioTextBox.Text);
+                             Listado = ArticulosBLL.GetList(s => s.CategoriaId == a);
                         break;
                     case 5:
                         try

@@ -119,5 +119,34 @@ namespace StudioEA.BLL
             return listado;
         }
 
+        public static void StockSuma(int id, decimal cantidad, decimal costo)
+        {
+            Articulos articulos = Buscar(id);
+
+            articulos.Stock += cantidad;
+            articulos.Costo = costo;
+
+            Modificar(articulos);
+        }
+
+        public static bool StockResta(int id, decimal cantidad)
+        {
+            Articulos articulos = Buscar(id);
+
+            articulos.Stock -= cantidad;
+
+            if (articulos.Stock >= 0)
+            {
+                Modificar(articulos);
+                return true;
+            }
+            else
+                return false;
+        }
+
+
+
+
+
     }
 }

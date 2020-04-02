@@ -21,12 +21,16 @@ namespace StudioEA.UI.Registros
     {
 
         Articulos articulos = new Articulos();
+        List<int> CategoriaId = new List<int>();
+       
 
         public RegistroArticulos()
         {
             InitializeComponent();
             this.DataContext = articulos;
             ArticuloIdTextBox.Text = "0";
+            ObtenerCategorias();
+          
         }
 
         private void Cargar()
@@ -46,7 +50,6 @@ namespace StudioEA.UI.Registros
             CostoTextBox.Text = string.Empty;
            
             articulos = new Articulos();
-
             Cargar();
         }
 
@@ -67,9 +70,15 @@ namespace StudioEA.UI.Registros
 
             bool paso = false;
 
+            articulos.CategoriaId = CategoriaId[CategoriasTextBox.SelectedIndex];
+
+
             if (articulos.ArticuloId == 0)
             {
+                
                 paso = ArticulosBLL.Guardar(articulos);
+
+
             }
             else
             {
@@ -107,6 +116,18 @@ namespace StudioEA.UI.Registros
                 MessageBox.Show("No se pudo eliminar", "Error");
             }
         }
+
+        private void ObtenerCategorias()
+        {
+            List<Categorias> c = CategoriasBLL.GetList(p => true);
+
+            foreach (var item in c)
+            {
+                CategoriasTextBox.Items.Add(item.Nombre);
+                CategoriaId.Add(item.CategoriaId);
+            }
+        }
+
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
