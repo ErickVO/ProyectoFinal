@@ -1,4 +1,5 @@
 ﻿using StudioEA.BLL;
+using StudioEA.Contenedores;
 using StudioEA.Entidades;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ namespace StudioEA.UI.Registros
     public partial class RegistroCompras : Window
     {
         Compras compras = new Compras();
+        ContenedorCompra contenedor = new ContenedorCompra();
 
         public RegistroCompras()
         {
@@ -89,6 +91,7 @@ namespace StudioEA.UI.Registros
 
             if (paso)
             {
+                ArticulosBLL.StockSuma(contenedor.compras.ComprasDetalle[0].CompraId,Convert.ToDecimal(CantidadTextBox.Text),Convert.ToDecimal(CostoTextBox.Text));
                 Limpiar();
                 MessageBox.Show("Guardado!!", "Exito");
             }

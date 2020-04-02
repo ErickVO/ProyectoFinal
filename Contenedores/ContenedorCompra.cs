@@ -9,13 +9,15 @@ namespace StudioEA.Contenedores
     {
         public Compras compras { get; set; }
         public ComprasDetalle comprasDetalle { get; set; }
-       // public List<ListaCompra> listaPagos { get; set; }
+        public List<ListarCompra> listarCompra { get; set; }
 
         public ContenedorCompra()
         {
             compras = new Compras();
+            
             comprasDetalle = new ComprasDetalle();
-           // listaPagos = new List<ListaCompra>();
+            
+            listarCompra = new List<ListarCompra>();
         }
     }
 }
