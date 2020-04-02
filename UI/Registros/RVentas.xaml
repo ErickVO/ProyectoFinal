@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudioEA.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro Ventas" Height="600" Width="650" Icon="/Resources/CameraIcon.png" WindowStartupLocation="CenterScreen">
+        Title="Registro Ventas" Height="450" Width="650" Icon="/Resources/CameraIcon.png" WindowStartupLocation="CenterScreen">
     <Window.Background>
-        <ImageBrush ImageSource="/Resources/Fondo2.jpg" Stretch="Fill"/>
+        <ImageBrush ImageSource="/Resources/FondoRegistros.jpg" Stretch="Fill"/>
     </Window.Background>
     <Grid>
 
@@ -19,7 +19,6 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="23*"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -28,17 +27,18 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="58*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <StackPanel>
-            <TextBlock Text="Venta ID" Margin="10" Foreground="White" FontWeight="Bold"/>
+        <StackPanel  VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Venta ID"  Foreground="White" FontWeight="Bold" />
         </StackPanel>
 
-        <StackPanel Grid.Column="1">
-            <TextBox x:Name="VentaIdTextBox" Margin="10" Width="100" HorizontalAlignment="Left">
+        <StackPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <TextBox x:Name="VentaIdTextBox" Width="80" HorizontalAlignment="Left">
                 <TextBox.Text>
                     <Binding Path="VentaId" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -49,28 +49,12 @@
             </TextBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="1">
-            <TextBlock Text="Usuario ID" Margin="10" Foreground="White" FontWeight="Bold"/>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Cliente ID"  Foreground="White" FontWeight="Bold"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Grid.Column="1">
-            <TextBox x:Name="UsuarioIdTextBox" Margin="10" Width="100" HorizontalAlignment="Left">
-                <TextBox.Text>
-                    <Binding Path="UsuarioId" Mode="TwoWay">
-                        <Binding.ValidationRules>
-                            <ExceptionValidationRule/>
-                        </Binding.ValidationRules>
-                    </Binding>
-                </TextBox.Text>
-            </TextBox>
-        </StackPanel>
-
-        <StackPanel Grid.Row="2">
-            <TextBlock Text="Cliente ID" Margin="10" Foreground="White" FontWeight="Bold"></TextBlock>
-         </StackPanel>
-
-        <StackPanel Grid.Row="2" Grid.Column="1">
-            <TextBox x:Name="ClienteIdTextBox" Margin="10" Width="100" HorizontalAlignment="Left">
+        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <TextBox x:Name="ClientIdTextBox"  Width="80">
                 <TextBox.Text>
                     <Binding Path="ClienteId" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -81,153 +65,115 @@
             </TextBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="2" Grid.Column="2">
-            <TextBlock Text="Fotografo ID" Margin="10" Foreground="White" FontWeight="Bold"/>
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Nombres" Foreground="White" FontWeight="Bold"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <TextBox x:Name="NombresTextBox" Width="180"></TextBox> 
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center">
+            <TextBlock Text="Apellidos" Foreground="White" FontWeight="Bold"/>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="4">
-            <TextBox x:Name="FotografoIdTextBox" Margin="10" Width="100" HorizontalAlignment="Left">
-                <TextBox.Text>
-                    <Binding Path="FotografoId" Mode="TwoWay">
-                        <Binding.ValidationRules>
-                            <ExceptionValidationRule/>
-                        </Binding.ValidationRules>
-                    </Binding>
-                </TextBox.Text>
-            </TextBox>
+            <TextBox x:Name="ApellidosTextBox" Width="180"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="3">
-            <TextBlock Text="Fecha" Margin="10" Foreground="White" FontWeight="Bold"/>
+        <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Fecha" Foreground="White" FontWeight="Bold"/>
         </StackPanel>
-
+        
         <StackPanel Grid.Row="3" Grid.Column="1">
-            <DatePicker x:Name="FechaDatePicker" Margin="10" HorizontalAlignment="Left">
-                <DatePicker.SelectedDate>
-                    <Binding Path="Fecha" Mode="TwoWay"/>
-                </DatePicker.SelectedDate>
-            </DatePicker>
+            <DatePicker x:Name="FechasDatePicker" />
         </StackPanel>
 
-        <StackPanel Grid.Row="4">
-            <TextBlock Text="Artículo ID" Margin="10" Foreground="White" FontWeight="Bold"/>
+        <StackPanel Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Total" Foreground="White" FontWeight="Bold"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="4" Grid.Column="1">
-            <TextBox x:Name="ArticuloIdTextBox" Margin="10" Width="100" HorizontalAlignment="Left" TextChanged="ArticuloIdTextBox_TextChanged">
-                <TextBox.Text>
-                    <Binding Path="VentasDetalle.ArticuloId" Mode="TwoWay">
-                        <Binding.ValidationRules>
-                            <ExceptionValidationRule/>
-                        </Binding.ValidationRules>
-                    </Binding>
-                </TextBox.Text>
-            </TextBox>
+        <StackPanel Grid.Row="3" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <TextBox x:Name="TotalTextBox" Width="100" />
         </StackPanel>
 
-        <StackPanel Grid.Row="5">
-            <TextBlock Text="Cantidad" Margin="10" Foreground="White" FontWeight="Bold"/>
+        <StackPanel Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Artículo ID" Foreground="White" FontWeight="Bold"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="5" Grid.Column="1">
-            <TextBox x:Name="CantidadTextBox" Margin="10" Width="100" HorizontalAlignment="Left" TextChanged="CantidadTextBox_TextChanged">
-                <TextBox.Text>
-                    <Binding Path="VentasDetalle.CantidadArticulo" Mode="TwoWay">
-                        <Binding.ValidationRules>
-                            <ExceptionValidationRule/>
-                        </Binding.ValidationRules>
-                    </Binding>
-                </TextBox.Text>
-            </TextBox>
+        <StackPanel Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <TextBox x:Name="ArticulosIdTextBox" Width="80"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="5" Grid.Column="2">
-            <TextBlock Text="Precio Artículo" Margin="10" Foreground="White" FontWeight="Bold"/>
+        <StackPanel Grid.Row="4" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Descripción" Foreground="White" FontWeight="Bold"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="5" Grid.Column="3">
-            <TextBox x:Name="PrecioArticuloTextBox" Margin="10" Width="120" HorizontalAlignment="Left">
-                <TextBox.Text>
-                    <Binding Path="VentasDetalle.PrecioArticulo" Mode="TwoWay"/>
-                </TextBox.Text>
-            </TextBox>
+        <StackPanel Grid.Row="4" Grid.Column="4" VerticalAlignment="Center">
+            <TextBox x:Name="DescripcionTextBox" Width="180"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="6">
-            <TextBlock Text="Evento ID" Margin="10" Foreground="White" FontWeight="Bold"/>
+        <StackPanel Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Cantidad" Foreground="White" FontWeight="Bold"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="6" Grid.Column="1">
-            <TextBox x:Name="EventoIdTextBox" Margin="10" Width="100" HorizontalAlignment="Left" TextChanged="EventoIdTextBox_TextChanged">
-                <TextBox.Text>
-                    <Binding Path="VentasDetalle.EventoId" Mode="TwoWay">
-                        <Binding.ValidationRules>
-                            <ExceptionValidationRule/>
-                        </Binding.ValidationRules>
-                    </Binding>
-                </TextBox.Text>
-            </TextBox>
+        <StackPanel Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <TextBox x:Name="CantidadTextBox" Width="70"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="6" Grid.Column="2">
-            <TextBlock Text="Precio Evento" Margin="10" Foreground="White" FontWeight="Bold"/>
+        <StackPanel Grid.Row="5" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Precio artículo" Foreground="White" FontWeight="Bold"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="6" Grid.Column="3">
-            <TextBox x:Name="PrecioEventoTextBox" Margin="10" Width="120" HorizontalAlignment="Left" >
-                <TextBox.Text>
-                    <Binding Path="VentasDetalle.PrecioEvento" Mode="TwoWay"/>
-                </TextBox.Text>
-            </TextBox>
+        <StackPanel Grid.Row="5" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <TextBox x:Name="PrecioATextBox" Width="110"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Evento ID" Foreground="White" FontWeight="Bold"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="7">
-            <TextBlock Text="Monto" Margin="10" Foreground="White" FontWeight="Bold"/>
+        <StackPanel Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <TextBox x:Name="EventoIdTextBox" Width="80"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="7" Grid.Column="1">
-            <TextBox x:Name="MontoTextBox" Margin="10" Width="100" HorizontalAlignment="Left">
-                <TextBox.Text>
-                    <Binding Path="VentasDetalle.Monto" Mode="TwoWay"/>
-                </TextBox.Text>
-            </TextBox>
+        <StackPanel Grid.Row="6" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Precio evento" Foreground="White" FontWeight="Bold"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="8">
-            <TextBlock Text="Monto Total" Margin="10" Foreground="White" FontWeight="Bold"/>
+        <StackPanel Grid.Row="6" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <TextBox x:Name="PrecioETextBox" Width="110"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="8" Grid.Column="1">
-            <TextBox x:Name="MontoTotalTextBox" Margin="10" Width="100" HorizontalAlignment="Left">
-                <TextBox.Text>
-                    <Binding Path="MontoTotal" Mode="TwoWay"/>
-                </TextBox.Text>
-            </TextBox>
+        <StackPanel Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Monto" Foreground="White" FontWeight="Bold"/>
         </StackPanel>
 
-        <DataGrid x:Name="DetalleDataGrid" Grid.Row="9" Grid.ColumnSpan="4" Margin="3,6,-116,4">
-            <DataGrid.ItemsSource>
-                <Binding Path="VentasDetalle" Mode="TwoWay"/>
-            </DataGrid.ItemsSource>
-        </DataGrid>
+        <StackPanel Grid.Row="7" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <TextBox x:Name="MontTextBox" Width="100"/>
+        </StackPanel>
 
-        <StackPanel Grid.Column="2">
-            <Button x:Name="BuscarButton" Content="Buscar" Margin="10" Width="75" Height="26" HorizontalContentAlignment="Right" Click="BuscarButton_Click">
+        <StackPanel Grid.Row="8" Grid.ColumnSpan="4">
+            <DataGrid x:Name="VentaDetalleDataGrid" Height="100" />
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="BuscarButton" Content="Buscar"  Width="85" Height="40" HorizontalContentAlignment="Right" Click="BuscarButton_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/Resources/Buscar.png" Stretch="Uniform" AlignmentX="Left"/>
                 </Button.Background>
             </Button>
         </StackPanel>
 
-        <StackPanel Grid.Row="8" Grid.Column="3" HorizontalAlignment="Center">
-            <Button x:Name="AgregarButton" Content="Agregar Fila" Margin="10" Width="96" Height="25" HorizontalContentAlignment="Right" Click="AgregarButton_Click">
+        <StackPanel Grid.Row="7" Grid.Column="3" HorizontalAlignment="Center">
+            <Button x:Name="AgregarButton" Content="Agregar Fila"  Width="110" Height="40" HorizontalContentAlignment="Right" Click="AgregarButton_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/Resources/add.png" Stretch="Uniform" AlignmentX="Left"/>
                 </Button.Background>
             </Button>
         </StackPanel>
 
-        <StackPanel Grid.Row="10">
+        <StackPanel Grid.Row="9">
             <Button x:Name="RemoverButton" Content="Remover Fila" Margin="10" Width="100" Height="25" HorizontalContentAlignment="Right" Click="RemoverButton_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/Resources/Remover.png" Stretch="Uniform" AlignmentX="Left"></ImageBrush>
@@ -235,7 +181,7 @@
             </Button>
         </StackPanel>
 
-        <StackPanel Grid.Row="11">
+        <StackPanel Grid.Row="10">
             <Button x:Name="NuevoButton" Content="Nuevo" Margin="10" Width="85" Height="40" HorizontalContentAlignment="Right" Click="NuevoButton_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/Resources/Nuevo.png" Stretch="Uniform" AlignmentX="Left"/>
@@ -243,7 +189,7 @@
             </Button>
         </StackPanel>
 
-        <StackPanel Grid.Row="11" Grid.Column="1">
+        <StackPanel Grid.Row="10" Grid.Column="1">
             <Button x:Name="GuardarButton" Content="Guardar" Margin="10" Width="85" Height="40" HorizontalContentAlignment="Right" Click="GuardarButton_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/Resources/Guardar.png" Stretch="Uniform" AlignmentX="Left"></ImageBrush>
@@ -251,7 +197,7 @@
             </Button>
         </StackPanel>
 
-        <StackPanel Grid.Row="11" Grid.Column="2">
+        <StackPanel Grid.Row="10" Grid.Column="2">
             <Button x:Name="EliminarButton" Content="Eliminar" Margin="10" Width="85" Height="40" HorizontalContentAlignment="Right" Click="EliminarButton_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/Resources/Eliminar.png" Stretch="Uniform" AlignmentX="Left"></ImageBrush>

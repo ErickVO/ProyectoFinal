@@ -27,22 +27,22 @@ namespace StudioEA.UI.Registros
             this.DataContext = venta;
             VentaIdTextBox.Text = "0";
             EventoIdTextBox.Text = "0";
-            FotografoIdTextBox.Text = "0";
+            /*FotografoIdTextBox.Text = "0";
             UsuarioIdTextBox.Text = "0";
             CantidadTextBox.Text = "0";
             PrecioArticuloTextBox.Text = "0";
-            PrecioEventoTextBox.Text = "0";
+            PrecioEventoTextBox.Text = "0";*/
         }
 
         private void Limpiar()
         {
-            VentaIdTextBox.Text = "0";
+           /* VentaIdTextBox.Text = "0";
             EventoIdTextBox.Text = "0";
             FotografoIdTextBox.Text = "0";
             UsuarioIdTextBox.Text = "0";
             CantidadTextBox.Text = "0";
             PrecioArticuloTextBox.Text = "0";
-            PrecioEventoTextBox.Text = "0";
+            PrecioEventoTextBox.Text = "0";*/
             venta = new Ventas();
             Actualizar();
         }
@@ -59,7 +59,7 @@ namespace StudioEA.UI.Registros
         }
         private void AgregarButton_Click(object sender, RoutedEventArgs e)
         {
-            if (EventoIdTextBox.Text == null || EventoIdTextBox.Text == "0")
+            /*if (EventoIdTextBox.Text == null || EventoIdTextBox.Text == "0")
             {
                 EventoIdTextBox.Text = "0";
             }
@@ -79,17 +79,17 @@ namespace StudioEA.UI.Registros
             CantidadTextBox.Clear();
             EventoIdTextBox.Clear();
             MontoTextBox.Clear();
-            ArticuloIdTextBox.Focus();
+            ArticuloIdTextBox.Focus();*/
         }
 
         private void RemoverButton_Click(object sender, RoutedEventArgs e)
         {
-            if (DetalleDataGrid.Items.Count > 1 && DetalleDataGrid.SelectedIndex < DetalleDataGrid.Items.Count - 1)
+          /*  if (DetalleDataGrid.Items.Count > 1 && DetalleDataGrid.SelectedIndex < DetalleDataGrid.Items.Count - 1)
             {
                 venta.VentasDetalle.RemoveAt(DetalleDataGrid.SelectedIndex);
 
                 Actualizar();
-            }
+            }*/
         }
 
         private bool existeEnLaBasedeDatos()
@@ -157,17 +157,17 @@ namespace StudioEA.UI.Registros
 
         private void LlenaCampoArticulos(Articulos articulos)
         {
-            PrecioArticuloTextBox.Text = Convert.ToString(articulos.Precio);
+           // PrecioArticuloTextBox.Text = Convert.ToString(articulos.Precio);
         }
 
         private void LlenaCampoEventos(Eventos eventos)
         {
-            PrecioEventoTextBox.Text = Convert.ToString(eventos.Precio);
+           // PrecioEventoTextBox.Text = Convert.ToString(eventos.Precio);
         }
 
         private void ArticuloIdTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(ArticuloIdTextBox.Text))
+           /* if (!string.IsNullOrWhiteSpace(ArticuloIdTextBox.Text))
             {
                 int id;
                 Articulos articulo = new Articulos();
@@ -182,12 +182,12 @@ namespace StudioEA.UI.Registros
                 {
                     PrecioArticuloTextBox.Text = "0";
                 }
-            }
+            }*/
         }
 
         private void EventoIdTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(EventoIdTextBox.Text))
+           /* if (!string.IsNullOrWhiteSpace(EventoIdTextBox.Text))
             {
                 int id;
                 Eventos evento = new Eventos();
@@ -206,13 +206,13 @@ namespace StudioEA.UI.Registros
                 {
                     PrecioEventoTextBox.Text = "0";
                 }
-            }
+            }*/
         }
 
        
         private void CantidadTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(PrecioArticuloTextBox.Text) && !string.IsNullOrWhiteSpace(CantidadTextBox.Text))
+           /* if (!string.IsNullOrWhiteSpace(PrecioArticuloTextBox.Text) && !string.IsNullOrWhiteSpace(CantidadTextBox.Text))
             {
                 decimal Monto, Precio = Convert.ToDecimal(PrecioArticuloTextBox.Text);
                 decimal Cantidad = Convert.ToDecimal(CantidadTextBox.Text);
@@ -220,7 +220,7 @@ namespace StudioEA.UI.Registros
                 Monto = Precio * Cantidad;
                 MontoTextBox.Text = Convert.ToString(Monto);
 
-            }
+            }*/
         }
     }
 }
