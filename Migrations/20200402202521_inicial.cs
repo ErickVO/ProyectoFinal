@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace StudioEA.Migrations
 {
-    public partial class Inicial : Migration
+    public partial class inicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -82,6 +82,7 @@ namespace StudioEA.Migrations
                     EventoId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     UsuarioId = table.Column<int>(nullable: false),
+                    FotografoId = table.Column<int>(nullable: false),
                     Descripcion = table.Column<string>(nullable: true),
                     Lugar = table.Column<string>(nullable: true),
                     FechaInicio = table.Column<DateTime>(nullable: false),
@@ -213,6 +214,12 @@ namespace StudioEA.Migrations
                 {
                     table.PrimaryKey("PK_VentasDetalle", x => x.VentasDetalleId);
                     table.ForeignKey(
+                        name: "FK_VentasDetalle_Eventos_EventoId",
+                        column: x => x.EventoId,
+                        principalTable: "Eventos",
+                        principalColumn: "EventoId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_VentasDetalle_Ventas_VentaId",
                         column: x => x.VentaId,
                         principalTable: "Ventas",
@@ -251,6 +258,11 @@ namespace StudioEA.Migrations
                 column: "UsuarioId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_VentasDetalle_EventoId",
+                table: "VentasDetalle",
+                column: "EventoId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_VentasDetalle_VentaId",
                 table: "VentasDetalle",
                 column: "VentaId");
@@ -265,9 +277,6 @@ namespace StudioEA.Migrations
                 name: "ComprasDetalle");
 
             migrationBuilder.DropTable(
-                name: "Eventos");
-
-            migrationBuilder.DropTable(
                 name: "VentasDetalle");
 
             migrationBuilder.DropTable(
@@ -275,6 +284,9 @@ namespace StudioEA.Migrations
 
             migrationBuilder.DropTable(
                 name: "Compras");
+
+            migrationBuilder.DropTable(
+                name: "Eventos");
 
             migrationBuilder.DropTable(
                 name: "Ventas");

@@ -69,5 +69,25 @@ namespace StudioEA.Properties {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] FondoRegistros {
+            get {
+                object obj = ResourceManager.GetObject("FondoRegistros", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] FondoUsuario {
+            get {
+                object obj = ResourceManager.GetObject("FondoUsuario", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

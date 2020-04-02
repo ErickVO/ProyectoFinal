@@ -143,5 +143,7 @@ namespace StudioEA.UI.Registros
                 MessageBox.Show("No se encontro", "ERROR");
             }
         }
+
+
     }
 }
