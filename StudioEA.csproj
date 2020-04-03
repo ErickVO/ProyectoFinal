@@ -12,9 +12,6 @@
     <None Remove="Resources\Buscar.png" />
     <None Remove="Resources\CameraIcon.png" />
     <None Remove="Resources\Eliminar.png" />
-    <None Remove="Resources\Fondo1.jpg" />
-    <None Remove="Resources\Fondo2.jpg" />
-    <None Remove="Resources\Fondo3.jpg" />
     <None Remove="Resources\FondoRegistros.jpg" />
     <None Remove="Resources\FondoUsuario.jpg" />
     <None Remove="Resources\Guardar.png" />
@@ -32,13 +29,7 @@
     <Content Include="Resources\add.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\Fondo1.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Resources\Eliminar.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Fondo2.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\FondoRegistros.jpg">
@@ -48,9 +39,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\Guardar.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Fondo3.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\Nuevo.png">

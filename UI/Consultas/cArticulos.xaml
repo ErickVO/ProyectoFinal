@@ -1,14 +1,14 @@
-﻿<Window x:Class="StudioEA.UI.Consultas.ConsultaCategorias"
+﻿<Window x:Class="StudioEA.UI.Consultas.ConsultaArticulos"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudioEA.UI.Consultas"
         mc:Ignorable="d"
-        Title="ConsultaCategorias" Height="450" Width="800" Icon="/Resources/CameraIcon.png">
+        Title="ConsultaArticulos" Height="450" Width="800" Icon="/Resources/CameraIcon.png">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Resources/Fondo2.jpg"/>
+            <ImageBrush ImageSource="/Resources/FondoRegistros.jpg"/>
         </Grid.Background>
 
         <Grid.RowDefinitions>
@@ -32,9 +32,13 @@
             <Label Content="Filtro"/>
             <ComboBox x:Name="FiltroComboBox" SelectedIndex="0" Width="200">
                 <ComboBoxItem Content="Todo"/>
-                <ComboBoxItem Content="CategoriaId"/>
+                <ComboBoxItem Content="ArticuloId"/>
                 <ComboBoxItem Content="UsuarioId"/>
-                <ComboBoxItem Content="Nombre"/>
+                <ComboBoxItem Content="Descripcion"/>
+                <ComboBoxItem Content="CategoriaId"/>
+                <ComboBoxItem Content="Stock"/>
+                <ComboBoxItem Content="Precio"/>
+                <ComboBoxItem Content="Costo"/>
             </ComboBox>
         </StackPanel>
 
@@ -52,7 +56,19 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.ColumnSpan="5">
-            <DataGrid x:Name="ConsultaDataGrid" Margin="10,3" Height="375" Width="769"/>
+            <DataGrid x:Name="ConsultaDataGrid" Margin="10,3" AutoGenerateColumns="False" IsReadOnly="True" Height="375" Width="769">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Articulo Id" Binding="{Binding ArticuloId}"/>
+                    <DataGridTextColumn Header="Usuario Id" Binding="{Binding UsuarioId}"/>
+                    <DataGridTextColumn Header="Descripcion" Binding="{Binding Descripcion}"/>
+                    <DataGridTextColumn Header="Categoria Id" Binding="{Binding CategoriaId}"/>
+                    <DataGridTextColumn Header="Stock" Binding="{Binding Stock}"/>
+                    <DataGridTextColumn Header="Precio" Binding="{Binding Precio}"/>
+                    <DataGridTextColumn Header="Costo" Binding="{Binding Costo}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
         </StackPanel>
+
     </Grid>
 </Window>

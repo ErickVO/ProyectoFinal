@@ -8,7 +8,7 @@
         Title="ConsultaCompras" Height="450" Width="800" Icon="/Resources/CameraIcon.png">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Resources/Fondo2.jpg"/>
+            <ImageBrush ImageSource="/Resources/FondoRegistros.jpg"/>
         </Grid.Background>
 
         <Grid.RowDefinitions>
@@ -58,7 +58,15 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5">
-            <DataGrid x:Name="ConsultaDataGrid" Height="375"/>
+            <DataGrid x:Name="ConsultaDataGrid" AutoGenerateColumns="False" IsReadOnly="True" Height="375">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Compra Id" Binding="{Binding CompraId}"/>
+                    <DataGridTextColumn Header="Usuario Id" Binding="{Binding UsuarioId}"/>
+                    <DataGridTextColumn Header="Monto" Binding="{Binding Monto}"/>
+                    <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha}"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
         </StackPanel>
 
     </Grid>

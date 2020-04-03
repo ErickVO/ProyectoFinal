@@ -168,8 +168,8 @@
                     <ImageBrush Stretch="Uniform" ImageSource="/Resources/Guardar.png" AlignmentX="Left"/>
                 </Button.Background>
                 <Button.Style>
-                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle}">
-                        <Setter Property="IsEnabled" Value="false" />
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="IsEnabled" Value="False"/>
                         <Style.Triggers>
                             <MultiDataTrigger>
                                 <MultiDataTrigger.Conditions>
@@ -204,8 +204,8 @@
                 </Button.Background>
 
                 <Button.Style>
-                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle}">
-                        <Setter Property="IsEnabled" Value="false" />
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="IsEnabled" Value="False"/>
                         <Style.Triggers>
                             <MultiDataTrigger>
                                 <MultiDataTrigger.Conditions>

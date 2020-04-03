@@ -82,13 +82,13 @@
         </StackPanel>
 
         <StackPanel  Grid.Row="6" Grid.Column="1">
-            <Button x:Name="GuardarButton" Content="Guardar" Width="85" Height="40" Margin="15" Click="GuardarButton_Click" HorizontalContentAlignment="Right">
+            <Button x:Name="GuardarButton" Content="Guardar" Width="86" Height="40" Margin="15" Click="GuardarButton_Click" HorizontalContentAlignment="Right">
                 <Button.Background>
                     <ImageBrush Stretch="Uniform" ImageSource="/Resources/Guardar.png" AlignmentX="Left"/>
                 </Button.Background>
                 <Button.Style>
-                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle}">
-                        <Setter Property="IsEnabled" Value="false" />
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="IsEnabled" Value="False"/>
                         <Style.Triggers>
                             <MultiDataTrigger>
                                 <MultiDataTrigger.Conditions>
@@ -120,8 +120,9 @@
                 </Button.Background>
 
                 <Button.Style>
-                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle}">
-                        <Setter Property="IsEnabled" Value="false" />
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="IsEnabled" Value="False"/>
+
                         <Style.Triggers>
                             <MultiDataTrigger>
                                 <MultiDataTrigger.Conditions>
