@@ -268,10 +268,10 @@ namespace StudioEA.Migrations
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("FotografoId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Nombre")
+                        .HasColumnType("TEXT");
 
-                    b.Property<decimal>("MontoTotal")
+                    b.Property<decimal>("Total")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("UsuarioId")
@@ -280,10 +280,6 @@ namespace StudioEA.Migrations
                     b.HasKey("VentaId");
 
                     b.HasIndex("ClienteId");
-
-                    b.HasIndex("FotografoId");
-
-                    b.HasIndex("UsuarioId");
 
                     b.ToTable("Ventas");
                 });
@@ -297,10 +293,16 @@ namespace StudioEA.Migrations
                     b.Property<int>("ArticuloId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("ArticulosId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("CantidadArticulo")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("EventoId")
+                    b.Property<string>("Descripcion")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("EventoId")
                         .HasColumnType("INTEGER");
 
                     b.Property<decimal>("Monto")
@@ -309,13 +311,12 @@ namespace StudioEA.Migrations
                     b.Property<decimal>("PrecioArticulo")
                         .HasColumnType("TEXT");
 
-                    b.Property<decimal>("PrecioEvento")
-                        .HasColumnType("TEXT");
-
                     b.Property<int>("VentaId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("VentasDetalleId");
+
+                    b.HasIndex("ArticulosId");
 
                     b.HasIndex("EventoId");
 
@@ -342,27 +343,17 @@ namespace StudioEA.Migrations
                         .HasForeignKey("ClienteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("StudioEA.Entidades.Fotografos", null)
-                        .WithMany("Ventas")
-                        .HasForeignKey("FotografoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("StudioEA.Entidades.Usuarios", null)
-                        .WithMany("Ventas")
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("StudioEA.Entidades.VentasDetalle", b =>
                 {
+                    b.HasOne("StudioEA.Entidades.Articulos", null)
+                        .WithMany("VentasDetalle")
+                        .HasForeignKey("ArticulosId");
+
                     b.HasOne("StudioEA.Entidades.Eventos", null)
                         .WithMany("VentasDetalle")
-                        .HasForeignKey("EventoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("EventoId");
 
                     b.HasOne("StudioEA.Entidades.Ventas", null)
                         .WithMany("VentasDetalle")

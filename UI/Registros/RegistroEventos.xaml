@@ -37,7 +37,7 @@
         <StackPanel Grid.Column="1">
             <TextBox x:Name="EventoIdTextBox" Width="93" Margin="15,13" HorizontalAlignment="Left">
                 <TextBox.Text>
-                    <Binding Path="ArticuloId" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                    <Binding Path="EventoId" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
                             <ExceptionValidationRule></ExceptionValidationRule>
                         </Binding.ValidationRules>
