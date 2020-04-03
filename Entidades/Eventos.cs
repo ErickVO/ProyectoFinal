@@ -17,6 +17,7 @@ namespace StudioEA.Entidades
         public DateTime FechaInicio { get; set; }
         public DateTime FechaFin { get; set; }
         public decimal Precio { get; set; }
+        public bool Disponible { get; set; }
 
         [ForeignKey("EventoId")]
         public List<VentasDetalle> VentasDetalle { get; set; }
@@ -30,6 +31,7 @@ namespace StudioEA.Entidades
             FechaInicio = DateTime.Now;
             FechaFin = DateTime.Now;
             Precio = 0;
+            Disponible = true;
 
             VentasDetalle = new List<VentasDetalle>();
         }

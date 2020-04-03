@@ -116,5 +116,32 @@ namespace StudioEA.BLL
             }
             return listado;
         }
+
+        public static bool ObtenerDisponibilidad(int id)
+        {
+            Eventos eventos = Buscar(id);
+            if (eventos.Disponible == false)
+                return false;
+            else
+                return true;
+        }
+
+        public static decimal ObtenerPrecio(int id)
+        {
+            Eventos eventos = Buscar(id);
+            if (eventos == null)
+                return 0.0m;
+            else
+                return eventos.Precio;
+        }
+
+        public static void CambiarDisponibilidad(int id,bool disponible)
+        {
+            Eventos evento = Buscar(id);
+            if (disponible == true)
+                evento.Disponible = false;
+            else
+                evento.Disponible = true;
+        }
     }
 }
