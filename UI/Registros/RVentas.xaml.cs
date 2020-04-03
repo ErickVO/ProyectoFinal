@@ -59,6 +59,7 @@ namespace StudioEA.UI.Registros
         }
         private void AgregarButton_Click(object sender, RoutedEventArgs e)
         {
+        /*
             if (EventoIdTextBox.Text == null || EventoIdTextBox.Text == "0")
             {
                 EventoIdTextBox.Text = "0";
@@ -80,7 +81,9 @@ namespace StudioEA.UI.Registros
             EventoIdTextBox.Clear();
             MontoTextBox.Clear();
             ArticuloIdTextBox.Focus();
+          */
         }
+
 
         private void RemoverButton_Click(object sender, RoutedEventArgs e)
         {

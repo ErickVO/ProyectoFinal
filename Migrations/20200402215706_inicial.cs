@@ -132,6 +132,29 @@ namespace StudioEA.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Ventas",
+                columns: table => new
+                {
+                    VentaId = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    ClienteId = table.Column<int>(nullable: false),
+                    Nombre = table.Column<string>(nullable: true),
+                    Fecha = table.Column<DateTime>(nullable: false),
+                    Total = table.Column<decimal>(nullable: false),
+                    UsuarioId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Ventas", x => x.VentaId);
+                    table.ForeignKey(
+                        name: "FK_Ventas_Clientes_ClienteId",
+                        column: x => x.ClienteId,
+                        principalTable: "Clientes",
+                        principalColumn: "ClienteId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ComprasDetalle",
                 columns: table => new
                 {
@@ -162,41 +185,6 @@ namespace StudioEA.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Ventas",
-                columns: table => new
-                {
-                    VentaId = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    UsuarioId = table.Column<int>(nullable: false),
-                    ClienteId = table.Column<int>(nullable: false),
-                    FotografoId = table.Column<int>(nullable: false),
-                    Fecha = table.Column<DateTime>(nullable: false),
-                    MontoTotal = table.Column<decimal>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Ventas", x => x.VentaId);
-                    table.ForeignKey(
-                        name: "FK_Ventas_Clientes_ClienteId",
-                        column: x => x.ClienteId,
-                        principalTable: "Clientes",
-                        principalColumn: "ClienteId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Ventas_Fotografos_FotografoId",
-                        column: x => x.FotografoId,
-                        principalTable: "Fotografos",
-                        principalColumn: "FotografoId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Ventas_Usuarios_UsuarioId",
-                        column: x => x.UsuarioId,
-                        principalTable: "Usuarios",
-                        principalColumn: "UsuarioId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "VentasDetalle",
                 columns: table => new
                 {
@@ -204,21 +192,28 @@ namespace StudioEA.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     VentaId = table.Column<int>(nullable: false),
                     ArticuloId = table.Column<int>(nullable: false),
+                    Descripcion = table.Column<string>(nullable: true),
                     CantidadArticulo = table.Column<int>(nullable: false),
                     PrecioArticulo = table.Column<decimal>(nullable: false),
-                    EventoId = table.Column<int>(nullable: false),
-                    PrecioEvento = table.Column<decimal>(nullable: false),
-                    Monto = table.Column<decimal>(nullable: false)
+                    Monto = table.Column<decimal>(nullable: false),
+                    ArticulosId = table.Column<int>(nullable: true),
+                    EventoId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_VentasDetalle", x => x.VentasDetalleId);
                     table.ForeignKey(
+                        name: "FK_VentasDetalle_Articulos_ArticulosId",
+                        column: x => x.ArticulosId,
+                        principalTable: "Articulos",
+                        principalColumn: "ArticuloId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
                         name: "FK_VentasDetalle_Eventos_EventoId",
                         column: x => x.EventoId,
                         principalTable: "Eventos",
                         principalColumn: "EventoId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_VentasDetalle_Ventas_VentaId",
                         column: x => x.VentaId,
@@ -248,14 +243,9 @@ namespace StudioEA.Migrations
                 column: "ClienteId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Ventas_FotografoId",
-                table: "Ventas",
-                column: "FotografoId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Ventas_UsuarioId",
-                table: "Ventas",
-                column: "UsuarioId");
+                name: "IX_VentasDetalle_ArticulosId",
+                table: "VentasDetalle",
+                column: "ArticulosId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_VentasDetalle_EventoId",
@@ -277,13 +267,19 @@ namespace StudioEA.Migrations
                 name: "ComprasDetalle");
 
             migrationBuilder.DropTable(
+                name: "Fotografos");
+
+            migrationBuilder.DropTable(
+                name: "Usuarios");
+
+            migrationBuilder.DropTable(
                 name: "VentasDetalle");
 
             migrationBuilder.DropTable(
-                name: "Articulos");
+                name: "Compras");
 
             migrationBuilder.DropTable(
-                name: "Compras");
+                name: "Articulos");
 
             migrationBuilder.DropTable(
                 name: "Eventos");
@@ -293,12 +289,6 @@ namespace StudioEA.Migrations
 
             migrationBuilder.DropTable(
                 name: "Clientes");
-
-            migrationBuilder.DropTable(
-                name: "Fotografos");
-
-            migrationBuilder.DropTable(
-                name: "Usuarios");
         }
     }
 }
