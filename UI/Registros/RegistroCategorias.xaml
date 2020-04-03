@@ -36,7 +36,7 @@
                 <TextBox.Text>
                     <Binding Path="CategoriaId" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
-                            <ExceptionValidationRule></ExceptionValidationRule>
+                            <src:ValidacionId ValidatesOnTargetUpdated="True"/>
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>
@@ -51,7 +51,7 @@
                 <TextBox.Text>
                     <Binding Path="UsuarioId" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
-                            <ExceptionValidationRule></ExceptionValidationRule>
+                            <src:ValidacionId ValidatesOnTargetUpdated="True" /> 
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>
