@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudioEA.UI.Registros"
+        xmlns:src="clr-namespace:StudioEA.Validaciones"
         mc:Ignorable="d"
         Title="RegistroEventos" Height="450" Width="500" Icon="/Resources/CameraIcon.png" >
     <Grid>
@@ -39,7 +40,7 @@
                 <TextBox.Text>
                     <Binding Path="EventoId" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
-                            <ExceptionValidationRule></ExceptionValidationRule>
+                            <src:ValidacionId ValidatesOnTargetUpdated="True"/>
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>
@@ -55,7 +56,7 @@
                 <TextBox.Text>
                     <Binding Path="FotografoId" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
-                            <ExceptionValidationRule></ExceptionValidationRule>
+                            <src:ValidacionId ValidatesOnTargetUpdated="True"/>
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>
@@ -70,7 +71,7 @@
                 <TextBox.Text>
                     <Binding Path="UsuarioId" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
-                            <ExceptionValidationRule></ExceptionValidationRule>
+                            <src:ValidacionId ValidatesOnTargetUpdated="True"/>
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>
@@ -85,7 +86,7 @@
                 <TextBox.Text>
                     <Binding Path="Descripcion" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
-                            <ExceptionValidationRule></ExceptionValidationRule>
+                            <src:ValidacionCampoVacio ValidatesOnTargetUpdated="True"/>
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>
@@ -100,7 +101,7 @@
                 <TextBox.Text>
                     <Binding Path="Lugar" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
-                            <ExceptionValidationRule></ExceptionValidationRule>
+                            <src:ValidacionCampoVacio ValidatesOnTargetUpdated="True"/>
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>
@@ -146,7 +147,7 @@
                 <TextBox.Text>
                     <Binding Path="Precio" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
-                            <ExceptionValidationRule></ExceptionValidationRule>
+                            <src:ValidacionPrecio ValidatesOnTargetUpdated="True"/>
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>
@@ -162,10 +163,24 @@
         </StackPanel>
 
         <StackPanel  Grid.Row="8" Grid.Column="1">
-            <Button x:Name="GuardarButton" Content="Guardar" Margin="15" Width="85" Height="40" Click="GuardarButton_Click" HorizontalContentAlignment="Right">
+            <Button x:Name="GuardarButton" Content="Guardar" Margin="15" Width="86" Height="40" Click="GuardarButton_Click" HorizontalContentAlignment="Right">
                 <Button.Background>
                     <ImageBrush Stretch="Uniform" ImageSource="/Resources/Guardar.png" AlignmentX="Left"/>
                 </Button.Background>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle}">
+                        <Setter Property="IsEnabled" Value="false" />
+                        <Style.Triggers>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding ElementName=UsuarioIdTextBox, Path=(Validation.HasError)}" Value="false" />
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="IsEnabled" Value="true" />
+                            </MultiDataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
             </Button>
         </StackPanel>
 
