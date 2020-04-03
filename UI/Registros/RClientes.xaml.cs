@@ -15,7 +15,7 @@ using StudioEA.BLL;
 namespace StudioEA.UI.Registros
 {
     /// <summary>
-    /// Interaction logic for RClientes.xaml
+    /// Interaction logic for rClientes.xaml
     /// </summary>
     public partial class RClientes : Window
     {

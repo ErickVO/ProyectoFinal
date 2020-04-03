@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudioEA.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro usuarios" Height="280" Width="500" WindowStartupLocation="CenterScreen" Icon="/Resources/Remover.png">
+        Title="Registro usuarios" Height="320" Width="500" WindowStartupLocation="CenterScreen" Icon="/Resources/CameraIcon.png">
+    <Window.Background>
+        <ImageBrush ImageSource="/Resources/FondoRegistros.jpg"/>
+    </Window.Background>
     <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="/Resources/Fondo2.jpg"/>
-        </Grid.Background>
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
@@ -90,19 +91,35 @@
         </StackPanel>
 
         <StackPanel Grid.Column="2">
-            <Button x:Name="BuscarButton" Content="Buscar" Margin="5" Width="70" Height="24" HorizontalAlignment="Center" Click="BuscarButton_Click"/>
+            <Button x:Name="BuscarButton" Content="Buscar" Margin="5" Width="70" Height="24" HorizontalContentAlignment="Right" HorizontalAlignment="Center" Click="BuscarButton_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Resources/Buscar.png" Stretch="Uniform" AlignmentX="Left"/>
+                </Button.Background>
+            </Button>
         </StackPanel>
 
         <StackPanel Grid.Row="5">
-            <Button x:Name="NuevoButton" Content="Nuevo" Margin="15" Width="70" Height="24" HorizontalAlignment="Center" Click="NuevoButton_Click"/>
+            <Button x:Name="NuevoButton" Content="Nuevo" Margin="15" Width="85" Height="40" HorizontalContentAlignment="Right" HorizontalAlignment="Center" Click="NuevoButton_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Resources/Nuevo.png" Stretch="Uniform" AlignmentX="Left"/>
+                </Button.Background>
+            </Button>
         </StackPanel>
 
         <StackPanel Grid.Row="5" Grid.Column="1">
-            <Button x:Name="GuardarButton" Content="Guardar" Margin="15" Width="70" Height="24" HorizontalAlignment="Center" Click="GuardarButton_Click"/>
+            <Button x:Name="GuardarButton" Content="Guardar" Margin="15" Width="85" Height="40" HorizontalContentAlignment="Right" HorizontalAlignment="Center" Click="GuardarButton_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Resources/Guardar.png" Stretch="Uniform" AlignmentX="Left"/>
+                </Button.Background>
+            </Button>
         </StackPanel>
 
         <StackPanel Grid.Row="5" Grid.Column="2">
-            <Button x:Name="EliminarButton" Content="Eliminar" Margin="15" Width="70" Height="24" HorizontalAlignment="Center" Click="EliminarButton_Click"/>
+            <Button x:Name="EliminarButton" Content="Eliminar" Margin="15" Width="85" Height="40" HorizontalContentAlignment="Right" HorizontalAlignment="Center" Click="EliminarButton_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Resources/Eliminar.png" Stretch="Uniform" AlignmentX="Left"/>
+                </Button.Background>
+            </Button>
         </StackPanel>
     </Grid>
 </Window>
