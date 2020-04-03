@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudioEA.UI.Menu"
         mc:Ignorable="d"
-        Title="VentanaPrincipal" Height="450" Width="800">
+        Title="Studio EA" Height="450" Width="800" Icon="/Resources/CameraIcon.png" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush ImageSource="/Resources/FondoRegistros.jpg"/>
+    </Window.Background>
     <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="/Resources/Fondo2.jpg"/>
-        </Grid.Background>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition/>
