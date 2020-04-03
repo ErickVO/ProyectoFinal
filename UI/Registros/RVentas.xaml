@@ -40,7 +40,7 @@
         <StackPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
             <TextBox x:Name="VentaIdTextBox" Width="80" HorizontalAlignment="Left">
                 <TextBox.Text>
-                    <Binding Path="VentaId" Mode="TwoWay">
+                    <Binding x:Name="binding" Path="VentaId" Mode="TwoWay">
                         <Binding.ValidationRules>
                             <ExceptionValidationRule/>
                         </Binding.ValidationRules>
@@ -72,9 +72,9 @@
         <StackPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
             <TextBox x:Name="NombresTextBox" Width="180" IsReadOnly="True">
                 <TextBox.Text>
-                    <Binding Path="Nombres" Mode="TwoWay"></Binding>
+                    <Binding Path="Nombre" Mode="TwoWay"></Binding>
                 </TextBox.Text>
-            </TextBox> 
+            </TextBox>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -84,7 +84,7 @@
         <StackPanel Grid.Row="2" Grid.Column="4" VerticalAlignment="Center">
             <TextBox x:Name="ApellidosTextBox" Width="180" IsReadOnly="True">
                 <TextBox.Text>
-                    <Binding Path="Apellidos" Mode="TwoWay"/>
+                    <Binding Path="Apellido" Mode="TwoWay"/>
                 </TextBox.Text>
             </TextBox>
         </StackPanel>
@@ -92,7 +92,7 @@
         <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10">
             <TextBlock Text="Fecha" Foreground="White" FontWeight="Bold"/>
         </StackPanel>
-        
+
         <StackPanel Grid.Row="3" Grid.Column="1" VerticalAlignment="Center">
             <DatePicker x:Name="FechaDatePicker" IsEnabled="False" >
                 <DatePicker.SelectedDate>
@@ -164,7 +164,7 @@
                 </TextBox.Text>
             </TextBox>
         </StackPanel>
-        
+
         <StackPanel Grid.Row="6" Margin="0,10" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="Evento ID" Foreground="White" FontWeight="Bold"/>
         </StackPanel>
@@ -194,10 +194,15 @@
         </StackPanel>
 
         <StackPanel Grid.Row="8" Grid.ColumnSpan="4" Margin="9,1">
-            <DataGrid x:Name="VentaDetalleDataGrid" Height="100">
-                <DataGrid.ItemsSource>
-                    <Binding Path="VentasDetalle" Mode="TwoWay"/>
-                </DataGrid.ItemsSource>
+            <DataGrid x:Name="VentaDetalleDataGrid" Height="100" AutoGenerateColumns="False" ItemsSource="{Binding VentasDetalle}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Venta Id" Binding="{Binding VentaId}"/>
+                    <DataGridTextColumn Header="Articulo Id" Binding="{Binding ArticuloId}"/>
+                    <DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}"/>
+                    <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}"/>
+                    <DataGridTextColumn Header="Precio artículo" Binding="{Binding PrecioArticulo}"/>
+                    <DataGridTextColumn Header="Monto" Binding="{Binding Monto}"/>
+                </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
 

@@ -118,15 +118,19 @@ namespace StudioEA.BLL
         public static String ObtenerNombre(int id)
         {
             Clientes cliente = Buscar(id);
-            String Nombre = cliente.Nombres;
-            return Nombre;
+            if (cliente == null)
+                return "No existe el cliente";
+            else
+                return cliente.Nombres;
         }
 
         public static String ObtenerApellido(int id)
         {
             Clientes cliente = Buscar(id);
-            String Apellido = cliente.Apellidos;
-            return Apellido;
+            if (cliente == null)
+                return "No existe el cliente";
+            else
+                return cliente.Apellidos; ;
         }
     }
 }

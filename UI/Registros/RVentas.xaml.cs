@@ -164,15 +164,29 @@ namespace StudioEA.UI.Registros
         private void CantidadTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
-            decimal Precio,Monto;
+            decimal Precio,Monto,cant;
             decimal.TryParse(PrecioATextBox.Text, out Precio);
-            int Cantidad;
+            int Cantidad,id;
             int.TryParse(CantidadTextBox.Text, out Cantidad);
+            int.TryParse(ArticulosIdTextBox.Text, out id);
+
+            cant = ArticulosBLL.ObtenerCantidad(id);
 
             if (Cantidad > 0)
             {
-                Monto = Precio * Cantidad;
-                MontoTextBox.Text = Convert.ToString(Monto);
+                if(Cantidad <= cant)
+                {
+                    Monto = Precio * Cantidad;
+                    MontoTextBox.Text = Convert.ToString(Monto);
+                }
+                else
+                {
+                    MessageBox.Show("No tiene tanta cantidad disponible");
+                    CantidadTextBox.Clear();
+                    MontoTextBox.Clear();
+                    CantidadTextBox.Focus();
+                }
+                
             }
         }
 

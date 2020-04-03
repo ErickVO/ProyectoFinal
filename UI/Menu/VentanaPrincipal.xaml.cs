@@ -74,7 +74,8 @@ namespace StudioEA.UI.Menu
 
         private void MenuItem_Click_8(object sender, RoutedEventArgs e)
         {
-
+            cUsuarios cu = new cUsuarios();
+            cu.Show();
         }
 
         private void MenuItem_Click_9(object sender, RoutedEventArgs e)
