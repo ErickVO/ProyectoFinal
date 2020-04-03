@@ -11,8 +11,8 @@ namespace StudioEA.Entidades
         [Key]
         public int VentaId { get; set; }
         public int ClienteId { get; set; }
-        public String Nombre { get; set; }
-        public String Apellido { get; set; }
+        public String Nombres { get; set; }
+        public String Apellidos { get; set; }
         public DateTime Fecha { get; set; }
         public decimal Total { get; set; }
 
@@ -23,8 +23,8 @@ namespace StudioEA.Entidades
         {
             VentaId = 0;
             ClienteId = 0;
-            Nombre = string.Empty;
-            Apellido = string.Empty;
+            Nombres = string.Empty;
+            Apellidos = string.Empty;
             Fecha = DateTime.Now;
             Total = 0.0m;
             VentasDetalle = new List<VentasDetalle>();
@@ -34,8 +34,8 @@ namespace StudioEA.Entidades
         {
             VentaId = ventaId;
             ClienteId = clienteId;
-            Nombre = nombre;
-            Apellido = apellido;
+            Nombres = nombre;
+            Apellidos = apellido;
             Fecha = fecha;
             Total = total;
             VentasDetalle = ventasDetalle;

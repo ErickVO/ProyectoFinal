@@ -138,8 +138,8 @@ namespace StudioEA.Migrations
                     VentaId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     ClienteId = table.Column<int>(nullable: false),
-                    Nombre = table.Column<string>(nullable: true),
-                    Apellido = table.Column<string>(nullable: true),
+                    Nombres = table.Column<string>(nullable: true),
+                    Apellidos = table.Column<string>(nullable: true),
                     Fecha = table.Column<DateTime>(nullable: false),
                     Total = table.Column<decimal>(nullable: false)
                 },
@@ -196,7 +196,8 @@ namespace StudioEA.Migrations
                     Cantidad = table.Column<int>(nullable: false),
                     PrecioArticulo = table.Column<decimal>(nullable: false),
                     Monto = table.Column<decimal>(nullable: false),
-                    ArticulosId = table.Column<int>(nullable: true)
+                    ArticulosId = table.Column<int>(nullable: true),
+                    EventoId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -206,6 +207,12 @@ namespace StudioEA.Migrations
                         column: x => x.ArticulosId,
                         principalTable: "Articulos",
                         principalColumn: "ArticuloId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_VentasDetalle_Eventos_EventoId",
+                        column: x => x.EventoId,
+                        principalTable: "Eventos",
+                        principalColumn: "EventoId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_VentasDetalle_Ventas_VentaId",
@@ -241,6 +248,11 @@ namespace StudioEA.Migrations
                 column: "ArticulosId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_VentasDetalle_EventoId",
+                table: "VentasDetalle",
+                column: "EventoId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_VentasDetalle_VentaId",
                 table: "VentasDetalle",
                 column: "VentaId");
@@ -253,9 +265,6 @@ namespace StudioEA.Migrations
 
             migrationBuilder.DropTable(
                 name: "ComprasDetalle");
-
-            migrationBuilder.DropTable(
-                name: "Eventos");
 
             migrationBuilder.DropTable(
                 name: "Fotografos");
@@ -271,6 +280,9 @@ namespace StudioEA.Migrations
 
             migrationBuilder.DropTable(
                 name: "Articulos");
+
+            migrationBuilder.DropTable(
+                name: "Eventos");
 
             migrationBuilder.DropTable(
                 name: "Ventas");

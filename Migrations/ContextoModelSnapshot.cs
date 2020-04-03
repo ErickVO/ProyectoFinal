@@ -262,7 +262,7 @@ namespace StudioEA.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Apellido")
+                    b.Property<string>("Apellidos")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("ClienteId")
@@ -271,7 +271,7 @@ namespace StudioEA.Migrations
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Nombre")
+                    b.Property<string>("Nombres")
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("Total")
@@ -302,6 +302,9 @@ namespace StudioEA.Migrations
                     b.Property<string>("Descripcion")
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("EventoId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<decimal>("Monto")
                         .HasColumnType("TEXT");
 
@@ -314,6 +317,8 @@ namespace StudioEA.Migrations
                     b.HasKey("VentasDetalleId");
 
                     b.HasIndex("ArticulosId");
+
+                    b.HasIndex("EventoId");
 
                     b.HasIndex("VentaId");
 
@@ -345,6 +350,10 @@ namespace StudioEA.Migrations
                     b.HasOne("StudioEA.Entidades.Articulos", null)
                         .WithMany("VentasDetalle")
                         .HasForeignKey("ArticulosId");
+
+                    b.HasOne("StudioEA.Entidades.Eventos", null)
+                        .WithMany("VentasDetalle")
+                        .HasForeignKey("EventoId");
 
                     b.HasOne("StudioEA.Entidades.Ventas", null)
                         .WithMany("VentasDetalle")

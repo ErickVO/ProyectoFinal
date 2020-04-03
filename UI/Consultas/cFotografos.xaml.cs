@@ -15,31 +15,31 @@ using StudioEA.BLL;
 namespace StudioEA.UI.Consultas
 {
     /// <summary>
-    /// Interaction logic for cClientes.xaml
+    /// Interaction logic for cFotografos.xaml
     /// </summary>
-    public partial class cClientes : Window
+    public partial class cFotografos : Window
     {
-        public cClientes()
+        public cFotografos()
         {
             InitializeComponent();
         }
 
         private void ConsultarButton_Click(object sender, RoutedEventArgs e)
         {
-            var listado = new List<Clientes>();
+            var listado = new List<Fotografos>();
 
             if (CriterioTextBox.Text.Trim().Length > 0)
             {
                 switch (FiltroComboBox.SelectedIndex)
                 {
                     case 0://Todo
-                        listado = ClientesBLL.GetList(u => true);
+                        listado = FotografosBLL.GetList(u => true);
                         break;
                     case 1:
                         try
                         {
                             int id = Convert.ToInt32(CriterioTextBox.Text);
-                            listado = ClientesBLL.GetList(c => c.ClienteId == id);
+                            listado = FotografosBLL.GetList(c => c.FotografoId == id);
                         }
                         catch (FormatException)
                         {
@@ -50,7 +50,7 @@ namespace StudioEA.UI.Consultas
                         try
                         {
 
-                            listado = ClientesBLL.GetList(c => c.Nombres.Contains(CriterioTextBox.Text));
+                            listado = FotografosBLL.GetList(c => c.Nombre.Contains(CriterioTextBox.Text));
                         }
                         catch (FormatException)
                         {
@@ -61,7 +61,7 @@ namespace StudioEA.UI.Consultas
                         try
                         {
 
-                            listado = ClientesBLL.GetList(c => c.Apellidos.Contains(CriterioTextBox.Text));
+                            listado = FotografosBLL.GetList(c => c.Cedula.Contains(CriterioTextBox.Text));
                         }
                         catch (FormatException)
                         {
@@ -72,18 +72,7 @@ namespace StudioEA.UI.Consultas
                         try
                         {
 
-                            listado = ClientesBLL.GetList(c => c.Cedula.Contains(CriterioTextBox.Text));
-                        }
-                        catch (FormatException)
-                        {
-                            MessageBox.Show("Por favor, ingrese un Critero valido");
-                        }
-                        break;
-                    case 5:
-                        try
-                        {
-
-                            listado = ClientesBLL.GetList(c => c.Sexo.Contains(CriterioTextBox.Text));
+                            listado = FotografosBLL.GetList(c => c.Sexo.Contains(CriterioTextBox.Text));
                         }
                         catch (FormatException)
                         {
@@ -95,7 +84,7 @@ namespace StudioEA.UI.Consultas
             }
             else
             {
-                listado = ClientesBLL.GetList(c => true);
+                listado = FotografosBLL.GetList(c => true);
             }
 
             ConsultaDataGrid.ItemsSource = null;

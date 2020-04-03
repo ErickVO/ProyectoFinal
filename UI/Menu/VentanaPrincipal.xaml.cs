@@ -80,12 +80,14 @@ namespace StudioEA.UI.Menu
 
         private void MenuItem_Click_9(object sender, RoutedEventArgs e)
         {
-
+            cClientes cc = new cClientes();
+            cc.Show();
         }
 
         private void MenuItem_Click_10(object sender, RoutedEventArgs e)
         {
-
+            cFotografos cf = new cFotografos();
+            cf.Show();
         }
 
         private void MenuItem_Click_11(object sender, RoutedEventArgs e)
@@ -114,7 +116,8 @@ namespace StudioEA.UI.Menu
 
         private void MenuItem_Click_15(object sender, RoutedEventArgs e)
         {
-
+            cVentas cv = new cVentas();
+            cv.Show();
         }
     }
 }
