@@ -5,8 +5,68 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudioEA.UI.Consultas"
         mc:Ignorable="d"
-        Title="cClientes" Height="450" Width="800">
+        Title="Consulta de clientes" Height="450" Width="800" Icon="/Resources/CameraIcon.png" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush ImageSource="/Resources/FondoRegistros.jpg"/>
+    </Window.Background>
     <Grid>
-        
-    </Grid>
+       
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel/>
+
+            <StackPanel Grid.Column="1"/>
+
+            <StackPanel Margin="50,0">
+                <Label Content="Filtro"/>
+                <ComboBox x:Name="FiltroComboBox" SelectedIndex="0" Width="200">
+                    <ComboBoxItem Content="Todo"/>
+                    <ComboBoxItem Content="ClienteId"/>
+                    <ComboBoxItem Content="Nombres"/>
+                    <ComboBoxItem Content="Apellidos"/>
+                    <ComboBoxItem Content="Cedula"/>
+                <ComboBoxItem Content="Sexo"/>
+            </ComboBox>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1">
+                <Label Content="Criterio"/>
+                <TextBox x:Name="CriterioTextBox" Width="220" Height="20"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2">
+                <Button x:Name="ConsultarButton" Content="Consultar" HorizontalContentAlignment="Right" Width="100" Height="40" Margin="30,5" Click="ConsultarButton_Click">
+                    <Button.Background>
+                        <ImageBrush Stretch="Uniform" ImageSource="/Resources/buscar.png" AlignmentX="Left"/>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Grid.ColumnSpan="5">
+                <DataGrid x:Name="ConsultaDataGrid" Margin="10,3" IsReadOnly="True" AutoGenerateColumns="False" Height="375" Width="769">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Clientes ID" Binding="{Binding ClienteId}"/>
+                        <DataGridTextColumn Header="Nombres" Binding="{Binding Nombres}"/>
+                        <DataGridTextColumn Header="Apellidos" Binding="{Binding Apellidos}"/>
+                        <DataGridTextColumn Header="Cédula" Binding="{Binding Cedula}"/>
+                        <DataGridTextColumn Header="Dirección" Binding="{Binding Direccion}"/>
+                        <DataGridTextColumn Header="Teléfono" Binding="{Binding Telefono}"/>
+                        <DataGridTextColumn Header="Celular" Binding="{Binding Celular}"/>
+                        <DataGridTextColumn Header="Sexo" Binding="{Binding Sexo}"/>
+                        <DataGridTextColumn Header="Fecha Nacimiento" Binding="{Binding FechaNacimiento}"/>
+                </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </Grid>
 </Window>
