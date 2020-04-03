@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudioEA.UI.Registros"
+        xmlns:src="clr-namespace:StudioEA.Validaciones"
         mc:Ignorable="d"
         Title="RegistroEventos" Height="450" Width="500" Icon="/Resources/CameraIcon.png" >
     <Grid>
@@ -166,6 +167,10 @@
                 <Button.Background>
                     <ImageBrush Stretch="Uniform" ImageSource="/Resources/Guardar.png" AlignmentX="Left"/>
                 </Button.Background>
+                
+                
+                
+                
             </Button>
         </StackPanel>
 
