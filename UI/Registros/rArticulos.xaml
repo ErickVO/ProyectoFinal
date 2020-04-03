@@ -93,9 +93,6 @@
             <TextBox x:Name="StockTextBox" Width="150" Margin="10,13" HorizontalAlignment="Left" IsReadOnly="True">
                 <TextBox.Text>
                     <Binding Path="Stock" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
-                        <Binding.ValidationRules>
-                            <src:ValidacionCantidad ValidatesOnTargetUpdated="True"/>
-                        </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>
             </TextBox>
@@ -123,9 +120,6 @@
             <TextBox x:Name="CostoTextBox" Width="150" Margin="10,13" HorizontalAlignment="Left" IsReadOnly="True">
                 <TextBox.Text>
                     <Binding Path="Costo" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
-                        <Binding.ValidationRules>
-                            <src:ValidacionCosto ValidatesOnTargetUpdated="True"></src:ValidacionCosto>
-                        </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>
             </TextBox>
@@ -140,7 +134,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="8" Grid.Column="1">
-            <Button x:Name="GuardarButton" Margin="15" Width="85" Height="40" Content="Guardar" HorizontalContentAlignment="Right" Click="GuardarButton_Click">
+            <Button x:Name="GuardarButton" Foreground="White" FontWeight="Bold" Margin="15" Width="85" Height="40" Content="Guardar" HorizontalContentAlignment="Right" Click="GuardarButton_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/Resources/Guardar.png" Stretch="Uniform" AlignmentX="Left"/>
                 </Button.Background>
@@ -151,11 +145,11 @@
                             <MultiDataTrigger>
                                 <MultiDataTrigger.Conditions>
                                     <Condition Binding="{Binding ElementName=UsuarioIdTextBox, Path=(Validation.HasError)}" Value="false" />
-                                    <Condition Binding="{Binding ElementName=FechaDatePicker, Path=(Validation.HasError)}" Value="false" />
-                                    <Condition Binding="{Binding ElementName=NombresTextBox, Path=(Validation.HasError)}" Value="false" />
-                                    <Condition Binding="{Binding ElementName=UsuarioTextBox, Path=(Validation.HasError)}" Value="false" />
-                                    <Condition Binding="{Binding ElementName=ClaveTextBox, Path=(Validation.HasError)}" Value="false" />
-                                    <Condition Binding="{Binding ElementName=EmailTextBox, Path=(Validation.HasError)}" Value="false" />
+                                    <Condition Binding="{Binding ElementName=ArticuloIdTextBox, Path=(Validation.HasError)}" Value="false" />
+                                    <Condition Binding="{Binding ElementName=DescripcionTextBox, Path=(Validation.HasError)}" Value="false" />
+                                    <Condition Binding="{Binding ElementName=CategoriasTextBox, Path=(Validation.HasError)}" Value="false" />
+                                    <Condition Binding="{Binding ElementName=PrecioTextBox, Path=(Validation.HasError)}" Value="false" />
+                                
                                 </MultiDataTrigger.Conditions>
                                 <Setter Property="IsEnabled" Value="true" />
                             </MultiDataTrigger>
@@ -176,7 +170,7 @@
         </StackPanel>
 
         <StackPanel  Grid.Column="2">
-            <Button x:Name="BuscarButton" Margin="4" Width="85" Height="40" Content="Buscar" HorizontalContentAlignment="Right" Click="BuscarButton_Click">
+            <Button x:Name="BuscarButton" Foreground="White" FontWeight="Bold" Margin="4" Width="85" Height="40" Content="Buscar" HorizontalContentAlignment="Right" Click="BuscarButton_Click">
                 <Button.Background>
                     <ImageBrush Stretch="Uniform" ImageSource="/Resources/Buscar.png" AlignmentX="Left"/>
                 </Button.Background>

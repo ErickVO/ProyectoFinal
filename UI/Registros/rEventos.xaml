@@ -163,7 +163,7 @@
         </StackPanel>
 
         <StackPanel  Grid.Row="8" Grid.Column="1">
-            <Button x:Name="GuardarButton" Content="Guardar" Margin="15" Width="86" Height="40" Click="GuardarButton_Click" HorizontalContentAlignment="Right">
+            <Button x:Name="GuardarButton" Foreground="White" FontWeight="Bold" Content="Guardar" Margin="15" Width="86" Height="40" Click="GuardarButton_Click" HorizontalContentAlignment="Right">
                 <Button.Background>
                     <ImageBrush Stretch="Uniform" ImageSource="/Resources/Guardar.png" AlignmentX="Left"/>
                 </Button.Background>
@@ -198,7 +198,7 @@
         </StackPanel>
 
         <StackPanel Orientation="Horizontal"  Grid.Column="2">
-            <Button x:Name="BuscarButton" Content="Buscar" Margin="15,5" Width="80" Height="40" Click="BuscarButton_Click" HorizontalContentAlignment="Right">
+            <Button x:Name="BuscarButton" Foreground="White" FontWeight="Bold" Content="Buscar" Margin="15,5" Width="80" Height="40" Click="BuscarButton_Click" HorizontalContentAlignment="Right">
                 <Button.Background>
                     <ImageBrush Stretch="Uniform" ImageSource="/Resources/Buscar.png" AlignmentX="Left"/>
                 </Button.Background>
@@ -209,7 +209,7 @@
                         <Style.Triggers>
                             <MultiDataTrigger>
                                 <MultiDataTrigger.Conditions>
-                                    <Condition Binding="{Binding ElementName=CompraIdTextBox, Path=(Validation.HasError)}" Value="false" />
+                                    <Condition Binding="{Binding ElementName=EventoIdTextBox, Path=(Validation.HasError)}" Value="false" />
                                 </MultiDataTrigger.Conditions>
                                 <Setter Property="IsEnabled" Value="true" />
                             </MultiDataTrigger>

@@ -82,7 +82,7 @@
         </StackPanel>
 
         <StackPanel  Grid.Row="6" Grid.Column="1">
-            <Button x:Name="GuardarButton" Content="Guardar" Width="86" Height="40" Margin="15" Click="GuardarButton_Click" HorizontalContentAlignment="Right">
+            <Button x:Name="GuardarButton" Foreground="White" FontWeight="Bold" Content="Guardar" Width="86" Height="40" Margin="15" Click="GuardarButton_Click" HorizontalContentAlignment="Right">
                 <Button.Background>
                     <ImageBrush Stretch="Uniform" ImageSource="/Resources/Guardar.png" AlignmentX="Left"/>
                 </Button.Background>
@@ -114,7 +114,7 @@
         </StackPanel>
 
         <StackPanel  Grid.Column="2">
-            <Button x:Name="BuscarButton" Content="Buscar" Width="85" Height="40" Margin="15,5" HorizontalContentAlignment="Right" Click="BuscarButton_Click">
+            <Button x:Name="BuscarButton" Content="Buscar" Foreground="White" FontWeight="Bold" Width="85" Height="40" Margin="15,5" HorizontalContentAlignment="Right" Click="BuscarButton_Click">
                 <Button.Background>
                     <ImageBrush Stretch="Uniform" ImageSource="/Resources/Buscar.png" AlignmentX="Left"/>
                 </Button.Background>
