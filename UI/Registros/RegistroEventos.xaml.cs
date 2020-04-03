@@ -38,6 +38,7 @@ namespace StudioEA.UI.Registros
         {
             EventoIdTextBox.Text = "0";
             UsuarioIdTextBox.Text = string.Empty;
+            FotografoIdTextBox.Text = string.Empty;
             DescripcionTextBox.Text = string.Empty;
             LugarTextBox.Text = string.Empty;
             FechaInicioDatePicker.Text = string.Empty;

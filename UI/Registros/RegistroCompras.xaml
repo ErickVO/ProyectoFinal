@@ -8,7 +8,7 @@
         Title="RegistroCompras" Height="560" Width="830" Icon="/Resources/CameraIcon.png">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Resources/Fondo2.jpg"/>
+            <ImageBrush ImageSource="/Resources/FondoRegistros.jpg"/>
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
