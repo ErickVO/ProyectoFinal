@@ -136,6 +136,7 @@ namespace StudioEA.UI.Registros
             if (a != null)
             {
                 articulos = a;
+                obtenerListado();
                 Cargar();
             }
             else
@@ -143,6 +144,16 @@ namespace StudioEA.UI.Registros
                 MessageBox.Show("No se encontro", "ERROR");
             }
         }
+
+        private void obtenerListado()
+        {
+            for (int i = 0; i < CategoriaId.Count; i++)
+            {
+                if (CategoriaId[i] == articulos.CategoriaId)
+                    CategoriasTextBox.SelectedIndex = i;
+            }
+
+            }
 
 
     }
