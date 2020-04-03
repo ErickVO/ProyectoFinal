@@ -114,5 +114,19 @@ namespace StudioEA.BLL
             }
             return Lista;
         }
+
+        public static String ObtenerNombre(int id)
+        {
+            Clientes cliente = Buscar(id);
+            String Nombre = cliente.Nombres;
+            return Nombre;
+        }
+
+        public static String ObtenerApellido(int id)
+        {
+            Clientes cliente = Buscar(id);
+            String Apellido = cliente.Apellidos;
+            return Apellido;
+        }
     }
 }

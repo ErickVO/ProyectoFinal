@@ -26,23 +26,24 @@ namespace StudioEA.UI.Registros
             InitializeComponent();
             this.DataContext = venta;
             VentaIdTextBox.Text = "0";
-            EventoIdTextBox.Text = "0";
-            /*FotografoIdTextBox.Text = "0";
-            UsuarioIdTextBox.Text = "0";
-            CantidadTextBox.Text = "0";
-            PrecioArticuloTextBox.Text = "0";
-            PrecioEventoTextBox.Text = "0";*/
+            FechaDatePicker.SelectedDate = DateTime.Now;
         }
 
         private void Limpiar()
         {
-           /* VentaIdTextBox.Text = "0";
-            EventoIdTextBox.Text = "0";
-            FotografoIdTextBox.Text = "0";
-            UsuarioIdTextBox.Text = "0";
-            CantidadTextBox.Text = "0";
-            PrecioArticuloTextBox.Text = "0";
-            PrecioEventoTextBox.Text = "0";*/
+            VentaIdTextBox.Text = "0";
+            ClienteIdTextBox.Text = string.Empty;
+            NombresTextBox.Text = string.Empty;
+            ApellidosTextBox.Text = string.Empty;
+            FechaDatePicker.SelectedDate = DateTime.Now;
+            TotalTextBox.Text = string.Empty;
+            ArticulosIdTextBox.Text = string.Empty;
+            DescripcionTextBox.Text = string.Empty;
+            CantidadTextBox.Text = string.Empty;
+            PrecioATextBox.Text = string.Empty;
+            MontoTextBox.Text = string.Empty;
+
+            venta.VentasDetalle = new List<VentasDetalle>();
             venta = new Ventas();
             Actualizar();
         }
@@ -59,37 +60,34 @@ namespace StudioEA.UI.Registros
         }
         private void AgregarButton_Click(object sender, RoutedEventArgs e)
         {
-            /*if (EventoIdTextBox.Text == null || EventoIdTextBox.Text == "0")
-            {
-                EventoIdTextBox.Text = "0";
-            }
-            venta.VentasDetalle.Add(new VentasDetalle(venta.VentaId,Convert.ToInt32(ArticuloIdTextBox.Text), 
-                    Convert.ToInt32(CantidadTextBox.Text),
-                    Convert.ToDecimal(PrecioArticuloTextBox.Text),
-                    Convert.ToInt32(EventoIdTextBox.Text),
-                    Convert.ToDecimal(PrecioEventoTextBox.Text),
-                    Convert.ToDecimal(MontoTextBox.Text))
-             );
+            venta.VentasDetalle.Add(new VentasDetalle(venta.VentaId, Convert.ToInt32(ArticulosIdTextBox.Text),
+                DescripcionTextBox.Text,Convert.ToInt32(CantidadTextBox.Text),Convert.ToDecimal(PrecioATextBox.Text),
+                Convert.ToDecimal(MontoTextBox.Text)));
 
-            venta.MontoTotal += Convert.ToDecimal(MontoTextBox.Text);
-            MontoTotalTextBox.Text = Convert.ToString(venta.MontoTotal);
+            ArticulosBLL.StockResta(Convert.ToInt32(ArticulosIdTextBox.Text), Convert.ToInt32(CantidadTextBox.Text));
+
+            decimal total;
+            decimal.TryParse(MontoTextBox.Text, out total);
+            venta.Total += total;
+            TotalTextBox.Text = Convert.ToString(venta.Total);
 
             Actualizar();
-            ArticuloIdTextBox.Clear();
+
+            ArticulosIdTextBox.Clear();
+            DescripcionTextBox.Clear();
             CantidadTextBox.Clear();
-            EventoIdTextBox.Clear();
+            PrecioATextBox.Clear();
             MontoTextBox.Clear();
-            ArticuloIdTextBox.Focus();*/
         }
 
         private void RemoverButton_Click(object sender, RoutedEventArgs e)
         {
-          /*  if (DetalleDataGrid.Items.Count > 1 && DetalleDataGrid.SelectedIndex < DetalleDataGrid.Items.Count - 1)
+            if (VentaDetalleDataGrid.Items.Count > 1 && VentaDetalleDataGrid.SelectedIndex < VentaDetalleDataGrid.Items.Count - 1)
             {
-                venta.VentasDetalle.RemoveAt(DetalleDataGrid.SelectedIndex);
+                venta.VentasDetalle.RemoveAt(VentaDetalleDataGrid.SelectedIndex);
 
                 Actualizar();
-            }*/
+            }
         }
 
         private bool existeEnLaBasedeDatos()
@@ -98,15 +96,21 @@ namespace StudioEA.UI.Registros
             return (ventas != null);
         }
 
+        private bool existeEnLaBasedeDatosActiculos()
+        {
+            Articulos articulo = ArticulosBLL.Buscar(Convert.ToInt32(ArticulosIdTextBox.Text));
+            return (articulo != null);
+        }
+
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
         {
             bool paso = false;
 
-            if (VentaIdTextBox.Text == "0")
+            if (venta.VentaId == 0)
                 paso = VentasBLL.Guardar(venta);
             else
             {
-                if (!existeEnLaBasedeDatos())
+                if (!existeEnLaBasedeDatos() && existeEnLaBasedeDatosActiculos())
                 {
                     paso = VentasBLL.Modificar(venta);
                 }
@@ -130,7 +134,7 @@ namespace StudioEA.UI.Registros
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
-            Ventas VentaAnterior = VentasBLL.Buscar(Convert.ToInt32(VentaIdTextBox.Text));
+            Ventas VentaAnterior = VentasBLL.Buscar(venta.VentaId);
 
             if (VentaAnterior != null)
             {
@@ -155,72 +159,48 @@ namespace StudioEA.UI.Registros
                 MessageBox.Show("No se pudo eliminar una venta que no existe");
         }
 
-        private void LlenaCampoArticulos(Articulos articulos)
-        {
-           // PrecioArticuloTextBox.Text = Convert.ToString(articulos.Precio);
-        }
-
-        private void LlenaCampoEventos(Eventos eventos)
-        {
-           // PrecioEventoTextBox.Text = Convert.ToString(eventos.Precio);
-        }
-
-        private void ArticuloIdTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-           /* if (!string.IsNullOrWhiteSpace(ArticuloIdTextBox.Text))
-            {
-                int id;
-                Articulos articulo = new Articulos();
-                int.TryParse(ArticuloIdTextBox.Text, out id);
-
-                articulo = ArticulosBLL.Buscar(id);
-                if (articulo != null)
-                {
-                    LlenaCampoArticulos(articulo);
-                }
-                else
-                {
-                    PrecioArticuloTextBox.Text = "0";
-                }
-            }*/
-        }
-
-        private void EventoIdTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-           /* if (!string.IsNullOrWhiteSpace(EventoIdTextBox.Text))
-            {
-                int id;
-                Eventos evento = new Eventos();
-                int.TryParse(EventoIdTextBox.Text, out id);
-
-                evento = EventosBLL.Buscar(id);
-                if (evento != null)
-                {
-                    LlenaCampoEventos(evento);
-                    decimal Monto, Precio = Convert.ToDecimal(PrecioEventoTextBox.Text);
-
-                    Monto = Precio;
-                    MontoTextBox.Text = Convert.ToString(Monto);
-                }
-                else
-                {
-                    PrecioEventoTextBox.Text = "0";
-                }
-            }*/
-        }
 
        
         private void CantidadTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-           /* if (!string.IsNullOrWhiteSpace(PrecioArticuloTextBox.Text) && !string.IsNullOrWhiteSpace(CantidadTextBox.Text))
-            {
-                decimal Monto, Precio = Convert.ToDecimal(PrecioArticuloTextBox.Text);
-                decimal Cantidad = Convert.ToDecimal(CantidadTextBox.Text);
 
+            decimal Precio,Monto;
+            decimal.TryParse(PrecioATextBox.Text, out Precio);
+            int Cantidad;
+            int.TryParse(CantidadTextBox.Text, out Cantidad);
+
+            if (Cantidad > 0)
+            {
                 Monto = Precio * Cantidad;
                 MontoTextBox.Text = Convert.ToString(Monto);
-
-            }*/
+            }
         }
+
+        private void ClienteIdTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            int Id;
+
+            int.TryParse(ClienteIdTextBox.Text, out Id);
+
+            if (Id > 0)
+            {
+                NombresTextBox.Text = ClientesBLL.ObtenerNombre(Id);
+                ApellidosTextBox.Text = ClientesBLL.ObtenerApellido(Id);
+            }
+        }
+
+        private void ArticulosIdTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            int Id;
+            int.TryParse(ArticulosIdTextBox.Text, out Id);
+
+            if (Id > 0)
+            {
+                DescripcionTextBox.Text = ArticulosBLL.ObtenerDescripcion(Id);
+                PrecioATextBox.Text = Convert.ToString(ArticulosBLL.ObtenerPrecio(Id));
+            }
+        }
+
+        
     }
 }

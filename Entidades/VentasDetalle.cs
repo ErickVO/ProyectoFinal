@@ -12,7 +12,7 @@ namespace StudioEA.Entidades
         public int VentaId { get; set; }
         public int ArticuloId { get; set; }
         public String Descripcion { get; set; }
-        public int CantidadArticulo { get; set; }
+        public int Cantidad { get; set; }
         public decimal PrecioArticulo { get; set; }
         //public int EventoId { get; set; }
         //public decimal PrecioEvento { get; set; }
@@ -24,20 +24,20 @@ namespace StudioEA.Entidades
             VentaId = 0;
             ArticuloId = 0;
             Descripcion = string.Empty;
-            CantidadArticulo = 0;
+            Cantidad = 0;
             PrecioArticulo = 0;
            /* EventoId = 0;
             PrecioEvento = 0;*/
             Monto = 0;
         }
 
-        public VentasDetalle(int ventaId, int articuloId,String descripcion, int cantidadArticulo,decimal precioArticulo,decimal monto)
+        public VentasDetalle(int ventaId, int articuloId,String descripcion, int cantidad,decimal precioArticulo,decimal monto)
         {
             VentasDetalleId = 0;
             VentaId = ventaId;
             ArticuloId = articuloId;
             Descripcion = descripcion;
-            CantidadArticulo = cantidadArticulo;
+            Cantidad = cantidad;
             PrecioArticulo = precioArticulo;
             /*EventoId = eventoId;
             PrecioEvento = precioEvento;*/

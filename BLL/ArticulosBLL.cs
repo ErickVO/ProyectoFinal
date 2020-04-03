@@ -144,9 +144,17 @@ namespace StudioEA.BLL
                 return false;
         }
 
+        public static String ObtenerDescripcion(int id)
+        {
+            Articulos articulo = Buscar(id);
+            return articulo.Descripcion;
+        }
 
-
-
+        public static decimal ObtenerPrecio(int id)
+        {
+            Articulos articulo = Buscar(id);
+            return articulo.Precio;
+        }
 
     }
 }

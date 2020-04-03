@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudioEA.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro Ventas" Height="450" Width="650" Icon="/Resources/CameraIcon.png" WindowStartupLocation="CenterScreen">
+        Title="Registro Ventas" Height="530" Width="650" Icon="/Resources/CameraIcon.png" WindowStartupLocation="CenterScreen">
     <Window.Background>
         <ImageBrush ImageSource="/Resources/FondoRegistros.jpg" Stretch="Fill"/>
     </Window.Background>
@@ -54,7 +54,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <TextBox x:Name="ClientIdTextBox"  Width="80">
+            <TextBox x:Name="ClienteIdTextBox"  Width="80" TextChanged="ClienteIdTextBox_TextChanged">
                 <TextBox.Text>
                     <Binding Path="ClienteId" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -65,28 +65,40 @@
             </TextBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Grid.Row="2" Margin="0,10" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="Nombres" Foreground="White" FontWeight="Bold"/>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <TextBox x:Name="NombresTextBox" Width="180"></TextBox> 
+            <TextBox x:Name="NombresTextBox" Width="180" IsReadOnly="True">
+                <TextBox.Text>
+                    <Binding Path="Nombres" Mode="TwoWay"></Binding>
+                </TextBox.Text>
+            </TextBox> 
         </StackPanel>
 
-        <StackPanel Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center">
+        <StackPanel Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="Apellidos" Foreground="White" FontWeight="Bold"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="2" Grid.Column="4">
-            <TextBox x:Name="ApellidosTextBox" Width="180"/>
+        <StackPanel Grid.Row="2" Grid.Column="4" VerticalAlignment="Center">
+            <TextBox x:Name="ApellidosTextBox" Width="180" IsReadOnly="True">
+                <TextBox.Text>
+                    <Binding Path="Apellidos" Mode="TwoWay"/>
+                </TextBox.Text>
+            </TextBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10">
             <TextBlock Text="Fecha" Foreground="White" FontWeight="Bold"/>
         </StackPanel>
         
-        <StackPanel Grid.Row="3" Grid.Column="1">
-            <DatePicker x:Name="FechasDatePicker" />
+        <StackPanel Grid.Row="3" Grid.Column="1" VerticalAlignment="Center">
+            <DatePicker x:Name="FechaDatePicker" IsEnabled="False" >
+                <DatePicker.SelectedDate>
+                    <Binding Path="Fecha" Mode="TwoWay"/>
+                </DatePicker.SelectedDate>
+            </DatePicker>
         </StackPanel>
 
         <StackPanel Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -94,15 +106,27 @@
         </StackPanel>
 
         <StackPanel Grid.Row="3" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <TextBox x:Name="TotalTextBox" Width="100" />
+            <TextBox x:Name="TotalTextBox" Width="100" IsReadOnly="True">
+                <TextBox.Text>
+                    <Binding Path="Total" Mode="TwoWay"/>
+                </TextBox.Text>
+            </TextBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10">
             <TextBlock Text="Artículo ID" Foreground="White" FontWeight="Bold"/>
         </StackPanel>
 
         <StackPanel Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <TextBox x:Name="ArticulosIdTextBox" Width="80"/>
+            <TextBox x:Name="ArticulosIdTextBox" Width="80" TextChanged="ArticulosIdTextBox_TextChanged">
+                <TextBox.Text>
+                    <Binding Path="VentasDetalle.ArticuloId" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <ExceptionValidationRule/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
         </StackPanel>
 
         <StackPanel Grid.Row="4" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -110,15 +134,23 @@
         </StackPanel>
 
         <StackPanel Grid.Row="4" Grid.Column="4" VerticalAlignment="Center">
-            <TextBox x:Name="DescripcionTextBox" Width="180"/>
+            <TextBox x:Name="DescripcionTextBox" Width="180" IsReadOnly="True">
+                <TextBox.Text>
+                    <Binding Path="VentasDetalle.Descripcion" Mode="TwoWay"/>
+                </TextBox.Text>
+            </TextBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Grid.Row="5" Margin="0,10" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="Cantidad" Foreground="White" FontWeight="Bold"/>
         </StackPanel>
 
         <StackPanel Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <TextBox x:Name="CantidadTextBox" Width="70"/>
+            <TextBox x:Name="CantidadTextBox" Width="70" TextChanged="CantidadTextBox_TextChanged">
+                <TextBox.Text>
+                    <Binding Path="VentasDetalle.Cantidad" Mode="TwoWay"/>
+                </TextBox.Text>
+            </TextBox>
         </StackPanel>
 
         <StackPanel Grid.Row="5" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -126,15 +158,19 @@
         </StackPanel>
 
         <StackPanel Grid.Row="5" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <TextBox x:Name="PrecioATextBox" Width="110"/>
+            <TextBox x:Name="PrecioATextBox" Width="110" IsReadOnly="True">
+                <TextBox.Text>
+                    <Binding Path="VentasDetalle.PrecioArticulo" Mode="TwoWay"/>
+                </TextBox.Text>
+            </TextBox>
         </StackPanel>
         
-        <StackPanel Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Grid.Row="6" Margin="0,10" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="Evento ID" Foreground="White" FontWeight="Bold"/>
         </StackPanel>
 
         <StackPanel Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <TextBox x:Name="EventoIdTextBox" Width="80"/>
+            <TextBox x:Name="EventoIdTextBox" Width="80" IsReadOnly="True"/>
         </StackPanel>
 
         <StackPanel Grid.Row="6" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -142,7 +178,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="6" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <TextBox x:Name="PrecioETextBox" Width="110"/>
+            <TextBox x:Name="PrecioETextBox" Width="110" IsReadOnly="True"/>
         </StackPanel>
 
         <StackPanel Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -150,11 +186,19 @@
         </StackPanel>
 
         <StackPanel Grid.Row="7" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <TextBox x:Name="MontTextBox" Width="100"/>
+            <TextBox x:Name="MontoTextBox" Width="100" IsReadOnly="True">
+                <TextBox.Text>
+                    <Binding Path="VentasDetalle.Monto" Mode="TwoWay"/>
+                </TextBox.Text>
+            </TextBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="8" Grid.ColumnSpan="4">
-            <DataGrid x:Name="VentaDetalleDataGrid" Height="100" />
+        <StackPanel Grid.Row="8" Grid.ColumnSpan="4" Margin="9,1">
+            <DataGrid x:Name="VentaDetalleDataGrid" Height="100">
+                <DataGrid.ItemsSource>
+                    <Binding Path="VentasDetalle" Mode="TwoWay"/>
+                </DataGrid.ItemsSource>
+            </DataGrid>
         </StackPanel>
 
         <StackPanel Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">

@@ -43,7 +43,6 @@ namespace StudioEA.UI.Registros
             DireccionTextBox.Text = string.Empty;
             TelefonoTextBox.Text = string.Empty;
             CelularTextBox.Text = string.Empty;
-            cliente = new Clientes();
         }
 
         private void NuevoButton_Click(object sender, RoutedEventArgs e)

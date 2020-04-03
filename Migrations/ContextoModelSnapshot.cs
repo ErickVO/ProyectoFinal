@@ -262,6 +262,9 @@ namespace StudioEA.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Apellido")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("ClienteId")
                         .HasColumnType("INTEGER");
 
@@ -273,9 +276,6 @@ namespace StudioEA.Migrations
 
                     b.Property<decimal>("Total")
                         .HasColumnType("TEXT");
-
-                    b.Property<int>("UsuarioId")
-                        .HasColumnType("INTEGER");
 
                     b.HasKey("VentaId");
 
@@ -296,14 +296,11 @@ namespace StudioEA.Migrations
                     b.Property<int?>("ArticulosId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("CantidadArticulo")
+                    b.Property<int>("Cantidad")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Descripcion")
                         .HasColumnType("TEXT");
-
-                    b.Property<int?>("EventoId")
-                        .HasColumnType("INTEGER");
 
                     b.Property<decimal>("Monto")
                         .HasColumnType("TEXT");
@@ -317,8 +314,6 @@ namespace StudioEA.Migrations
                     b.HasKey("VentasDetalleId");
 
                     b.HasIndex("ArticulosId");
-
-                    b.HasIndex("EventoId");
 
                     b.HasIndex("VentaId");
 
@@ -350,10 +345,6 @@ namespace StudioEA.Migrations
                     b.HasOne("StudioEA.Entidades.Articulos", null)
                         .WithMany("VentasDetalle")
                         .HasForeignKey("ArticulosId");
-
-                    b.HasOne("StudioEA.Entidades.Eventos", null)
-                        .WithMany("VentasDetalle")
-                        .HasForeignKey("EventoId");
 
                     b.HasOne("StudioEA.Entidades.Ventas", null)
                         .WithMany("VentasDetalle")
