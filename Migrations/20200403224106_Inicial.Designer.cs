@@ -9,7 +9,7 @@ using StudioEA.DAL;
 namespace StudioEA.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20200403212453_Inicial")]
+    [Migration("20200403224106_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -164,6 +164,9 @@ namespace StudioEA.Migrations
                     b.Property<string>("Descripcion")
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("Disponible")
+                        .HasColumnType("INTEGER");
+
                     b.Property<DateTime>("FechaFin")
                         .HasColumnType("TEXT");
 
@@ -304,13 +307,16 @@ namespace StudioEA.Migrations
                     b.Property<string>("Descripcion")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("EventoId")
+                    b.Property<int>("EventoId")
                         .HasColumnType("INTEGER");
 
                     b.Property<decimal>("Monto")
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("PrecioArticulo")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("PrecioEvento")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("VentaId")
@@ -355,7 +361,9 @@ namespace StudioEA.Migrations
 
                     b.HasOne("StudioEA.Entidades.Eventos", null)
                         .WithMany("VentasDetalle")
-                        .HasForeignKey("EventoId");
+                        .HasForeignKey("EventoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("StudioEA.Entidades.Ventas", null)
                         .WithMany("VentasDetalle")

@@ -162,6 +162,9 @@ namespace StudioEA.Migrations
                     b.Property<string>("Descripcion")
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("Disponible")
+                        .HasColumnType("INTEGER");
+
                     b.Property<DateTime>("FechaFin")
                         .HasColumnType("TEXT");
 
@@ -302,13 +305,16 @@ namespace StudioEA.Migrations
                     b.Property<string>("Descripcion")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("EventoId")
+                    b.Property<int>("EventoId")
                         .HasColumnType("INTEGER");
 
                     b.Property<decimal>("Monto")
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("PrecioArticulo")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("PrecioEvento")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("VentaId")
@@ -353,7 +359,9 @@ namespace StudioEA.Migrations
 
                     b.HasOne("StudioEA.Entidades.Eventos", null)
                         .WithMany("VentasDetalle")
-                        .HasForeignKey("EventoId");
+                        .HasForeignKey("EventoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("StudioEA.Entidades.Ventas", null)
                         .WithMany("VentasDetalle")

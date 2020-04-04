@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudioEA.UI.Registros"
-        xmlns:src="clr-namespace:StudioEA.Validaciones"
         mc:Ignorable="d"
         Title="Registro Ventas" Height="530" Width="650" Icon="/Resources/CameraIcon.png" WindowStartupLocation="CenterScreen">
     <Window.Background>
@@ -43,7 +42,7 @@
                 <TextBox.Text>
                     <Binding x:Name="binding" Path="VentaId" Mode="TwoWay">
                         <Binding.ValidationRules>
-                            <src:ValidacionId ValidatesOnTargetUpdated="True"/>
+                            <ExceptionValidationRule/>
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>
@@ -59,7 +58,7 @@
                 <TextBox.Text>
                     <Binding Path="ClienteId" Mode="TwoWay">
                         <Binding.ValidationRules>
-                            <src:ValidacionId ValidatesOnTargetUpdated="True"/>
+                            <ExceptionValidationRule/>
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>
@@ -73,8 +72,7 @@
         <StackPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
             <TextBox x:Name="NombresTextBox" Width="180" IsReadOnly="True">
                 <TextBox.Text>
-                    <Binding Path="Nombres" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
-                    </Binding>
+                    <Binding Path="Nombres" Mode="TwoWay"></Binding>
                 </TextBox.Text>
             </TextBox>
         </StackPanel>
@@ -86,7 +84,7 @@
         <StackPanel Grid.Row="2" Grid.Column="4" VerticalAlignment="Center">
             <TextBox x:Name="ApellidosTextBox" Width="180" IsReadOnly="True">
                 <TextBox.Text>
-                    <Binding Path="Apellidos" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
+                    <Binding Path="Apellidos" Mode="TwoWay"/>
                 </TextBox.Text>
             </TextBox>
         </StackPanel>
@@ -124,7 +122,7 @@
                 <TextBox.Text>
                     <Binding Path="VentasDetalle.ArticuloId" Mode="TwoWay">
                         <Binding.ValidationRules>
-                            <src:ValidacionId ValidatesOnTargetUpdated="True"/>
+                            <ExceptionValidationRule/>
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>
@@ -150,8 +148,7 @@
         <StackPanel Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
             <TextBox x:Name="CantidadTextBox" Width="70" TextChanged="CantidadTextBox_TextChanged">
                 <TextBox.Text>
-                    <Binding Path="VentasDetalle.Cantidad" Mode="TwoWay">
-                    </Binding>
+                    <Binding Path="VentasDetalle.Cantidad" Mode="TwoWay"/>
                 </TextBox.Text>
             </TextBox>
         </StackPanel>
@@ -173,11 +170,11 @@
         </StackPanel>
 
         <StackPanel Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <TextBox x:Name="EventoIdTextBox" Width="80" TextChanged="EventoIdTextBox_TextChanged">
+            <TextBox x:Name="EventoIdTextBox" Width="80" IsReadOnly="True" TextChanged="EventoIdTextBox_TextChanged">
                 <TextBox.Text>
                     <Binding Path="VentasDetalle.EventoId" Mode="TwoWay">
                         <Binding.ValidationRules>
-                            <src:ValidacionId ValidatesOnTargetUpdated="True"/>
+                            <ExceptionValidationRule/>
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>
@@ -216,8 +213,6 @@
                     <DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}"/>
                     <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}"/>
                     <DataGridTextColumn Header="Precio artículo" Binding="{Binding PrecioArticulo}"/>
-                    <DataGridTextColumn Header="Evento Id" Binding="{Binding EventoId}"/>
-                    <DataGridTextColumn Header="Precio evento" Binding="{Binding PrecioEvento}"/>
                     <DataGridTextColumn Header="Monto" Binding="{Binding Monto}"/>
                 </DataGrid.Columns>
             </DataGrid>
@@ -260,20 +255,6 @@
                 <Button.Background>
                     <ImageBrush ImageSource="/Resources/Guardar.png" Stretch="Uniform" AlignmentX="Left"></ImageBrush>
                 </Button.Background>
-                <Button.Style>
-                    <Style TargetType="{x:Type Button}">
-                        <Setter Property="IsEnabled" Value="False"/>
-                        <Style.Triggers>
-                            <MultiDataTrigger>
-                                <MultiDataTrigger.Conditions>
-                                    <Condition Binding="{Binding ElementName=VentaIdTextBox,Path=(Validation.HasError)}" Value="False"/>
-                                    <Condition Binding="{Binding ElementName=ClienteIdTextBox,Path=(Validation.HasError)}" Value="False"/>
-                                </MultiDataTrigger.Conditions>
-                                <Setter Property="IsEnabled" Value="True"/>
-                            </MultiDataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
             </Button>
         </StackPanel>
 
