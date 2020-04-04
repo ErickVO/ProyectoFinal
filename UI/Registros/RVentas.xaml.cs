@@ -26,6 +26,8 @@ namespace StudioEA.UI.Registros
             InitializeComponent();
             this.DataContext = venta;
             VentaIdTextBox.Text = "0";
+            EventoIdTextBox.Text = "0";
+            PrecioETextBox.Text = "0";
             FechaDatePicker.SelectedDate = DateTime.Now;
         }
 
@@ -42,8 +44,8 @@ namespace StudioEA.UI.Registros
             CantidadTextBox.Text = string.Empty;
             PrecioATextBox.Text = string.Empty;
             MontoTextBox.Text = string.Empty;
-            EventoIdTextBox.Text = string.Empty;
-            PrecioETextBox.Text = string.Empty;
+            EventoIdTextBox.Text = "0";
+            PrecioETextBox.Text = "0";
 
             venta.VentasDetalle = new List<VentasDetalle>();
             venta = new Ventas();
@@ -234,8 +236,11 @@ namespace StudioEA.UI.Registros
                 if(disponible == EventosBLL.ObtenerDisponibilidad(id))
                 {
                     PrecioETextBox.Text = Convert.ToString(EventosBLL.ObtenerPrecio(id));
-                    MontoTextBox.Text = Convert.ToString(Convert.ToDecimal(MontoTextBox.Text) + Convert.ToDecimal(PrecioETextBox.Text));
-                    EventosBLL.CambiarDisponibilidad(id, disponible);
+                    if (evento.Disponible == true)
+                    {
+                        MontoTextBox.Text = Convert.ToString(Convert.ToDecimal(MontoTextBox.Text) + Convert.ToDecimal(PrecioETextBox.Text));
+                        EventosBLL.CambiarDisponibilidad(id, disponible);
+                    }
                 }
                 else
                 {
