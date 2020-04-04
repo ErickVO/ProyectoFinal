@@ -22,7 +22,7 @@ namespace StudioEA.UI.Registros
 
         Articulos articulos = new Articulos();
         List<int> CategoriaId = new List<int>();
-       
+        
 
         public RegistroArticulos()
         {

@@ -152,10 +152,13 @@
 
 
         <StackPanel Grid.Row="6"  Grid.ColumnSpan="5">
-            <DataGrid x:Name="DetalleDataGrid" Height="180" Margin="10,5">
-                <DataGrid.ItemsSource>
-                    <Binding Path="ComprasDetalle" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"></Binding>
-                </DataGrid.ItemsSource>
+            <DataGrid x:Name="DetalleDataGrid" Height="180" Margin="10,5" AutoGenerateColumns="False" ItemsSource="{Binding ComprasDetalle}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Compra Id" Binding="{Binding CompraId}"/>
+                    <DataGridTextColumn Header="Articulo Id" Binding="{Binding ArticuloId}"/>
+                    <DataGridTextColumn Header="Costo" Binding="{Binding Costo}"/>
+                    <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}"/>
+                </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
 

@@ -25,7 +25,8 @@ namespace StudioEA.UI.Registros
         {
             InitializeComponent();
             this.DataContext = venta;
-            Limpiar();
+            VentaIdTextBox.Text = "0";
+            FechaDatePicker.SelectedDate = DateTime.Now;
         }
 
         private void Limpiar()
@@ -41,8 +42,8 @@ namespace StudioEA.UI.Registros
             CantidadTextBox.Text = string.Empty;
             PrecioATextBox.Text = string.Empty;
             MontoTextBox.Text = string.Empty;
-            EventoIdTextBox.Text = "0";
-            PrecioETextBox.Text = "0";
+            EventoIdTextBox.Text = string.Empty;
+            PrecioETextBox.Text = string.Empty;
 
             venta.VentasDetalle = new List<VentasDetalle>();
             venta = new Ventas();
@@ -61,21 +62,11 @@ namespace StudioEA.UI.Registros
         }
         private void AgregarButton_Click(object sender, RoutedEventArgs e)
         {
-
-            if(string.IsNullOrWhiteSpace(EventoIdTextBox.Text)|| EventoIdTextBox.Text == "0")
-            {
-                venta.VentasDetalle.Add(new VentasDetalle(venta.VentaId, Convert.ToInt32(ArticulosIdTextBox.Text),
-                DescripcionTextBox.Text, Convert.ToInt32(CantidadTextBox.Text), Convert.ToDecimal(PrecioATextBox.Text),
-                Convert.ToDecimal(MontoTextBox.Text)));
-            }
-            else
-            {
-                venta.VentasDetalle.Add(new VentasDetalle(venta.VentaId, Convert.ToInt32(ArticulosIdTextBox.Text),
-                DescripcionTextBox.Text, Convert.ToInt32(CantidadTextBox.Text), Convert.ToDecimal(PrecioATextBox.Text),
+            venta.VentasDetalle.Add(new VentasDetalle(venta.VentaId, Convert.ToInt32(ArticulosIdTextBox.Text),
+                DescripcionTextBox.Text,Convert.ToInt32(CantidadTextBox.Text),Convert.ToDecimal(PrecioATextBox.Text),
                 Convert.ToInt32(EventoIdTextBox.Text), Convert.ToDecimal(PrecioETextBox.Text),
                 Convert.ToDecimal(MontoTextBox.Text)));
-            }
-            
+
             ArticulosBLL.StockResta(Convert.ToInt32(ArticulosIdTextBox.Text), Convert.ToInt32(CantidadTextBox.Text));
 
             decimal total;
@@ -232,9 +223,8 @@ namespace StudioEA.UI.Registros
             bool disponible = true;
             int id;
             int.TryParse(EventoIdTextBox.Text, out id);
-            Eventos evento = EventosBLL.Buscar(id);
 
-            if (id == 0 || string.IsNullOrWhiteSpace(EventoIdTextBox.Text))
+            if (id == 0)
             {
                 EventoIdTextBox.Text = "0";
                 PrecioETextBox.Text = "0";
@@ -244,11 +234,8 @@ namespace StudioEA.UI.Registros
                 if(disponible == EventosBLL.ObtenerDisponibilidad(id))
                 {
                     PrecioETextBox.Text = Convert.ToString(EventosBLL.ObtenerPrecio(id));
-                    if (evento.Disponible == false)
-                    {
-                        MontoTextBox.Text = Convert.ToString(Convert.ToDecimal(MontoTextBox.Text) + Convert.ToDecimal(PrecioETextBox.Text));
-                        EventosBLL.CambiarDisponibilidad(id, disponible);
-                    }
+                    MontoTextBox.Text = Convert.ToString(Convert.ToDecimal(MontoTextBox.Text) + Convert.ToDecimal(PrecioETextBox.Text));
+                    EventosBLL.CambiarDisponibilidad(id, disponible);
                 }
                 else
                 {
