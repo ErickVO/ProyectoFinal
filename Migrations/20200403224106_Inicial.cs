@@ -87,7 +87,8 @@ namespace StudioEA.Migrations
                     Lugar = table.Column<string>(nullable: true),
                     FechaInicio = table.Column<DateTime>(nullable: false),
                     FechaFin = table.Column<DateTime>(nullable: false),
-                    Precio = table.Column<decimal>(nullable: false)
+                    Precio = table.Column<decimal>(nullable: false),
+                    Disponible = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -195,9 +196,10 @@ namespace StudioEA.Migrations
                     Descripcion = table.Column<string>(nullable: true),
                     Cantidad = table.Column<int>(nullable: false),
                     PrecioArticulo = table.Column<decimal>(nullable: false),
+                    EventoId = table.Column<int>(nullable: false),
+                    PrecioEvento = table.Column<decimal>(nullable: false),
                     Monto = table.Column<decimal>(nullable: false),
-                    ArticulosId = table.Column<int>(nullable: true),
-                    EventoId = table.Column<int>(nullable: true)
+                    ArticulosId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -213,7 +215,7 @@ namespace StudioEA.Migrations
                         column: x => x.EventoId,
                         principalTable: "Eventos",
                         principalColumn: "EventoId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_VentasDetalle_Ventas_VentaId",
                         column: x => x.VentaId,

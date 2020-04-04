@@ -120,10 +120,15 @@ namespace StudioEA.BLL
         public static bool ObtenerDisponibilidad(int id)
         {
             Eventos eventos = Buscar(id);
-            if (eventos.Disponible == false)
+            if (eventos == null)
                 return false;
             else
-                return true;
+            {
+                if (eventos.Disponible == false)
+                    return false;
+                else
+                    return true;
+            }
         }
 
         public static decimal ObtenerPrecio(int id)

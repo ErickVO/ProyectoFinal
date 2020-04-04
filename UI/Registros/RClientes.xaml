@@ -57,7 +57,7 @@
                 <TextBox.Text>
                     <Binding Path="UsuarioId" Mode="TwoWay">
                         <Binding.ValidationRules>
-                            <ExceptionValidationRule/>
+                            <src:ValidacionId ValidatesOnTargetUpdated="True"/>
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>
@@ -71,7 +71,11 @@
         <StackPanel Grid.Row="2" Grid.Column="1">
             <TextBox x:Name="NombresTextBox" Margin="10" Width="180" HorizontalAlignment="Left">
                 <TextBox.Text>
-                    <Binding Path="Nombres" Mode="TwoWay"/>
+                    <Binding Path="Nombres" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <src:ValidacionNombres ValidatesOnTargetUpdated="True"/>
+                        </Binding.ValidationRules>
+                    </Binding>
                 </TextBox.Text>
             </TextBox>
         </StackPanel>
@@ -83,7 +87,11 @@
         <StackPanel Grid.Row="3" Grid.Column="1">
             <TextBox x:Name="ApellidoTextBox" Margin="10" Width="180" HorizontalAlignment="Left">
                 <TextBox.Text>
-                    <Binding Path="Apellidos" Mode="TwoWay"/>
+                    <Binding Path="Apellidos" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <src:ValidacionNombres ValidatesOnTargetUpdated="True"/>
+                        </Binding.ValidationRules>
+                    </Binding>
                 </TextBox.Text>
             </TextBox>
         </StackPanel>
@@ -119,7 +127,11 @@
         <StackPanel Grid.Row="5" Grid.Column="1">
             <TextBox x:Name="CedulaTextBox" Margin="10" Width="150" HorizontalAlignment="Left">
                 <TextBox.Text>
-                    <Binding Path="Cedula" Mode="TwoWay"/>
+                    <Binding Path="Cedula" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <src:ValidacionCedula ValidatesOnTargetUpdated="True"/>
+                        </Binding.ValidationRules>
+                    </Binding>
                 </TextBox.Text>
             </TextBox>
         </StackPanel>
@@ -143,7 +155,11 @@
         <StackPanel Grid.Row="7" Grid.Column="1">
             <TextBox x:Name="TelefonoTextBox" Margin="10" Width="150" HorizontalAlignment="Left">
                 <TextBox.Text>
-                    <Binding Path="Telefono" Mode="TwoWay"/>
+                    <Binding Path="Telefono" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <src:ValidacionTelefono ValidatesOnTargetUpdated="True"/>
+                        </Binding.ValidationRules>
+                    </Binding>
                 </TextBox.Text>
             </TextBox>
         </StackPanel>
@@ -155,7 +171,11 @@
         <StackPanel Grid.Row="7" Grid.Column="4">
             <TextBox x:Name="CelularTextBox" Margin="10" Width="150" HorizontalAlignment="Left">
                 <TextBox.Text>
-                    <Binding Path="Celular" Mode="TwoWay"/>
+                    <Binding Path="Celular" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <src:ValidacionTelefono ValidatesOnTargetUpdated="True"/>
+                        </Binding.ValidationRules>
+                    </Binding>
                 </TextBox.Text>
             </TextBox>
         </StackPanel>
@@ -188,6 +208,12 @@
                             <MultiDataTrigger>
                                 <MultiDataTrigger.Conditions>
                                     <Condition Binding="{Binding ElementName=ClienteIdTextBox,Path=(Validation.HasError)}" Value="False"/>
+                                    <Condition Binding="{Binding ElementName=UsuarioIdTextBox,Path=(Validation.HasError)}" Value="False"/>
+                                    <Condition Binding="{Binding ElementName=NombresTextBox,Path=(Validation.HasError)}" Value="False"/>
+                                    <Condition Binding="{Binding ElementName=ApellidosTextBox,Path=(Validation.HasError)}" Value="False"/>
+                                    <Condition Binding="{Binding ElementName=CedulaTextBox,Path=(Validation.HasError)}" Value="False"/>
+                                    <Condition Binding="{Binding ElementName=TelefonoTextBox,Path=(Validation.HasError)}" Value="False"/>
+                                    <Condition Binding="{Binding ElementName=CelularTextBox,Path=(Validation.HasError)}" Value="False"/>
                                 </MultiDataTrigger.Conditions>
                                 <Setter Property="IsEnabled" Value="True"/>
                             </MultiDataTrigger>

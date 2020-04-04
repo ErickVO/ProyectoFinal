@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudioEA"
+        xmlns:src="clr-namespace:StudioEA.Validaciones"
         mc:Ignorable="d"
         Title="Login" Height="400" Width="550" Icon="/Resources/CameraIcon.png" WindowStartupLocation="CenterScreen" >
     <Window.Background>
@@ -30,7 +31,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="2">
-            <TextBox x:Name="UsuarioTextBox" Margin="0,22" Width="200" Height="20" HorizontalAlignment="Left"/>
+            <TextBox x:Name="UsuarioTextBox" Margin="0,22" Width="200" Height="20" HorizontalAlignment="Left"></TextBox>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="1">
@@ -42,7 +43,12 @@
         </StackPanel>
 
         <StackPanel Grid.Row="3" Grid.Column="2" >
-            <Button x:Name="IngresarButton" Content="Ingresar" Width="70" Height="24" Margin="52,25" HorizontalAlignment="Left" Click="IngresarButton_Click_1"/>
+            <Button x:Name="IngresarButton" Content="Ingresar" Width="85" HorizontalContentAlignment="Right" Height="40" Margin="40,24" HorizontalAlignment="Left" Click="IngresarButton_Click_1">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Resources/Login.png" Stretch="Uniform" AlignmentX="Left"/>
+                </Button.Background>
+            </Button>
+                
         </StackPanel>
     </Grid>
 </Window>

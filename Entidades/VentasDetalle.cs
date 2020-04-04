@@ -43,5 +43,16 @@ namespace StudioEA.Entidades
             PrecioEvento = precioEvento;
             Monto = monto;
         }
+
+        public VentasDetalle(int ventaId, int articuloId, string descripcion, int cantidad, decimal precioArticulo, decimal monto)
+        {
+            VentasDetalleId = 0;
+            VentaId = ventaId;
+            ArticuloId = articuloId;
+            Descripcion = descripcion;
+            Cantidad = cantidad;
+            PrecioArticulo = precioArticulo;
+            Monto = monto;
+        }
     }
 }

@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudioEA.UI.Registros"
+        xmlns:src="clr-namespace:StudioEA.Validaciones"
         mc:Ignorable="d"
         Title="Registro usuarios" Height="320" Width="500" WindowStartupLocation="CenterScreen" Icon="/Resources/CameraIcon.png">
     <Window.Background>
@@ -35,7 +36,7 @@
                 <TextBox.Text>
                     <Binding Path="UsuarioId" Mode="TwoWay">
                         <Binding.ValidationRules>
-                            <ExceptionValidationRule/>
+                            <src:ValidacionId ValidatesOnTargetUpdated="True"/>
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>
@@ -49,7 +50,11 @@
         <StackPanel Grid.Row="1" Grid.Column="1">
             <TextBox x:Name="NombresTextBox" Margin="10" Width="180" HorizontalAlignment="Left">
                 <TextBox.Text>
-                    <Binding Path="Nombres" Mode="TwoWay"/>
+                    <Binding Path="Nombres" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <src:ValidacionNombres ValidatesOnTargetUpdated="True"/>
+                        </Binding.ValidationRules>
+                    </Binding>
                 </TextBox.Text>
             </TextBox>
         </StackPanel>
@@ -61,7 +66,11 @@
         <StackPanel Grid.Row="2" Grid.Column="1">
             <TextBox x:Name="NombreUsuarioTextBox" Margin="10" Width="150" HorizontalAlignment="Left">
                 <TextBox.Text>
-                    <Binding Path="NombreUsuario" Mode="TwoWay"/>
+                    <Binding Path="NombreUsuario" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <src:ValidacionCampoVacio ValidatesOnTargetUpdated="True"/>
+                        </Binding.ValidationRules>
+                    </Binding>
                 </TextBox.Text>
             </TextBox>
         </StackPanel>
@@ -73,7 +82,11 @@
         <StackPanel Grid.Row="3" Grid.Column="1">
             <TextBox x:Name="ContrasenaTextBox" Margin="10" Width="150" HorizontalAlignment="Left">
                 <TextBox.Text>
-                    <Binding Path="Contrasena" Mode="TwoWay"/>
+                    <Binding Path="Contrasena" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <src:ValidacionCampoVacio ValidatesOnTargetUpdated="True"/>
+                        </Binding.ValidationRules>
+                    </Binding>
                 </TextBox.Text>
             </TextBox>
         </StackPanel>
@@ -82,10 +95,14 @@
             <TextBlock Text="Email" Margin="10" Foreground="White" FontWeight="Bold"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="4" Grid.Column="1">
+        <StackPanel Grid.Row="4" Grid.Column="1" Margin="0,2,0,112" Grid.RowSpan="2">
             <TextBox x:Name="EmailTextBox" Margin="10" Width="200" HorizontalAlignment="Left">
                 <TextBox.Text>
-                    <Binding Path="Email" Mode="TwoWay"/>
+                    <Binding Path="Email" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <src:ValidacionEmail ValidatesOnTargetUpdated="True"/>
+                        </Binding.ValidationRules>
+                    </Binding>
                 </TextBox.Text>
             </TextBox>
         </StackPanel>
@@ -111,6 +128,23 @@
                 <Button.Background>
                     <ImageBrush ImageSource="/Resources/Guardar.png" Stretch="Uniform" AlignmentX="Left"/>
                 </Button.Background>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Style.Triggers>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding ElementName=UsuarioIdTextBox,Path=(Validation.HasError)}" Value="False"/>
+                                    <Condition Binding="{Binding ElementName=NombresTextBox,Path=(Validation.HasError)}" Value="False"/>
+                                    <Condition Binding="{Binding ElementName=NombreUsuarioTextBox,Path=(Validation.HasError)}" Value="False"/>
+                                    <Condition Binding="{Binding ElementName=ContrasenaTextBox,Path=(Validation.HasError)}" Value="False"/>
+                                    <Condition Binding="{Binding ElementName=EmailTextBox,Path=(Validation.HasError)}" Value="False"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </MultiDataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
             </Button>
         </StackPanel>
 
