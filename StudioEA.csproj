@@ -80,10 +80,4 @@
     <Folder Include="Database\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="Database\StudioEA.db">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>

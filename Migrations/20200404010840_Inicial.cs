@@ -176,13 +176,13 @@ namespace StudioEA.Migrations
                         column: x => x.ArticulosId,
                         principalTable: "Articulos",
                         principalColumn: "ArticuloId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_ComprasDetalle_Compras_ComprasId",
                         column: x => x.ComprasId,
                         principalTable: "Compras",
                         principalColumn: "CompraId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -209,13 +209,13 @@ namespace StudioEA.Migrations
                         column: x => x.ArticulosId,
                         principalTable: "Articulos",
                         principalColumn: "ArticuloId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_VentasDetalle_Eventos_EventoId",
                         column: x => x.EventoId,
                         principalTable: "Eventos",
                         principalColumn: "EventoId",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_VentasDetalle_Ventas_VentaId",
                         column: x => x.VentaId,

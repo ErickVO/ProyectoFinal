@@ -225,6 +225,7 @@ namespace StudioEA.UI.Registros
             bool disponible = true;
             int id;
             int.TryParse(EventoIdTextBox.Text, out id);
+            Eventos evento = EventosBLL.Buscar(id);
 
             if (id == 0)
             {
