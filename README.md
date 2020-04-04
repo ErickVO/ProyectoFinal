@@ -6,6 +6,8 @@
 
 # **Cronograma de Trabajo**
 
+![Cronogramas](https://user-images.githubusercontent.com/59853887/78416180-0df7c380-75f5-11ea-904d-b0131fb68d05.PNG)
+
 # **Inicio**💻
 
 Bienvenidos, en este documento podemos apreciar las instrucciones que se utilizaran para poder evitar errores futuros en el programa.
