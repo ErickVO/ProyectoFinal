@@ -95,7 +95,7 @@
             <TextBlock Text="Email" Margin="10" Foreground="White" FontWeight="Bold"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="4" Grid.Column="1" Margin="0,2,0,112" Grid.RowSpan="2">
+        <StackPanel Grid.Row="4" Grid.Column="1">
             <TextBox x:Name="EmailTextBox" Margin="10" Width="200" HorizontalAlignment="Left">
                 <TextBox.Text>
                     <Binding Path="Email" Mode="TwoWay">

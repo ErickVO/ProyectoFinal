@@ -52,6 +52,8 @@ namespace StudioEA.Entidades
             Descripcion = descripcion;
             Cantidad = cantidad;
             PrecioArticulo = precioArticulo;
+            EventoId = 0;
+            PrecioEvento = 0;
             Monto = monto;
         }
     }
