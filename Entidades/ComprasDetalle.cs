@@ -11,6 +11,7 @@ namespace StudioEA.Entidades
         public int ComprasDetalleId { get; set; }
         public int CompraId { get; set; }
         public int ArticuloId { get; set; }
+        public string Descripcion { get; set; }
         public decimal CantidadArticulos { get; set; }
         public decimal Costo { get; set; }
 

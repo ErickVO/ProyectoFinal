@@ -170,7 +170,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <TextBox x:Name="EventoIdTextBox" Width="80" IsReadOnly="True" TextChanged="EventoIdTextBox_TextChanged">
+            <TextBox x:Name="EventoIdTextBox" Width="80"  TextChanged="EventoIdTextBox_TextChanged">
                 <TextBox.Text>
                     <Binding Path="VentasDetalle.EventoId" Mode="TwoWay">
                         <Binding.ValidationRules>

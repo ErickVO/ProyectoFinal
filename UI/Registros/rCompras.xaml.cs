@@ -130,7 +130,7 @@ namespace StudioEA.UI.Registros
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             compras.ComprasDetalle.Add(new ComprasDetalle(compras.CompraId, Convert.ToInt32(ArticuloIdTextBox.Text),
-               Convert.ToInt32(CantidadTextBox.Text), Convert.ToDecimal(CostoTextBox.Text)));
+               Convert.ToDecimal(CantidadTextBox.Text), Convert.ToDecimal(CostoTextBox.Text)));
 
               ArticulosBLL.StockSuma(Convert.ToInt32(ArticuloIdTextBox.Text), Convert.ToDecimal(CantidadTextBox.Text), Convert.ToDecimal(CostoTextBox.Text));
             
